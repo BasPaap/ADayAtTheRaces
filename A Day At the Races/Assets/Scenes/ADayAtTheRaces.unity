@@ -153,6 +153,7 @@ MonoBehaviour:
     type: 3}
   horseParent: {fileID: 1866713836}
   horseDistance: 1
+  debugMode: 1
 --- !u!4 &158613169
 Transform:
   m_ObjectHideFlags: 0

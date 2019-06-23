@@ -17,11 +17,12 @@ public class RaceManager : MonoBehaviour
     public GameObject horsePrefab;
     public Transform horseParent;
     public float horseDistance;
+    public bool debugMode = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadData();
+        LoadData();        
     }
 
     // Update is called once per frame
@@ -59,6 +60,16 @@ public class RaceManager : MonoBehaviour
         }
 
         horses = configuration.Horses.ToList();
+
+        if (debugMode)
+        {
+            var firstRace = configuration.Races.FirstOrDefault();
+            if (firstRace != null)
+            {
+                firstRace.Time = DateTime.Now.AddSeconds(1.0).TimeOfDay;
+            }
+        }
+
         futureRaces = new Queue<Race>((from r in configuration.Races
                                        where r.Time > DateTime.Now.TimeOfDay
                                        orderby r.Time
