@@ -151,8 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horsePrefab: {fileID: 7228856196317844258, guid: aa6de2ee952926d47a859a89081e43c3,
     type: 3}
-  horseParent: {fileID: 1866713835}
-  horseDistance: 5
+  horseParent: {fileID: 1866713836}
+  horseDistance: 1
 --- !u!4 &158613169
 Transform:
   m_ObjectHideFlags: 0

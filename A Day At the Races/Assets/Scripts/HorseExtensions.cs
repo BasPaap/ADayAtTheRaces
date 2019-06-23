@@ -11,7 +11,7 @@ namespace Assets.Scripts
     {
         public static Color ToUnityColor(this Bas.ADayAtTheRaces.Color color)
         {
-            return new Color(color.Red, color.Green, color.Blue);
+            return new Color(color.Red / 255.0f, color.Green / 255.0f, color.Blue / 255.0f);
         }
     }
 }

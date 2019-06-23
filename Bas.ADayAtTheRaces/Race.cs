@@ -19,9 +19,9 @@ namespace Bas.ADayAtTheRaces
         [DataMember]
         public TimeSpan Time { get; set; }
 
-        public Race(int hours, int minutes)
+        public Race(int hours, int minutes, int seconds)
         {
-            Time = new TimeSpan(hours, minutes, 0);
+            Time = new TimeSpan(hours, minutes, seconds);
         }
 
         public override string ToString() => $"Race at {Time.ToString()}";

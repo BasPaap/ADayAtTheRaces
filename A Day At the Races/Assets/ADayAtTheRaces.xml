@@ -1,448 +1,172 @@
-﻿<ADayAtTheRacesConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Bas.ADayAtTheRaces">
-  <Horses>
-    <Horse>
-      <Color>
+﻿<ADayAtTheRacesConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" z:Id="1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://schemas.datacontract.org/2004/07/Bas.ADayAtTheRaces">
+  <Horses z:Id="2" z:Size="6">
+    <Horse z:Id="3">
+      <Color z:Id="4">
         <Blue>228</Blue>
         <Green>194</Green>
         <Red>130</Red>
       </Color>
-      <Name>Rainbow Dash</Name>
+      <Name z:Id="5">Rainbow Dash</Name>
       <ReactionSpeed>0.2</ReactionSpeed>
       <Reliability>1</Reliability>
-      <RunningPhases>
-        <RunningPhase>
+      <RunningPhases z:Id="6" z:Size="3">
+        <RunningPhase z:Id="7">
           <Duration>PT30S</Duration>
           <Speed>0.2</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="8">
           <Duration>PT1M</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="9">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse>
-      <Color>
+    <Horse z:Id="10">
+      <Color z:Id="11">
         <Blue>213</Blue>
         <Green>184</Green>
         <Red>246</Red>
       </Color>
-      <Name>Pinkie Pie</Name>
+      <Name z:Id="12">Pinkie Pie</Name>
       <ReactionSpeed>1</ReactionSpeed>
       <Reliability>0.2</Reliability>
-      <RunningPhases>
-        <RunningPhase>
+      <RunningPhases z:Id="13" z:Size="3">
+        <RunningPhase z:Id="14">
           <Duration>PT30S</Duration>
           <Speed>0.2</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="15">
           <Duration>PT1M</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="16">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse>
-      <Color>
+    <Horse z:Id="17">
+      <Color z:Id="18">
         <Blue>98</Blue>
         <Green>183</Green>
         <Red>252</Red>
       </Color>
-      <Name>Applejack</Name>
+      <Name z:Id="19">Applejack</Name>
       <ReactionSpeed>0.5</ReactionSpeed>
       <Reliability>0.5</Reliability>
-      <RunningPhases>
-        <RunningPhase>
+      <RunningPhases z:Id="20" z:Size="3">
+        <RunningPhase z:Id="21">
           <Duration>PT30S</Duration>
           <Speed>0.2</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="22">
           <Duration>PT1M</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="23">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse>
-      <Color>
+    <Horse z:Id="24">
+      <Color z:Id="25">
         <Blue>180</Blue>
         <Green>103</Green>
         <Red>216</Red>
       </Color>
-      <Name>Twilight Sparkle</Name>
+      <Name z:Id="26">Twilight Sparkle</Name>
       <ReactionSpeed>0.5</ReactionSpeed>
       <Reliability>1</Reliability>
-      <RunningPhases>
-        <RunningPhase>
+      <RunningPhases z:Id="27" z:Size="3">
+        <RunningPhase z:Id="28">
           <Duration>PT30S</Duration>
           <Speed>0.2</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="29">
           <Duration>PT1M</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="30">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse>
-      <Color>
+    <Horse z:Id="31">
+      <Color z:Id="32">
         <Blue>170</Blue>
         <Green>245</Green>
         <Red>253</Red>
       </Color>
-      <Name>Fluttershy</Name>
+      <Name z:Id="33">Fluttershy</Name>
       <ReactionSpeed>0.1</ReactionSpeed>
       <Reliability>0.8</Reliability>
-      <RunningPhases>
-        <RunningPhase>
+      <RunningPhases z:Id="34" z:Size="3">
+        <RunningPhase z:Id="35">
           <Duration>PT30S</Duration>
           <Speed>0.2</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="36">
           <Duration>PT1M</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="37">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse>
-      <Color>
+    <Horse z:Id="38">
+      <Color z:Id="39">
         <Blue>241</Blue>
         <Green>237</Green>
         <Red>234</Red>
       </Color>
-      <Name>Rarity</Name>
+      <Name z:Id="40">Rarity</Name>
       <ReactionSpeed>0.7</ReactionSpeed>
       <Reliability>0.6</Reliability>
-      <RunningPhases>
-        <RunningPhase>
+      <RunningPhases z:Id="41" z:Size="3">
+        <RunningPhase z:Id="42">
           <Duration>PT30S</Duration>
           <Speed>0.2</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="43">
           <Duration>PT1M</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
-        <RunningPhase>
+        <RunningPhase z:Id="44">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
   </Horses>
-  <Races>
-    <Race>
-      <Horses>
-        <Horse>
-          <Color>
-            <Blue>228</Blue>
-            <Green>194</Green>
-            <Red>130</Red>
-          </Color>
-          <Name>Rainbow Dash</Name>
-          <ReactionSpeed>0.2</ReactionSpeed>
-          <Reliability>1</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>213</Blue>
-            <Green>184</Green>
-            <Red>246</Red>
-          </Color>
-          <Name>Pinkie Pie</Name>
-          <ReactionSpeed>1</ReactionSpeed>
-          <Reliability>0.2</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>98</Blue>
-            <Green>183</Green>
-            <Red>252</Red>
-          </Color>
-          <Name>Applejack</Name>
-          <ReactionSpeed>0.5</ReactionSpeed>
-          <Reliability>0.5</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>180</Blue>
-            <Green>103</Green>
-            <Red>216</Red>
-          </Color>
-          <Name>Twilight Sparkle</Name>
-          <ReactionSpeed>0.5</ReactionSpeed>
-          <Reliability>1</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>170</Blue>
-            <Green>245</Green>
-            <Red>253</Red>
-          </Color>
-          <Name>Fluttershy</Name>
-          <ReactionSpeed>0.1</ReactionSpeed>
-          <Reliability>0.8</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>241</Blue>
-            <Green>237</Green>
-            <Red>234</Red>
-          </Color>
-          <Name>Rarity</Name>
-          <ReactionSpeed>0.7</ReactionSpeed>
-          <Reliability>0.6</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
+  <Races z:Id="45" z:Size="2">
+    <Race z:Id="46">
+      <Horses z:Id="47" z:Size="6">
+        <Horse z:Ref="3" i:nil="true" />
+        <Horse z:Ref="10" i:nil="true" />
+        <Horse z:Ref="17" i:nil="true" />
+        <Horse z:Ref="24" i:nil="true" />
+        <Horse z:Ref="31" i:nil="true" />
+        <Horse z:Ref="38" i:nil="true" />
       </Horses>
-      <Time>PT13H57M</Time>
+      <Time>PT14H20M28S</Time>
     </Race>
-    <Race>
-      <Horses>
-        <Horse>
-          <Color>
-            <Blue>228</Blue>
-            <Green>194</Green>
-            <Red>130</Red>
-          </Color>
-          <Name>Rainbow Dash</Name>
-          <ReactionSpeed>0.2</ReactionSpeed>
-          <Reliability>1</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>213</Blue>
-            <Green>184</Green>
-            <Red>246</Red>
-          </Color>
-          <Name>Pinkie Pie</Name>
-          <ReactionSpeed>1</ReactionSpeed>
-          <Reliability>0.2</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>98</Blue>
-            <Green>183</Green>
-            <Red>252</Red>
-          </Color>
-          <Name>Applejack</Name>
-          <ReactionSpeed>0.5</ReactionSpeed>
-          <Reliability>0.5</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>180</Blue>
-            <Green>103</Green>
-            <Red>216</Red>
-          </Color>
-          <Name>Twilight Sparkle</Name>
-          <ReactionSpeed>0.5</ReactionSpeed>
-          <Reliability>1</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>170</Blue>
-            <Green>245</Green>
-            <Red>253</Red>
-          </Color>
-          <Name>Fluttershy</Name>
-          <ReactionSpeed>0.1</ReactionSpeed>
-          <Reliability>0.8</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
-        <Horse>
-          <Color>
-            <Blue>241</Blue>
-            <Green>237</Green>
-            <Red>234</Red>
-          </Color>
-          <Name>Rarity</Name>
-          <ReactionSpeed>0.7</ReactionSpeed>
-          <Reliability>0.6</Reliability>
-          <RunningPhases>
-            <RunningPhase>
-              <Duration>PT30S</Duration>
-              <Speed>0.2</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT1M</Duration>
-              <Speed>0.8</Speed>
-            </RunningPhase>
-            <RunningPhase>
-              <Duration>PT5M</Duration>
-              <Speed>1</Speed>
-            </RunningPhase>
-          </RunningPhases>
-        </Horse>
+    <Race z:Id="48">
+      <Horses z:Id="49" z:Size="6">
+        <Horse z:Ref="3" i:nil="true" />
+        <Horse z:Ref="10" i:nil="true" />
+        <Horse z:Ref="17" i:nil="true" />
+        <Horse z:Ref="24" i:nil="true" />
+        <Horse z:Ref="31" i:nil="true" />
+        <Horse z:Ref="38" i:nil="true" />
       </Horses>
-      <Time>PT14H2M</Time>
+      <Time>PT14H25M28S</Time>
     </Race>
   </Races>
 </ADayAtTheRacesConfiguration>

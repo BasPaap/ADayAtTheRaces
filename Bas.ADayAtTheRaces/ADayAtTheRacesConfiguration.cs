@@ -106,8 +106,8 @@ namespace Bas.ADayAtTheRaces
             Horses.Add(fluttershy);
             Horses.Add(rarity);
 
-            var thirtySecondsFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(30));
-            var firstRace = new Race(thirtySecondsFromNow.Hours, thirtySecondsFromNow.Minutes);
+            var tenSecondsFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(10));
+            var firstRace = new Race(tenSecondsFromNow.Hours, tenSecondsFromNow.Minutes, tenSecondsFromNow.Seconds);
             firstRace.Horses.Add(rainbowDash);
             firstRace.Horses.Add(pinkiePie);
             firstRace.Horses.Add(applejack);
@@ -115,8 +115,8 @@ namespace Bas.ADayAtTheRaces
             firstRace.Horses.Add(fluttershy);
             firstRace.Horses.Add(rarity);
 
-            var fiveMinutesFromNow = thirtySecondsFromNow.Add(TimeSpan.FromMinutes(5));
-            var secondRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes);
+            var fiveMinutesFromNow = tenSecondsFromNow.Add(TimeSpan.FromMinutes(5));
+            var secondRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes, fiveMinutesFromNow.Seconds);
             secondRace.Horses.Add(rainbowDash);
             secondRace.Horses.Add(pinkiePie);
             secondRace.Horses.Add(applejack);

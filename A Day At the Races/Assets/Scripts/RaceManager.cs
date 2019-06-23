@@ -36,9 +36,9 @@ public class RaceManager : MonoBehaviour
             foreach (var horse in currentRace.Horses)
             {
                 const float horseWidth = 5.0f;
-                var horsePosition = new Vector3(currentRace.Horses.IndexOf(horse) * (horseWidth + horseDistance), 0);
-                var horseGameObject = Instantiate(horsePrefab, Vector3.zero, Quaternion.identity, horseParent);
-                horseGameObject.GetComponent<Material>().color = horse.Color.ToUnityColor();
+                var horsePosition = new Vector3(0, 0, currentRace.Horses.IndexOf(horse) * (horseWidth + horseDistance));
+                var horseGameObject = Instantiate(horsePrefab, horsePosition, horsePrefab.transform.rotation, horseParent);
+                horseGameObject.GetComponent<Renderer>().material.color = horse.Color.ToUnityColor();
             }
         }
     }

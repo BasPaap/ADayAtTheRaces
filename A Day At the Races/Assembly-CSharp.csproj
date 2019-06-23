@@ -66,7 +66,6 @@
     <Compile Include="Assets\Scripts\RaceManager.cs" />
     <Compile Include="Assets\Scripts\TransformExtensions.cs" />
     <None Include="Assets\csc.rsp" />
-    <None Include="Assets\ADayAtTheRaces.xml" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Bas Paap/source/repos/ADayAtTheRaces/A Day At the Races/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
