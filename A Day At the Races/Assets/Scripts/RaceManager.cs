@@ -13,6 +13,7 @@ public class RaceManager : MonoBehaviour
     private List<Horse> horses;
     private Queue<Race> futureRaces;
     private Race currentRace;
+    private GameObject startingGate;
 
     public GameObject horsePrefab;
     public Transform horseParent;
@@ -22,7 +23,9 @@ public class RaceManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadData();        
+        LoadData();
+
+        startingGate = GameObject.Find("Starting Gate");
     }
 
     // Update is called once per frame
@@ -34,10 +37,12 @@ public class RaceManager : MonoBehaviour
 
             horseParent.ClearChildren();
 
+            var horseWidth = horsePrefab.GetComponent<Renderer>().bounds.size.z;
+            var firstStallPosition = startingGate.transform.position + new Vector3(0,0,(startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth /2.0f));
+
             foreach (var horse in currentRace.Horses)
             {
-                const float horseWidth = 5.0f;
-                var horsePosition = new Vector3(0, 0, currentRace.Horses.IndexOf(horse) * (horseWidth + horseDistance));
+                var horsePosition = firstStallPosition + new Vector3(0, 0, firstStallPosition.z - currentRace.Horses.IndexOf(horse) * (horseWidth + horseDistance));
                 var horseGameObject = Instantiate(horsePrefab, horsePosition, horsePrefab.transform.rotation, horseParent);
                 horseGameObject.GetComponent<Renderer>().material.color = horse.Color.ToUnityColor();
             }
