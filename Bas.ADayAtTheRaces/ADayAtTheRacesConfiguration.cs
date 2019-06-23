@@ -3,15 +3,25 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
+using System.Xml;
 
 namespace Bas.ADayAtTheRaces
 {
+    [DataContract]
     public sealed class ADayAtTheRacesConfiguration
     {
+        private DataContractSerializerSettings serializerSettings = new DataContractSerializerSettings()
+        {
+            PreserveObjectReferences = true,
+            KnownTypes = new [] { typeof(ADayAtTheRacesConfiguration), typeof(Horse), typeof(RunningPhase), typeof(Color), typeof(Race) }
+        };
+
+        [DataMember]
         public Collection<Horse> Horses { get; private set; } = new Collection<Horse>();
+        [DataMember]
         public Collection<Race> Races { get; private set; } = new Collection<Race>();
 
         public void Populate()
@@ -120,20 +130,22 @@ namespace Bas.ADayAtTheRaces
 
         public void Save(string fileName)
         {
-            using (var writer = new StreamWriter(fileName))
+            using (var xmlWriter = new XmlTextWriter(fileName, Encoding.UTF8))
             {
-                var serializer = new XmlSerializer(typeof(ADayAtTheRacesConfiguration));
-                serializer.Serialize(writer, this);
-                writer.Close();
+                xmlWriter.Formatting = Formatting.Indented;
+
+                var serializer = new DataContractSerializer(typeof(ADayAtTheRacesConfiguration), serializerSettings);
+                serializer.WriteObject(xmlWriter, this);
+                xmlWriter.Close();
             }
         }
 
         public void Load(string fileName)
         {
-            using (var fileStream = new FileStream(fileName, FileMode.Open))
+            using (var xmlReader = new XmlTextReader(fileName))
             {
-                var serializer = new XmlSerializer(typeof(ADayAtTheRacesConfiguration));
-                var configuration = serializer.Deserialize(fileStream) as ADayAtTheRacesConfiguration;
+                var serializer = new DataContractSerializer(typeof(ADayAtTheRacesConfiguration));
+                var configuration = serializer.ReadObject(xmlReader) as ADayAtTheRacesConfiguration;
 
                 Horses = new Collection<Horse>(configuration.Horses);
                 Races = new Collection<Race>(configuration.Races);
