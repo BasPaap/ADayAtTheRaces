@@ -34,8 +34,8 @@ namespace Bas.ADayAtTheRaces
                 Reliability = 1.0f
             };
 
-            rainbowDash.RunningPhases.Add(new RunningPhase(30.0, 0.2f));
-            rainbowDash.RunningPhases.Add(new RunningPhase(60.0, 0.8f));
+            rainbowDash.RunningPhases.Add(new RunningPhase(10.0, 0.5f));
+            rainbowDash.RunningPhases.Add(new RunningPhase(30.0, 0.8f));
             rainbowDash.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var pinkiePie = new Horse
@@ -46,8 +46,8 @@ namespace Bas.ADayAtTheRaces
                 Reliability = 0.2f
             };
 
-            pinkiePie.RunningPhases.Add(new RunningPhase(30.0, 0.2f));
-            pinkiePie.RunningPhases.Add(new RunningPhase(60.0, 0.8f));
+            pinkiePie.RunningPhases.Add(new RunningPhase(10.5, 1.0f));
+            pinkiePie.RunningPhases.Add(new RunningPhase(20.0, 0.7f));
             pinkiePie.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var applejack = new Horse
@@ -58,8 +58,8 @@ namespace Bas.ADayAtTheRaces
                 Reliability = 0.5f
             };
 
-            applejack.RunningPhases.Add(new RunningPhase(30.0, 0.2f));
-            applejack.RunningPhases.Add(new RunningPhase(60.0, 0.8f));
+            applejack.RunningPhases.Add(new RunningPhase(8.0, 0.7f));
+            applejack.RunningPhases.Add(new RunningPhase(25.0, 0.85f));
             applejack.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var twilightSparkle = new Horse
@@ -71,8 +71,8 @@ namespace Bas.ADayAtTheRaces
 
             };
 
-            twilightSparkle.RunningPhases.Add(new RunningPhase(30.0, 0.2f));
-            twilightSparkle.RunningPhases.Add(new RunningPhase(60.0, 0.8f));
+            twilightSparkle.RunningPhases.Add(new RunningPhase(10.0, 0.75f));
+            twilightSparkle.RunningPhases.Add(new RunningPhase(15.0, 0.8f));
             twilightSparkle.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var fluttershy = new Horse
@@ -83,8 +83,8 @@ namespace Bas.ADayAtTheRaces
                 Reliability = 0.8f
             };
 
-            fluttershy.RunningPhases.Add(new RunningPhase(30.0, 0.2f));
-            fluttershy.RunningPhases.Add(new RunningPhase(60.0, 0.8f));
+            fluttershy.RunningPhases.Add(new RunningPhase(8.0, 0.65f));
+            fluttershy.RunningPhases.Add(new RunningPhase(10.0, 0.87f));
             fluttershy.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var rarity = new Horse
@@ -95,8 +95,8 @@ namespace Bas.ADayAtTheRaces
                 Reliability = 0.6f
             };
 
-            rarity.RunningPhases.Add(new RunningPhase(30.0, 0.2f));
-            rarity.RunningPhases.Add(new RunningPhase(60.0, 0.8f));
+            rarity.RunningPhases.Add(new RunningPhase(7.5, 0.7f));
+            rarity.RunningPhases.Add(new RunningPhase(20.0, 0.8f));
             rarity.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             Horses.Add(rainbowDash);

@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\HorseExtensions.cs" />
     <Compile Include="Assets\Scripts\RaceManager.cs" />
+    <Compile Include="Assets\Scripts\Runner.cs" />
     <Compile Include="Assets\Scripts\TransformExtensions.cs" />
     <None Include="Assets\csc.rsp" />
     <None Include="Assets\ADayAtTheRaces.xml" />
@@ -271,6 +272,9 @@
     <Reference Include="nunit.framework">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.6f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Bas.ADayAtTheRaces">
+      <HintPath>C:/Users/Bas Paap/source/repos/ADayAtTheRaces/A Day At the Races/Assets/Assemblies/Bas.ADayAtTheRaces.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/Bas Paap/source/repos/ADayAtTheRaces/A Day At the Races/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -279,9 +283,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Users/Bas Paap/source/repos/ADayAtTheRaces/A Day At the Races/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Bas.ADayAtTheRaces">
-      <HintPath>C:/Users/Bas Paap/source/repos/ADayAtTheRaces/A Day At the Races/Assets/Assemblies/Bas.ADayAtTheRaces.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.6f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

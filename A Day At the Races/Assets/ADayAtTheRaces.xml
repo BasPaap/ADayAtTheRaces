@@ -11,11 +11,11 @@
       <Reliability>1</Reliability>
       <RunningPhases z:Id="6" z:Size="3">
         <RunningPhase z:Id="7">
-          <Duration>PT30S</Duration>
-          <Speed>0.2</Speed>
+          <Duration>PT10S</Duration>
+          <Speed>0.5</Speed>
         </RunningPhase>
         <RunningPhase z:Id="8">
-          <Duration>PT1M</Duration>
+          <Duration>PT30S</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
         <RunningPhase z:Id="9">
@@ -35,12 +35,12 @@
       <Reliability>0.2</Reliability>
       <RunningPhases z:Id="13" z:Size="3">
         <RunningPhase z:Id="14">
-          <Duration>PT30S</Duration>
-          <Speed>0.2</Speed>
+          <Duration>PT10.5S</Duration>
+          <Speed>1</Speed>
         </RunningPhase>
         <RunningPhase z:Id="15">
-          <Duration>PT1M</Duration>
-          <Speed>0.8</Speed>
+          <Duration>PT20S</Duration>
+          <Speed>0.7</Speed>
         </RunningPhase>
         <RunningPhase z:Id="16">
           <Duration>PT5M</Duration>
@@ -59,12 +59,12 @@
       <Reliability>0.5</Reliability>
       <RunningPhases z:Id="20" z:Size="3">
         <RunningPhase z:Id="21">
-          <Duration>PT30S</Duration>
-          <Speed>0.2</Speed>
+          <Duration>PT8S</Duration>
+          <Speed>0.7</Speed>
         </RunningPhase>
         <RunningPhase z:Id="22">
-          <Duration>PT1M</Duration>
-          <Speed>0.8</Speed>
+          <Duration>PT25S</Duration>
+          <Speed>0.85</Speed>
         </RunningPhase>
         <RunningPhase z:Id="23">
           <Duration>PT5M</Duration>
@@ -83,11 +83,11 @@
       <Reliability>1</Reliability>
       <RunningPhases z:Id="27" z:Size="3">
         <RunningPhase z:Id="28">
-          <Duration>PT30S</Duration>
-          <Speed>0.2</Speed>
+          <Duration>PT10S</Duration>
+          <Speed>0.75</Speed>
         </RunningPhase>
         <RunningPhase z:Id="29">
-          <Duration>PT1M</Duration>
+          <Duration>PT15S</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
         <RunningPhase z:Id="30">
@@ -107,12 +107,12 @@
       <Reliability>0.8</Reliability>
       <RunningPhases z:Id="34" z:Size="3">
         <RunningPhase z:Id="35">
-          <Duration>PT30S</Duration>
-          <Speed>0.2</Speed>
+          <Duration>PT8S</Duration>
+          <Speed>0.65</Speed>
         </RunningPhase>
         <RunningPhase z:Id="36">
-          <Duration>PT1M</Duration>
-          <Speed>0.8</Speed>
+          <Duration>PT10S</Duration>
+          <Speed>0.87</Speed>
         </RunningPhase>
         <RunningPhase z:Id="37">
           <Duration>PT5M</Duration>
@@ -131,11 +131,11 @@
       <Reliability>0.6</Reliability>
       <RunningPhases z:Id="41" z:Size="3">
         <RunningPhase z:Id="42">
-          <Duration>PT30S</Duration>
-          <Speed>0.2</Speed>
+          <Duration>PT7.5S</Duration>
+          <Speed>0.7</Speed>
         </RunningPhase>
         <RunningPhase z:Id="43">
-          <Duration>PT1M</Duration>
+          <Duration>PT20S</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
         <RunningPhase z:Id="44">
@@ -155,7 +155,7 @@
         <Horse z:Ref="31" i:nil="true" />
         <Horse z:Ref="38" i:nil="true" />
       </Horses>
-      <Time>PT14H20M28S</Time>
+      <Time>PT22H58M34S</Time>
     </Race>
     <Race z:Id="48">
       <Horses z:Id="49" z:Size="6">
@@ -166,7 +166,7 @@
         <Horse z:Ref="31" i:nil="true" />
         <Horse z:Ref="38" i:nil="true" />
       </Horses>
-      <Time>PT14H25M28S</Time>
+      <Time>PT23H3M34S</Time>
     </Race>
   </Races>
 </ADayAtTheRacesConfiguration>
