@@ -1,2 +1,2 @@
 # A Day At The Races
-Horse racing scenery for a LARP
+Horse racing simulation to be used as scenery for a LARP.
