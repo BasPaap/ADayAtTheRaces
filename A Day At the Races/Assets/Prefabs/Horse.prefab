@@ -180,6 +180,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Horse_With_Jockey_PBR
       objectReference: {fileID: 0}
+    - target: {fileID: 95479128928961326, guid: c3407798f5a95024dae6a287beb7cbfe,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1e10ec1a48c4eb9449fc7fb8a698ac09, type: 2}
+    - target: {fileID: 4003673114250904, guid: c3407798f5a95024dae6a287beb7cbfe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.009954544
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003673114250904, guid: c3407798f5a95024dae6a287beb7cbfe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.94230217
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721831240519092, guid: c3407798f5a95024dae6a287beb7cbfe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.010633162
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721831240519092, guid: c3407798f5a95024dae6a287beb7cbfe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.014388709
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3407798f5a95024dae6a287beb7cbfe, type: 3}
 --- !u!4 &556118302259285484 stripped

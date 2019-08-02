@@ -106,6 +106,9 @@ public class Runner : MonoBehaviour
         currentRunningPhase = runningPhase;
 
         navMeshAgent.speed *= currentRunningPhase.Speed;
+
+        gameObject.GetComponentInChildren<Animator>().SetFloat("HorseSpeed", currentRunningPhase.Speed);
+
         //navMeshAgent.acceleration *= currentRunningPhase.Speed;
         //navMeshAgent.angularSpeed *= currentRunningPhase.Speed;
 
