@@ -36,6 +36,8 @@ public class Runner : MonoBehaviour
         UpdateDestination();
     }
 
+    int lapsRun = 0;
+
     private void UpdateDestination()
     {
         if (navMeshAgent != null && !navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
@@ -51,8 +53,9 @@ public class Runner : MonoBehaviour
                 //Debug.Log($"{gameObject.name} set to third corner.");
             }
             else if (Vector3.Distance(navMeshAgent.destination, thirdCornerPosition) < 0.02)
-            {
-                navMeshAgent.destination = finishLinePosition;
+            {   
+                navMeshAgent.destination = (this.lapsRun == 0) ? firstCornerPosition : finishLinePosition;
+                this.lapsRun++;
                 //Debug.Log($"{gameObject.name} set to finish line.");
             }
         }
