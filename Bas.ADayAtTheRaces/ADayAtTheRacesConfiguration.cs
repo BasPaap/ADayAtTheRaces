@@ -13,7 +13,7 @@ namespace Bas.ADayAtTheRaces
     [DataContract]
     public sealed class ADayAtTheRacesConfiguration
     {
-        private DataContractSerializerSettings serializerSettings = new DataContractSerializerSettings()
+        private readonly DataContractSerializerSettings serializerSettings = new DataContractSerializerSettings()
         {
             PreserveObjectReferences = true,
             KnownTypes = new [] { typeof(ADayAtTheRacesConfiguration), typeof(Horse), typeof(RunningPhase), typeof(Color), typeof(Race) }
