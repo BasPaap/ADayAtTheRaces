@@ -18,7 +18,7 @@ public class RaceManager : MonoBehaviour
 
     public GameObject horsePrefab;
     public Transform horseParent;
-    public float horseDistance;
+    public float distanceBetweenHorses;
     public bool debugMode = false;
 
     public GameObject firstCorner;
@@ -48,7 +48,8 @@ public class RaceManager : MonoBehaviour
 
             foreach (var horse in currentRace.Horses)
             {
-                var horsePosition = firstStallPosition + new Vector3(0, 0, firstStallPosition.z - currentRace.Horses.IndexOf(horse) * (horseWidth + horseDistance));
+                var horseIndex = currentRace.Horses.IndexOf(horse);
+                var horsePosition = firstStallPosition + new Vector3(0, 0, firstStallPosition.z - horseIndex * (horseWidth + distanceBetweenHorses));
                 var horseGameObject = Instantiate(horsePrefab, horsePosition, horsePrefab.transform.rotation, horseParent);
                 horseGameObject.name = horse.Name;
                 horseGameObject.GetComponent<Renderer>().material.color = horse.Color.ToUnityColor();

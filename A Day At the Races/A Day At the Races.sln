@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bas.ADayAtTheRaces", "..\Bas.ADayAtTheRaces\Bas.ADayAtTheRaces.csproj", "{4594F0E7-693C-4F2B-8598-88C0F5745B32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bas.ADayAtTheRaces.ControlPanel", "..\Bas.ADayAtTheRaces.ControlPanel\Bas.ADayAtTheRaces.ControlPanel.csproj", "{D1AE18D8-EA3E-4627-8275-B3421B601292}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{4594F0E7-693C-4F2B-8598-88C0F5745B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4594F0E7-693C-4F2B-8598-88C0F5745B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4594F0E7-693C-4F2B-8598-88C0F5745B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1AE18D8-EA3E-4627-8275-B3421B601292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1AE18D8-EA3E-4627-8275-B3421B601292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1AE18D8-EA3E-4627-8275-B3421B601292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1AE18D8-EA3E-4627-8275-B3421B601292}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
