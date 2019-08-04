@@ -11,7 +11,6 @@ using UnityEngine.AI;
 public class RaceManager : MonoBehaviour
 {
     private const string configurationFileName = "ADayAtTheRaces.xml";
-    private List<Horse> horses;
     private Queue<Race> futureRaces;
     private Race currentRace;
     private GameObject startingGate;
@@ -78,8 +77,6 @@ public class RaceManager : MonoBehaviour
         {
             configuration.Load(configurationPath);
         }
-
-        horses = configuration.Horses.ToList();
 
         if (debugMode)
         {
