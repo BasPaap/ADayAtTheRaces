@@ -52,7 +52,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 702262f45e92da846b3ab831f88d5bb5, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,10 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc253e9592823c24f8fe10e9e9de35fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstCornerPosition: {x: 0, y: 0, z: 0}
-  secondCornerPosition: {x: 0, y: 0, z: 0}
-  thirdCornerPosition: {x: 0, y: 0, z: 0}
-  finishLinePosition: {x: 0, y: 0, z: 0}
+  maxSpeed: 15
 --- !u!1001 &556118302259491692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,6 +129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5798999279191078515}
     m_Modifications:
+    - target: {fileID: 135168, guid: c3407798f5a95024dae6a287beb7cbfe, type: 3}
+      propertyPath: m_Name
+      value: Horse_With_Jockey_PBR
+      objectReference: {fileID: 0}
     - target: {fileID: 474752, guid: c3407798f5a95024dae6a287beb7cbfe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -176,10 +177,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 135168, guid: c3407798f5a95024dae6a287beb7cbfe, type: 3}
-      propertyPath: m_Name
-      value: Horse_With_Jockey_PBR
-      objectReference: {fileID: 0}
+    - target: {fileID: 95973215569779814, guid: c3407798f5a95024dae6a287beb7cbfe,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 62cab92c2585a4047a1571a02164c2e1, type: 2}
     - target: {fileID: 95479128928961326, guid: c3407798f5a95024dae6a287beb7cbfe,
         type: 3}
       propertyPath: m_Controller

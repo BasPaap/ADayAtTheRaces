@@ -110,12 +110,15 @@ public class Runner : MonoBehaviour
 
         navMeshAgent.speed = currentRunningPhase.Speed * maxSpeed;
 
-        gameObject.GetComponentInChildren<Animator>().SetInteger("SpeedPercentage", (int)(currentRunningPhase.Speed * 100));
-        gameObject.GetComponentInChildren<Animator>().SetFloat("AnimationSpeedMultiplier", currentRunningPhase.Speed);
-
-        //navMeshAgent.acceleration *= currentRunningPhase.Speed;
-        //navMeshAgent.angularSpeed *= currentRunningPhase.Speed;
-
+        SetAnimationControllerParameters("Horse_With_Jockey_PBR/Horse_PBR/horse");
+        SetAnimationControllerParameters("Horse_With_Jockey_PBR/Jockey_PBR/jockey");
+        
         Debug.Log($"{gameObject.name} speed set to {runningPhase.Speed} for {runningPhase.Duration.TotalSeconds} seconds (index {this.horse.RunningPhases.IndexOf(runningPhase)})");
+    }
+
+    private void SetAnimationControllerParameters(string path)
+    {
+        gameObject.transform.Find(path).GetComponentInChildren<Animator>().SetInteger("SpeedPercentage", (int)(currentRunningPhase.Speed * 100));
+        gameObject.transform.Find(path).GetComponentInChildren<Animator>().SetFloat("AnimationSpeedMultiplier", currentRunningPhase.Speed);
     }
 }
