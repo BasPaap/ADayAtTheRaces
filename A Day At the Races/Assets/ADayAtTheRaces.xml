@@ -12,7 +12,7 @@
       <RunningPhases z:Id="6" z:Size="3">
         <RunningPhase z:Id="7">
           <Duration>PT10S</Duration>
-          <Speed>0.5</Speed>
+          <Speed>0.25</Speed>
         </RunningPhase>
         <RunningPhase z:Id="8">
           <Duration>PT30S</Duration>
