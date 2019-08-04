@@ -55,10 +55,10 @@ public class RaceManager : MonoBehaviour
                 horseGameObject.GetComponent<Renderer>().material.color = horse.Color.ToUnityColor();
 
                 var runner = horseGameObject.GetComponent<Runner>();
-                runner.firstCornerPosition = firstCorner.transform.position;
-                runner.secondCornerPosition = secondCorner.transform.position;
-                runner.thirdCornerPosition = thirdCorner.transform.position;
-                runner.finishLinePosition = finishLine.transform.position;
+                runner.FirstCornerPosition = firstCorner.transform.position;
+                runner.SecondCornerPosition = secondCorner.transform.position;
+                runner.ThirdCornerPosition = thirdCorner.transform.position;
+                runner.FinishLinePosition = finishLine.transform.position;
                 runner.Run(horse);                
             }
         }

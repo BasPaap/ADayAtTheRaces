@@ -8,16 +8,21 @@ using UnityEngine.AI;
 
 public class Runner : MonoBehaviour
 {
-    public Vector3 firstCornerPosition;
-    public Vector3 secondCornerPosition;
-    public Vector3 thirdCornerPosition;
-    public Vector3 finishLinePosition;
+    private const int totalLapsToRun = 2;
 
     private Horse horse;
     private RunningPhase currentRunningPhase;
     private float currentRunningPhaseStartTime;
     private NavMeshAgent navMeshAgent;
     private bool isInLastPhase = false;
+    private int lapsRun = 0;
+
+    public float maxSpeed = 15.0f;
+
+    public Vector3 FirstCornerPosition { get; set; }
+    public Vector3 SecondCornerPosition { get; set; }
+    public Vector3 ThirdCornerPosition { get; set; }
+    public Vector3 FinishLinePosition { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -34,27 +39,25 @@ public class Runner : MonoBehaviour
         }
 
         UpdateDestination();
-    }
-
-    int lapsRun = 0;
-
+    }    
+        
     private void UpdateDestination()
     {
         if (navMeshAgent != null && !navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
         {
-            if (Vector3.Distance(navMeshAgent.destination, firstCornerPosition) < 0.02f)
+            if (Vector3.Distance(navMeshAgent.destination, FirstCornerPosition) < 0.02f)
             {
-                navMeshAgent.destination = secondCornerPosition;
+                navMeshAgent.destination = SecondCornerPosition;
                 //Debug.Log($"{gameObject.name} set to second corner.");
             }
-            else if (Vector3.Distance(navMeshAgent.destination, secondCornerPosition) < 0.02f)
+            else if (Vector3.Distance(navMeshAgent.destination, SecondCornerPosition) < 0.02f)
             {
-                navMeshAgent.destination = thirdCornerPosition;
+                navMeshAgent.destination = ThirdCornerPosition;
                 //Debug.Log($"{gameObject.name} set to third corner.");
             }
-            else if (Vector3.Distance(navMeshAgent.destination, thirdCornerPosition) < 0.02)
+            else if (Vector3.Distance(navMeshAgent.destination, ThirdCornerPosition) < 0.02)
             {   
-                navMeshAgent.destination = (this.lapsRun == 0) ? firstCornerPosition : finishLinePosition;
+                navMeshAgent.destination = (this.lapsRun < totalLapsToRun - 1) ? FirstCornerPosition : FinishLinePosition;
                 this.lapsRun++;
                 //Debug.Log($"{gameObject.name} set to finish line.");
             }
@@ -67,7 +70,7 @@ public class Runner : MonoBehaviour
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.Warp(transform.position);
-        navMeshAgent.destination = firstCornerPosition;
+        navMeshAgent.destination = FirstCornerPosition;
     }
 
     private void UpdateSpeed()
@@ -105,7 +108,7 @@ public class Runner : MonoBehaviour
         currentRunningPhaseStartTime = Time.time;
         currentRunningPhase = runningPhase;
 
-        navMeshAgent.speed *= currentRunningPhase.Speed;
+        navMeshAgent.speed = currentRunningPhase.Speed * maxSpeed;
 
         gameObject.GetComponentInChildren<Animator>().SetFloat("HorseSpeed", currentRunningPhase.Speed);
 
