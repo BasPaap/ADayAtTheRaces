@@ -43,7 +43,7 @@ public class RaceManager : MonoBehaviour
             horseParent.ClearChildren();
 
             var horseWidth = horsePrefab.GetComponent<Renderer>().bounds.size.z;
-            var firstStallPosition = startingGate.transform.position + new Vector3(0,0,(startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth /2.0f));
+            var firstStallPosition = startingGate.transform.position + new Vector3(0, 0, (startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth / 2.0f));
 
             foreach (var horse in currentRace.Horses)
             {
@@ -53,14 +53,28 @@ public class RaceManager : MonoBehaviour
                 horseGameObject.name = horse.Name;
                 horseGameObject.GetComponent<Renderer>().material.color = horse.Color.ToUnityColor();
 
+                SetHorseColor(horseGameObject, horse.Color.ToUnityColor());                
+
                 var runner = horseGameObject.GetComponent<Runner>();
                 runner.FirstCornerPosition = firstCorner.transform.position;
                 runner.SecondCornerPosition = secondCorner.transform.position;
                 runner.ThirdCornerPosition = thirdCorner.transform.position;
                 runner.FinishLinePosition = finishLine.transform.position;
-                runner.Run(horse);                
+                runner.Run(horse);
             }
         }
+    }
+
+    private void SetHorseColor(GameObject horse, UnityEngine.Color color)
+    {
+        foreach (var path in new[] { "Horse_PBR/horse/saddle",
+                                     "Horse_PBR/horse/saddle_lod",
+                                     "Jockey_PBR/jockey/jockey_body",
+                                     "Jockey_PBR/jockey/jockey_LOD" })
+        {
+            horse.transform.Find($"Horse_With_Jockey_PBR/{path}").GetComponent<Renderer>().material.SetColor("_Color", color);
+        }
+
     }
 
     public void LoadData()
