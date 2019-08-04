@@ -118,7 +118,8 @@ public class Runner : MonoBehaviour
 
     private void SetAnimationControllerParameters(string path)
     {
-        gameObject.transform.Find(path).GetComponentInChildren<Animator>().SetInteger("SpeedPercentage", (int)(currentRunningPhase.Speed * 100));
-        gameObject.transform.Find(path).GetComponentInChildren<Animator>().SetFloat("AnimationSpeedMultiplier", currentRunningPhase.Speed);
+        var animator = gameObject.transform.Find(path).GetComponentInChildren<Animator>();
+        animator.SetInteger("SpeedPercentage", (int)(currentRunningPhase.Speed * 100));
+        animator.SetFloat("AnimationSpeedMultiplier", currentRunningPhase.Speed);
     }
 }
