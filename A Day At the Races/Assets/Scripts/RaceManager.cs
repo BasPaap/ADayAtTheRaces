@@ -20,6 +20,9 @@ public class RaceManager : MonoBehaviour
     public float distanceBetweenHorses;
     public bool debugMode = false;
 
+    public GameObject entryPoint;
+    public GameObject exitPoint;
+
     public GameObject firstCorner;
     public GameObject secondCorner;
     public GameObject thirdCorner;
@@ -43,12 +46,12 @@ public class RaceManager : MonoBehaviour
             horseParent.ClearChildren();
 
             var horseWidth = horsePrefab.GetComponent<Renderer>().bounds.size.z;
-            var firstStallPosition = startingGate.transform.position + new Vector3(0, 0, (startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth / 2.0f));
+            var firstStallPosition = entryPoint.transform.position + new Vector3(0, 0, (startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth / 2.0f));
 
             foreach (var horse in currentRace.Horses)
             {
                 var horseIndex = currentRace.Horses.IndexOf(horse);
-                var horsePosition = firstStallPosition + new Vector3(0, 0, firstStallPosition.z - horseIndex * (horseWidth + distanceBetweenHorses));
+                var horsePosition = firstStallPosition + new Vector3(UnityEngine.Random.Range(0.0f, 2.0f), 0, firstStallPosition.z - horseIndex * (horseWidth + distanceBetweenHorses));
                 var horseGameObject = Instantiate(horsePrefab, horsePosition, horsePrefab.transform.rotation, horseParent);
                 horseGameObject.name = horse.Name;
                 horseGameObject.GetComponent<Renderer>().material.color = horse.Color.ToUnityColor();
@@ -56,11 +59,8 @@ public class RaceManager : MonoBehaviour
                 SetHorseColor(horseGameObject, horse.Color.ToUnityColor());                
 
                 var runner = horseGameObject.GetComponent<Runner>();
-                runner.FirstCornerPosition = firstCorner.transform.position;
-                runner.SecondCornerPosition = secondCorner.transform.position;
-                runner.ThirdCornerPosition = thirdCorner.transform.position;
-                runner.FinishLinePosition = finishLine.transform.position;
-                runner.Run(horse);
+                runner.Initialize(horse, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position);
+                runner.WalkToStartingLine();
             }
         }
     }
