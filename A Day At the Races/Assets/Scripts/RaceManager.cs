@@ -14,7 +14,13 @@ public class RaceManager : MonoBehaviour
     private Queue<Race> futureRaces;
     private Race currentRace;
     private GameObject startingGate;
+    private int numRunnersAtStartingLine;
 
+    private readonly List<Runner> runners = new List<Runner>();
+
+    public GameObject announcer;
+    public AudioClip announcerIntro;
+    public AudioClip gunshotAndCommentary;
     public GameObject horsePrefab;
     public Transform horseParent;
     public float distanceBetweenHorses;
@@ -39,11 +45,12 @@ public class RaceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now.TimeOfDay)
+        if (IsTimeToSetUpNewRace())
         {
             currentRace = futureRaces.Dequeue();
-
             horseParent.ClearChildren();
+            numRunnersAtStartingLine = 0;
+            this.runners.Clear();
 
             var horseWidth = horsePrefab.GetComponent<Renderer>().bounds.size.z;
             var firstStallPosition = entryPoint.transform.position + new Vector3(0, 0, (startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth / 2.0f));
@@ -56,12 +63,51 @@ public class RaceManager : MonoBehaviour
                 horseGameObject.name = horse.Name;
                 horseGameObject.GetComponent<Renderer>().material.color = horse.Color.ToUnityColor();
 
-                SetHorseColor(horseGameObject, horse.Color.ToUnityColor());                
+                SetHorseColor(horseGameObject, horse.Color.ToUnityColor());
 
                 var runner = horseGameObject.GetComponent<Runner>();
+                this.runners.Add(runner);
+                runner.ArrivedAtStartingLine += Runner_ArrivedAtStartingLine;
                 runner.Initialize(horse, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position);
                 runner.WalkToStartingLine();
             }
+
+            PlayAnnouncement(announcerIntro);
+        }
+    }
+
+    private bool IsTimeToSetUpNewRace()
+    {
+        return futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now.TimeOfDay;
+    }
+
+    private void Runner_ArrivedAtStartingLine(object sender, EventArgs e)
+    {
+        numRunnersAtStartingLine++;
+
+        if (numRunnersAtStartingLine == currentRace?.Horses.Count)
+        {
+            StartRace();
+        }
+    }
+
+    private void StartRace()
+    {
+        PlayAnnouncement(this.gunshotAndCommentary);
+
+        foreach (var runner in this.runners)
+        {
+            runner.Run();
+        }
+    }
+
+    private void PlayAnnouncement(AudioClip audioClip)
+    {
+        var announcerAudioSource = announcer?.GetComponent<AudioSource>();
+        if (announcerAudioSource != null)
+        {
+            announcerAudioSource.clip = audioClip;
+            announcerAudioSource.Play();
         }
     }
 

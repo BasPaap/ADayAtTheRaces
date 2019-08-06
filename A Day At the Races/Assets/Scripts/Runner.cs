@@ -28,6 +28,8 @@ public class Runner : MonoBehaviour
     public Vector3 ThirdCornerPosition { get; set; }
     public Vector3 FinishLinePosition { get; set; }
 
+    public event EventHandler ArrivedAtStartingLine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +67,7 @@ public class Runner : MonoBehaviour
             UpdateDestination();
         }       
     }    
-        
+    
     private void UpdateDestination()
     {
         if (navMeshAgent != null && !navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
@@ -73,6 +75,7 @@ public class Runner : MonoBehaviour
             if (!hasStartedRunning && navMeshAgent.speed > 0.0f)
             {
                 SetSpeed(0.0f);
+                ArrivedAtStartingLine?.Invoke(this, EventArgs.Empty);
             }
             else
             {
