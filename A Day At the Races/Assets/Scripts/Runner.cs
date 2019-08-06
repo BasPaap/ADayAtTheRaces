@@ -105,6 +105,9 @@ public class Runner : MonoBehaviour
     {
         hasStartedRunning = true;
         navMeshAgent.destination = FirstCornerPosition;
+
+        var audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
     
     private void UpdateRunningPhase()

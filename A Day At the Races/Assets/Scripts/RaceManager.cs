@@ -15,8 +15,11 @@ public class RaceManager : MonoBehaviour
     private Race currentRace;
     private GameObject startingGate;
     private int numRunnersAtStartingLine;
-
+    private TimeSpan raceStartTime = TimeSpan.Zero;
     private readonly List<Runner> runners = new List<Runner>();
+
+    private bool IsTimeToSetUpNewRace => futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now.TimeOfDay;
+    private bool IsTimeToStartRace => raceStartTime != TimeSpan.Zero && raceStartTime <= DateTime.Now.TimeOfDay;
 
     public GameObject announcer;
     public AudioClip announcerIntro;
@@ -45,7 +48,7 @@ public class RaceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsTimeToSetUpNewRace())
+        if (IsTimeToSetUpNewRace)
         {
             currentRace = futureRaces.Dequeue();
             horseParent.ClearChildren();
@@ -72,22 +75,24 @@ public class RaceManager : MonoBehaviour
                 runner.WalkToStartingLine();
             }
 
-            PlayAnnouncement(announcerIntro);
+            PlayAnnouncement(announcerIntro, 5.0f);
+        }
+
+        if (IsTimeToStartRace)
+        {
+            StartRace();
+            raceStartTime = TimeSpan.Zero;
         }
     }
 
-    private bool IsTimeToSetUpNewRace()
-    {
-        return futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now.TimeOfDay;
-    }
-
+        
     private void Runner_ArrivedAtStartingLine(object sender, EventArgs e)
     {
         numRunnersAtStartingLine++;
 
         if (numRunnersAtStartingLine == currentRace?.Horses.Count)
         {
-            StartRace();
+            raceStartTime = DateTime.Now.TimeOfDay + TimeSpan.FromSeconds(5.0);
         }
     }
 
@@ -101,13 +106,13 @@ public class RaceManager : MonoBehaviour
         }
     }
 
-    private void PlayAnnouncement(AudioClip audioClip)
+    private void PlayAnnouncement(AudioClip audioClip, float delay = 0.0f)
     {
         var announcerAudioSource = announcer?.GetComponent<AudioSource>();
         if (announcerAudioSource != null)
         {
             announcerAudioSource.clip = audioClip;
-            announcerAudioSource.Play();
+            announcerAudioSource.PlayDelayed(delay);
         }
     }
 
