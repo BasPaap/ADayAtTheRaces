@@ -71,7 +71,7 @@ public class RaceManager : MonoBehaviour
                 var runner = horseGameObject.GetComponent<Runner>();
                 this.runners.Add(runner);
                 runner.ArrivedAtStartingLine += Runner_ArrivedAtStartingLine;
-                runner.Initialize(horse, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position);
+                runner.Initialize(horse, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
                 runner.WalkToStartingLine();
             }
 

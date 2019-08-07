@@ -20,6 +20,10 @@ public class Runner : MonoBehaviour
     private int lapsRun = 0;
     private bool hasStartedRunning;
 
+    private TimeSpan trotAwayTime = TimeSpan.Zero;
+    private bool IsTimeToTrotAway => this.trotAwayTime != TimeSpan.Zero && this.trotAwayTime <= DateTime.Now.TimeOfDay;
+
+
     public float maxSpeed = 15.0f;
 
     public Vector3 StartingLinePosition { get; set; }
@@ -27,6 +31,7 @@ public class Runner : MonoBehaviour
     public Vector3 SecondCornerPosition { get; set; }
     public Vector3 ThirdCornerPosition { get; set; }
     public Vector3 FinishLinePosition { get; set; }
+    public Vector3 ExitPosition { get; set; }
 
     public event EventHandler ArrivedAtStartingLine;
 
@@ -41,7 +46,8 @@ public class Runner : MonoBehaviour
         Vector3 firstCornerPosition, 
         Vector3 secondCornerPosition, 
         Vector3 thirdCornerPosition, 
-        Vector3 finishLinePosition)
+        Vector3 finishLinePosition,
+        Vector3 exitPosition)
     {
         this.horse = horse;
         this.navMeshAgent = GetComponent<NavMeshAgent>();
@@ -52,6 +58,7 @@ public class Runner : MonoBehaviour
         SecondCornerPosition = secondCornerPosition;
         ThirdCornerPosition = thirdCornerPosition;
         FinishLinePosition = finishLinePosition;
+        ExitPosition = exitPosition;
 
         var cycleOffset = UnityEngine.Random.value;
         SetAnimationControllerCycleOffset(horsePath, cycleOffset);
@@ -65,6 +72,11 @@ public class Runner : MonoBehaviour
         {
             UpdateRunningPhase();
             UpdateDestination();
+
+            if (IsTimeToTrotAway)
+            {
+                TrotAway();
+            }
         }       
     }    
     
@@ -92,6 +104,10 @@ public class Runner : MonoBehaviour
                     navMeshAgent.destination = (this.lapsRun < totalLapsToRun - 1) ? FirstCornerPosition : FinishLinePosition;
                     this.lapsRun++;
                 }
+                else if (Vector3.Distance(navMeshAgent.destination, FinishLinePosition) < 0.02)
+                {
+                    this.trotAwayTime = DateTime.Now.TimeOfDay + TimeSpan.FromSeconds(0.5);
+                }
             }
         }
     }
@@ -101,6 +117,7 @@ public class Runner : MonoBehaviour
         navMeshAgent.destination = new Vector3(StartingLinePosition.x - 1.1f, transform.position.y, transform.position.z);
         SetSpeed(0.1f);
     }
+
     public void Run()
     {
         hasStartedRunning = true;
@@ -108,6 +125,16 @@ public class Runner : MonoBehaviour
 
         var audioSource = GetComponent<AudioSource>();
         audioSource.Play();
+    }
+
+    public void TrotAway()
+    {
+        this.trotAwayTime = TimeSpan.Zero;
+        navMeshAgent.destination = new Vector3(ExitPosition.x, transform.position.y, ExitPosition.z);
+        SetSpeed(0.3f);
+
+        var audioSource = GetComponent<AudioSource>();
+        audioSource.Stop();
     }
     
     private void UpdateRunningPhase()
