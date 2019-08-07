@@ -71,6 +71,7 @@ public class RaceManager : MonoBehaviour
                 var runner = horseGameObject.GetComponent<Runner>();
                 this.runners.Add(runner);
                 runner.ArrivedAtStartingLine += Runner_ArrivedAtStartingLine;
+                runner.ArrivedAtExitPosition += Runner_ArrivedAtExitPosition;
                 runner.Initialize(horse, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
                 runner.WalkToStartingLine();
             }
@@ -80,12 +81,20 @@ public class RaceManager : MonoBehaviour
 
         if (IsTimeToStartRace)
         {
-            StartRace();
-            raceStartTime = TimeSpan.Zero;
+            StartRace();            
         }
     }
 
-        
+    private void Runner_ArrivedAtExitPosition(object sender, EventArgs e)
+    {
+        var runner = sender as Runner;
+                
+        runner.ArrivedAtExitPosition -= Runner_ArrivedAtExitPosition;
+        runner.ArrivedAtStartingLine -= Runner_ArrivedAtStartingLine;
+        this.runners.Remove(sender as Runner);        
+        UnityEngine.Object.Destroy(runner.gameObject);
+    }
+
     private void Runner_ArrivedAtStartingLine(object sender, EventArgs e)
     {
         numRunnersAtStartingLine++;
@@ -98,6 +107,8 @@ public class RaceManager : MonoBehaviour
 
     private void StartRace()
     {
+        raceStartTime = TimeSpan.Zero;
+
         PlayAnnouncement(this.gunshotAndCommentary);
 
         foreach (var runner in this.runners)

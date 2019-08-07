@@ -1,4 +1,5 @@
-﻿using Bas.ADayAtTheRaces;
+﻿using Assets.Scripts;
+using Bas.ADayAtTheRaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ public class Runner : MonoBehaviour
 
     private TimeSpan trotAwayTime = TimeSpan.Zero;
     private bool IsTimeToTrotAway => this.trotAwayTime != TimeSpan.Zero && this.trotAwayTime <= DateTime.Now.TimeOfDay;
-
+    private bool IsNearDestination => navMeshAgent != null && !navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f;
 
     public float maxSpeed = 15.0f;
 
@@ -34,6 +35,7 @@ public class Runner : MonoBehaviour
     public Vector3 ExitPosition { get; set; }
 
     public event EventHandler ArrivedAtStartingLine;
+    public event EventHandler ArrivedAtExitPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +84,7 @@ public class Runner : MonoBehaviour
     
     private void UpdateDestination()
     {
-        if (navMeshAgent != null && !navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
+        if (IsNearDestination)
         {
             if (!hasStartedRunning && navMeshAgent.speed > 0.0f)
             {
@@ -91,22 +93,26 @@ public class Runner : MonoBehaviour
             }
             else
             {
-                if (Vector3.Distance(navMeshAgent.destination, FirstCornerPosition) < 0.02f)
+                if (navMeshAgent.IsDestination(FirstCornerPosition))
                 {
                     navMeshAgent.destination = SecondCornerPosition;
                 }
-                else if (Vector3.Distance(navMeshAgent.destination, SecondCornerPosition) < 0.02f)
+                else if (navMeshAgent.IsDestination(SecondCornerPosition))
                 {
                     navMeshAgent.destination = ThirdCornerPosition;
                 }
-                else if (Vector3.Distance(navMeshAgent.destination, ThirdCornerPosition) < 0.02)
+                else if (navMeshAgent.IsDestination(ThirdCornerPosition))
                 {
                     navMeshAgent.destination = (this.lapsRun < totalLapsToRun - 1) ? FirstCornerPosition : FinishLinePosition;
                     this.lapsRun++;
                 }
-                else if (Vector3.Distance(navMeshAgent.destination, FinishLinePosition) < 0.02)
+                else if (navMeshAgent.IsDestination(FinishLinePosition))
                 {
                     this.trotAwayTime = DateTime.Now.TimeOfDay + TimeSpan.FromSeconds(0.5);
+                }
+                else if (navMeshAgent.IsDestination(ExitPosition))
+                {
+                    ArrivedAtExitPosition?.Invoke(this, EventArgs.Empty);
                 }
             }
         }
@@ -130,7 +136,7 @@ public class Runner : MonoBehaviour
     public void TrotAway()
     {
         this.trotAwayTime = TimeSpan.Zero;
-        navMeshAgent.destination = new Vector3(ExitPosition.x, transform.position.y, ExitPosition.z);
+        navMeshAgent.destination = ExitPosition;
         SetSpeed(0.3f);
 
         var audioSource = GetComponent<AudioSource>();

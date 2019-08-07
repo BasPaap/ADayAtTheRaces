@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\HorseExtensions.cs" />
+    <Compile Include="Assets\Scripts\NavMeshAgentExtensions.cs" />
     <Compile Include="Assets\Scripts\RaceManager.cs" />
     <Compile Include="Assets\Scripts\Runner.cs" />
     <Compile Include="Assets\Scripts\TransformExtensions.cs" />
