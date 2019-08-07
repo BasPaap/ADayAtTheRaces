@@ -120,6 +120,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 0b04e76ed187511429cc8c3003b4b6af, type: 2}
+--- !u!1 &56476384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 56476386}
+  - component: {fileID: 56476385}
+  m_Layer: 0
+  m_Name: RaceResultsWriter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &56476385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56476384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c70088b61747bd147892016e0802db9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &56476386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56476384}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.730103, y: -3.484375, z: 22.927309}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158613167
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5817a10e0d28f8f4db2a551736c27ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raceResultsWriter: {fileID: 56476385}
   announcer: {fileID: 565844243}
   announcerIntro: {fileID: 8300000, guid: 1d3edf18534de4440b9de9fc14b2b386, type: 3}
   gunshotAndCommentary: {fileID: 8300000, guid: 0a73e2285ef9303488afa9dd5c0746d5,

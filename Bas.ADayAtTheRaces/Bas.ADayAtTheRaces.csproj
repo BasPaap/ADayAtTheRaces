@@ -51,6 +51,9 @@
     <Compile Include="Horse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race.cs" />
+    <Compile Include="RaceResults\Finish.cs" />
+    <Compile Include="RaceResults\RaceResultsFile.cs" />
+    <Compile Include="RaceResults\RaceResult.cs" />
     <Compile Include="RunningPhase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

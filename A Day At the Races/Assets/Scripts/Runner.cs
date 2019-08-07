@@ -12,12 +12,12 @@ public class Runner : MonoBehaviour
     private const int totalLapsToRun = 2;
     private const string horsePath = "Horse_With_Jockey_PBR/Horse_PBR/horse";
     private const string jockeyPath = "Horse_With_Jockey_PBR/Jockey_PBR/jockey";
-
-    private Horse horse;
+        
     private RunningPhase currentRunningPhase;
     private float currentRunningPhaseStartTime;
     private NavMeshAgent navMeshAgent;
     private bool isInLastPhase = false;
+    private bool isFinished = false;
     private int lapsRun = 0;
     private bool hasStartedRunning;
 
@@ -27,6 +27,7 @@ public class Runner : MonoBehaviour
 
     public float maxSpeed = 15.0f;
 
+    public Horse Horse { get; private set; }
     public Vector3 StartingLinePosition { get; set; }
     public Vector3 FirstCornerPosition { get; set; }
     public Vector3 SecondCornerPosition { get; set; }
@@ -35,6 +36,7 @@ public class Runner : MonoBehaviour
     public Vector3 ExitPosition { get; set; }
 
     public event EventHandler ArrivedAtStartingLine;
+    public event EventHandler Finished;
     public event EventHandler ArrivedAtExitPosition;
 
     // Start is called before the first frame update
@@ -51,7 +53,7 @@ public class Runner : MonoBehaviour
         Vector3 finishLinePosition,
         Vector3 exitPosition)
     {
-        this.horse = horse;
+        this.Horse = horse;
         this.navMeshAgent = GetComponent<NavMeshAgent>();
         this.navMeshAgent.Warp(transform.position);
 
@@ -70,7 +72,7 @@ public class Runner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (horse != null)
+        if (Horse != null)
         {
             UpdateRunningPhase();
             UpdateDestination();
@@ -106,9 +108,14 @@ public class Runner : MonoBehaviour
                     navMeshAgent.destination = (this.lapsRun < totalLapsToRun - 1) ? FirstCornerPosition : FinishLinePosition;
                     this.lapsRun++;
                 }
-                else if (navMeshAgent.IsDestination(FinishLinePosition))
+                else if (navMeshAgent.IsDestination(FinishLinePosition, 0.1f))
                 {
-                    this.trotAwayTime = DateTime.Now.TimeOfDay + TimeSpan.FromSeconds(0.5);
+                    if (!this.isFinished)
+                    {
+                        this.isFinished = true;
+                        Finished?.Invoke(this, EventArgs.Empty);
+                        this.trotAwayTime = DateTime.Now.TimeOfDay + TimeSpan.FromSeconds(0.5);
+                    }                    
                 }
                 else if (navMeshAgent.IsDestination(ExitPosition))
                 {
@@ -149,7 +156,7 @@ public class Runner : MonoBehaviour
         {
             if (currentRunningPhase == null)
             {
-                SetRunningPhase(horse.RunningPhases.First());
+                SetRunningPhase(Horse.RunningPhases.First());
             }
 
             if (!isInLastPhase)
@@ -158,17 +165,17 @@ public class Runner : MonoBehaviour
                 {
                     int nextRunningPhaseIndex;
 
-                    if (currentRunningPhase == horse.RunningPhases.Last())
+                    if (currentRunningPhase == Horse.RunningPhases.Last())
                     {
                         nextRunningPhaseIndex = 0;
                         isInLastPhase = true;
                     }
                     else
                     {
-                        nextRunningPhaseIndex = horse.RunningPhases.IndexOf(currentRunningPhase) + 1;
+                        nextRunningPhaseIndex = Horse.RunningPhases.IndexOf(currentRunningPhase) + 1;
                     }
 
-                    SetRunningPhase(horse.RunningPhases[nextRunningPhaseIndex]);
+                    SetRunningPhase(Horse.RunningPhases[nextRunningPhaseIndex]);
                 }
             }
         }        
@@ -187,7 +194,7 @@ public class Runner : MonoBehaviour
         currentRunningPhase = runningPhase;
 
         SetSpeed(currentRunningPhase.Speed);        
-        Debug.Log($"{gameObject.name} speed set to {runningPhase.Speed} for {runningPhase.Duration.TotalSeconds} seconds (index {this.horse.RunningPhases.IndexOf(runningPhase)})");
+        Debug.Log($"{gameObject.name} speed set to {runningPhase.Speed} for {runningPhase.Duration.TotalSeconds} seconds (index {this.Horse.RunningPhases.IndexOf(runningPhase)})");
     }
 
     private void SetAnimationControllerSpeedParameters(string path, float relativeSpeed)

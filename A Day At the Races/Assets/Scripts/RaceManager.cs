@@ -21,6 +21,7 @@ public class RaceManager : MonoBehaviour
     private bool IsTimeToSetUpNewRace => futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now.TimeOfDay;
     private bool IsTimeToStartRace => raceStartTime != TimeSpan.Zero && raceStartTime <= DateTime.Now.TimeOfDay;
 
+    public RaceResultsWriter raceResultsWriter;
     public GameObject announcer;
     public AudioClip announcerIntro;
     public AudioClip gunshotAndCommentary;
@@ -72,6 +73,7 @@ public class RaceManager : MonoBehaviour
                 this.runners.Add(runner);
                 runner.ArrivedAtStartingLine += Runner_ArrivedAtStartingLine;
                 runner.ArrivedAtExitPosition += Runner_ArrivedAtExitPosition;
+                runner.Finished += Runner_Finished;
                 runner.Initialize(horse, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
                 runner.WalkToStartingLine();
             }
@@ -85,19 +87,25 @@ public class RaceManager : MonoBehaviour
         }
     }
 
+    private void Runner_Finished(object sender, EventArgs e)
+    {
+        this.raceResultsWriter.AddResult(this.currentRace, (sender as Runner).Horse, DateTime.Now.TimeOfDay);
+    }
+
     private void Runner_ArrivedAtExitPosition(object sender, EventArgs e)
     {
         var runner = sender as Runner;
                 
         runner.ArrivedAtExitPosition -= Runner_ArrivedAtExitPosition;
         runner.ArrivedAtStartingLine -= Runner_ArrivedAtStartingLine;
+        runner.Finished -= Runner_Finished;
         this.runners.Remove(sender as Runner);        
         UnityEngine.Object.Destroy(runner.gameObject);
     }
 
     private void Runner_ArrivedAtStartingLine(object sender, EventArgs e)
     {
-        numRunnersAtStartingLine++;
+        this.numRunnersAtStartingLine++;
 
         if (numRunnersAtStartingLine == currentRace?.Horses.Count)
         {
