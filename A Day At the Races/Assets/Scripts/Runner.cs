@@ -108,7 +108,7 @@ public class Runner : MonoBehaviour
                     navMeshAgent.destination = (this.lapsRun < totalLapsToRun - 1) ? FirstCornerPosition : FinishLinePosition;
                     this.lapsRun++;
                 }
-                else if (navMeshAgent.IsDestination(FinishLinePosition, 0.1f))
+                else if (navMeshAgent.IsDestination(FinishLinePosition, 0.05f))
                 {
                     if (!this.isFinished)
                     {

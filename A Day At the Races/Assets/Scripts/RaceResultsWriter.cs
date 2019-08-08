@@ -9,6 +9,7 @@ public class RaceResultsWriter : MonoBehaviour
 {
     private readonly List<Finish> finishes = new List<Finish>();
     private Race currentRace;
+    public TimeSpan GunshotTime { get; set; }
 
     public void AddResult(Race race, Horse horse, TimeSpan time)
     {
@@ -17,7 +18,7 @@ public class RaceResultsWriter : MonoBehaviour
         var finish = new Finish()
         {
             HorseName = horse.Name,
-            TotalTime = time - race.Time,
+            TotalTime = time - GunshotTime,
             Position = finishes.Count + 1
         };
 

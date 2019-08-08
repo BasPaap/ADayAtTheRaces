@@ -78,7 +78,7 @@ public class RaceManager : MonoBehaviour
                 runner.WalkToStartingLine();
             }
 
-            PlayAnnouncement(announcerIntro, 5.0f);
+            PlayAnnouncement(announcerIntro, 8.0f);
         }
 
         if (IsTimeToStartRace)
@@ -116,8 +116,8 @@ public class RaceManager : MonoBehaviour
     private void StartRace()
     {
         raceStartTime = TimeSpan.Zero;
-
         PlayAnnouncement(this.gunshotAndCommentary);
+        this.raceResultsWriter.GunshotTime = DateTime.Now.TimeOfDay;
 
         foreach (var runner in this.runners)
         {
