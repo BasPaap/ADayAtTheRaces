@@ -57,7 +57,7 @@
                                                 <GridViewColumn Width="200" Header="Snelheid in eerste ronde">
                                                     <GridViewColumn.CellTemplate>
                                                         <DataTemplate>
-                                                            <Slider Width="180" Minimum="0.5" Maximum="1.5" Value="0.5" TickPlacement="Both" TickFrequency="0.1" ></Slider>
+                                                            <Slider Width="180" Minimum="0.5" Maximum="1.5" Value="{Binding FirstLapSpeed, Mode=TwoWay}" TickPlacement="Both" TickFrequency="0.1" ></Slider>
                                                         </DataTemplate>
                                                     </GridViewColumn.CellTemplate>
                                                 </GridViewColumn>
@@ -65,7 +65,7 @@
                                                 <GridViewColumn Width="200" Header="Snelheid in tweede ronde">
                                                     <GridViewColumn.CellTemplate>
                                                         <DataTemplate>
-                                                            <Slider Width="180" Minimum="0.5" Maximum="1.5" Value="{Binding SecondLapSpeed}" TickPlacement="Both"></Slider>
+                                                            <Slider Width="180" Minimum="0.5" Maximum="1.5" Value="{Binding SecondLapSpeed, Mode=TwoWay}" TickPlacement="Both"></Slider>
                                                         </DataTemplate>
                                                     </GridViewColumn.CellTemplate>
                                                 </GridViewColumn>
