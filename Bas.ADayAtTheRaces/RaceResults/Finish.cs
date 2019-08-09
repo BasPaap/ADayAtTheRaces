@@ -18,5 +18,8 @@ namespace Bas.ADayAtTheRaces.RaceResults
 
         [DataMember]
         public string HorseName { get; set; }
+
+        [DataMember]
+        public Color HorseColor { get; set; }
     }
 }
