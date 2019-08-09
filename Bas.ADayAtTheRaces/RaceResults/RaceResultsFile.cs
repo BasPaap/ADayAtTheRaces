@@ -44,7 +44,7 @@ namespace Bas.ADayAtTheRaces.RaceResults
         {
             try
             {
-                using (var xmlReader = new XmlTextReader(fileName))
+                using (var xmlReader = new XmlTextReader(Path.Combine(this.filePath, fileName)))
                 {
                     var serializer = new DataContractSerializer(typeof(RaceResultsFile));
                     var newRaceResultsFile = serializer.ReadObject(xmlReader) as RaceResultsFile;
