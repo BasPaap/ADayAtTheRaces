@@ -114,12 +114,12 @@ namespace Bas.ADayAtTheRaces
             firstRace.HorseSpeeds[twilightSparkle] = (1.0f, 1.5f);
             firstRace.HorseSpeeds[fluttershy] = (1.0f, 1.0f);
             firstRace.HorseSpeeds[rarity] = (1.0f, 1.0f);
-            firstRace.HorseColors[rainbowDash] = new Color(0x82, 0xC2, 0xE4);
-            firstRace.HorseColors[pinkiePie] = new Color(0xF6, 0xB8, 0xD5);
-            firstRace.HorseColors[applejack] = new Color(0xFC, 0xB7, 0x62);
-            firstRace.HorseColors[twilightSparkle] = new Color(0xD8, 0x67, 0xB4);
-            firstRace.HorseColors[fluttershy] = new Color(0xFD, 0xF5, 0xAA);
-            firstRace.HorseColors[rarity] = new Color(0xEA, 0xED, 0xF1);
+            firstRace.JockeyColors[rainbowDash] = new Color(0x82, 0xC2, 0xE4);
+            firstRace.JockeyColors[pinkiePie] = new Color(0xF6, 0xB8, 0xD5);
+            firstRace.JockeyColors[applejack] = new Color(0xFC, 0xB7, 0x62);
+            firstRace.JockeyColors[twilightSparkle] = new Color(0xD8, 0x67, 0xB4);
+            firstRace.JockeyColors[fluttershy] = new Color(0xFD, 0xF5, 0xAA);
+            firstRace.JockeyColors[rarity] = new Color(0xEA, 0xED, 0xF1);
             
             var fiveMinutesFromNow = tenSecondsFromNow.Add(TimeSpan.FromMinutes(5));
             var secondRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes, fiveMinutesFromNow.Seconds);
@@ -135,12 +135,12 @@ namespace Bas.ADayAtTheRaces
             secondRace.HorseSpeeds[twilightSparkle] = (0.5f, 0.5f);
             secondRace.HorseSpeeds[fluttershy] = (0.5f, 0.5f);
             secondRace.HorseSpeeds[rarity] = (0.5f, 0.5f);
-            secondRace.HorseColors[rainbowDash] = new Color(0x82, 0xC2, 0xE4);
-            secondRace.HorseColors[pinkiePie] = new Color(0xF6, 0xB8, 0xD5);
-            secondRace.HorseColors[applejack] = new Color(0xFC, 0xB7, 0x62);
-            secondRace.HorseColors[twilightSparkle] = new Color(0xD8, 0x67, 0xB4);
-            secondRace.HorseColors[fluttershy] = new Color(0xFD, 0xF5, 0xAA);
-            secondRace.HorseColors[rarity] = new Color(0xEA, 0xED, 0xF1);
+            secondRace.JockeyColors[rainbowDash] = new Color(0x82, 0xC2, 0xE4);
+            secondRace.JockeyColors[pinkiePie] = new Color(0xF6, 0xB8, 0xD5);
+            secondRace.JockeyColors[applejack] = new Color(0xFC, 0xB7, 0x62);
+            secondRace.JockeyColors[twilightSparkle] = new Color(0xD8, 0x67, 0xB4);
+            secondRace.JockeyColors[fluttershy] = new Color(0xFD, 0xF5, 0xAA);
+            secondRace.JockeyColors[rarity] = new Color(0xEA, 0xED, 0xF1);
 
             Races.Add(firstRace);
             Races.Add(secondRace);

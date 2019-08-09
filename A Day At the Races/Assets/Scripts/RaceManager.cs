@@ -65,9 +65,8 @@ public class RaceManager : MonoBehaviour
                 var horsePosition = firstStallPosition + new Vector3(UnityEngine.Random.Range(0.0f, 2.0f), 0, firstStallPosition.z - horseIndex * (horseWidth + distanceBetweenHorses));
                 var horseGameObject = Instantiate(horsePrefab, horsePosition, horsePrefab.transform.rotation, horseParent);
                 horseGameObject.name = horse.Name;
-                //horseGameObject.GetComponent<Renderer>().material.color = currentRace.HorseColors[horse].ToUnityColor();
-
-                SetHorseColor(horseGameObject, currentRace.HorseColors[horse].ToUnityColor());
+                
+                SetJockeyColor(horseGameObject, currentRace.JockeyColors[horse].ToUnityColor());
 
                 var runner = horseGameObject.GetComponent<Runner>();
                 this.runners.Add(runner);
@@ -135,7 +134,7 @@ public class RaceManager : MonoBehaviour
         }
     }
 
-    private void SetHorseColor(GameObject horse, UnityEngine.Color color)
+    private void SetJockeyColor(GameObject horse, UnityEngine.Color color)
     {
         foreach (var path in new[] { "Horse_PBR/horse/saddle",
                                      "Horse_PBR/horse/saddle_lod",

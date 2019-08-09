@@ -20,6 +20,6 @@ namespace Bas.ADayAtTheRaces.RaceResults
         public string HorseName { get; set; }
 
         [DataMember]
-        public Color HorseColor { get; set; }
+        public Color JockeyColor { get; set; }
     }
 }

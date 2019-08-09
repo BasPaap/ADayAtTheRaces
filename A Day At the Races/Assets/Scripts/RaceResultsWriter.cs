@@ -18,7 +18,7 @@ public class RaceResultsWriter : MonoBehaviour
         var finish = new Finish()
         {
             HorseName = horse.Name,
-            HorseColor = race.HorseColors[horse],
+            JockeyColor = race.JockeyColors[horse],
             TotalTime = time - GunshotTime,
             Position = finishes.Count + 1
         };

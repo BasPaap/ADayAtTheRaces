@@ -18,7 +18,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
         {
             foreach (var finish in raceResult.Finishes)
             {
-                FinishedHorses.Add(new FinishedHorseViewModel(finish.Position, finish.TotalTime, finish.HorseName, finish.HorseColor));
+                FinishedHorses.Add(new FinishedHorseViewModel(finish.Position, finish.TotalTime, finish.HorseName, finish.JockeyColor));
             }
         }
     }

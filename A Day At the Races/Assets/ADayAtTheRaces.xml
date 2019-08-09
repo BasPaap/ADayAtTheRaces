@@ -117,57 +117,7 @@
   </Horses>
   <Races z:Id="39" z:Size="2">
     <Race z:Id="40">
-      <HorseColors xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="41" z:Size="6">
-        <d4p1:KeyValueOfHorseColor4jq7WkmW>
-          <d4p1:Key z:Ref="3" i:nil="true" />
-          <d4p1:Value z:Id="42">
-            <Blue>228</Blue>
-            <Green>194</Green>
-            <Red>130</Red>
-          </d4p1:Value>
-        </d4p1:KeyValueOfHorseColor4jq7WkmW>
-        <d4p1:KeyValueOfHorseColor4jq7WkmW>
-          <d4p1:Key z:Ref="9" i:nil="true" />
-          <d4p1:Value z:Id="43">
-            <Blue>213</Blue>
-            <Green>184</Green>
-            <Red>246</Red>
-          </d4p1:Value>
-        </d4p1:KeyValueOfHorseColor4jq7WkmW>
-        <d4p1:KeyValueOfHorseColor4jq7WkmW>
-          <d4p1:Key z:Ref="15" i:nil="true" />
-          <d4p1:Value z:Id="44">
-            <Blue>98</Blue>
-            <Green>183</Green>
-            <Red>252</Red>
-          </d4p1:Value>
-        </d4p1:KeyValueOfHorseColor4jq7WkmW>
-        <d4p1:KeyValueOfHorseColor4jq7WkmW>
-          <d4p1:Key z:Ref="21" i:nil="true" />
-          <d4p1:Value z:Id="45">
-            <Blue>180</Blue>
-            <Green>103</Green>
-            <Red>216</Red>
-          </d4p1:Value>
-        </d4p1:KeyValueOfHorseColor4jq7WkmW>
-        <d4p1:KeyValueOfHorseColor4jq7WkmW>
-          <d4p1:Key z:Ref="27" i:nil="true" />
-          <d4p1:Value z:Id="46">
-            <Blue>170</Blue>
-            <Green>245</Green>
-            <Red>253</Red>
-          </d4p1:Value>
-        </d4p1:KeyValueOfHorseColor4jq7WkmW>
-        <d4p1:KeyValueOfHorseColor4jq7WkmW>
-          <d4p1:Key z:Ref="33" i:nil="true" />
-          <d4p1:Value z:Id="47">
-            <Blue>241</Blue>
-            <Green>237</Green>
-            <Red>234</Red>
-          </d4p1:Value>
-        </d4p1:KeyValueOfHorseColor4jq7WkmW>
-      </HorseColors>
-      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="48" z:Size="6">
+      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="41" z:Size="6">
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
           <d4p1:Key z:Ref="3" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
@@ -211,7 +161,7 @@
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
       </HorseSpeeds>
-      <Horses z:Id="49" z:Size="6">
+      <Horses z:Id="42" z:Size="6">
         <Horse z:Ref="3" i:nil="true" />
         <Horse z:Ref="9" i:nil="true" />
         <Horse z:Ref="15" i:nil="true" />
@@ -219,13 +169,10 @@
         <Horse z:Ref="27" i:nil="true" />
         <Horse z:Ref="33" i:nil="true" />
       </Horses>
-      <Time>PT22H29M18S</Time>
-    </Race>
-    <Race z:Id="50">
-      <HorseColors xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="51" z:Size="6">
+      <JockeyColors xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="43" z:Size="6">
         <d4p1:KeyValueOfHorseColor4jq7WkmW>
           <d4p1:Key z:Ref="3" i:nil="true" />
-          <d4p1:Value z:Id="52">
+          <d4p1:Value z:Id="44">
             <Blue>228</Blue>
             <Green>194</Green>
             <Red>130</Red>
@@ -233,7 +180,7 @@
         </d4p1:KeyValueOfHorseColor4jq7WkmW>
         <d4p1:KeyValueOfHorseColor4jq7WkmW>
           <d4p1:Key z:Ref="9" i:nil="true" />
-          <d4p1:Value z:Id="53">
+          <d4p1:Value z:Id="45">
             <Blue>213</Blue>
             <Green>184</Green>
             <Red>246</Red>
@@ -241,7 +188,7 @@
         </d4p1:KeyValueOfHorseColor4jq7WkmW>
         <d4p1:KeyValueOfHorseColor4jq7WkmW>
           <d4p1:Key z:Ref="15" i:nil="true" />
-          <d4p1:Value z:Id="54">
+          <d4p1:Value z:Id="46">
             <Blue>98</Blue>
             <Green>183</Green>
             <Red>252</Red>
@@ -249,7 +196,7 @@
         </d4p1:KeyValueOfHorseColor4jq7WkmW>
         <d4p1:KeyValueOfHorseColor4jq7WkmW>
           <d4p1:Key z:Ref="21" i:nil="true" />
-          <d4p1:Value z:Id="55">
+          <d4p1:Value z:Id="47">
             <Blue>180</Blue>
             <Green>103</Green>
             <Red>216</Red>
@@ -257,7 +204,7 @@
         </d4p1:KeyValueOfHorseColor4jq7WkmW>
         <d4p1:KeyValueOfHorseColor4jq7WkmW>
           <d4p1:Key z:Ref="27" i:nil="true" />
-          <d4p1:Value z:Id="56">
+          <d4p1:Value z:Id="48">
             <Blue>170</Blue>
             <Green>245</Green>
             <Red>253</Red>
@@ -265,14 +212,17 @@
         </d4p1:KeyValueOfHorseColor4jq7WkmW>
         <d4p1:KeyValueOfHorseColor4jq7WkmW>
           <d4p1:Key z:Ref="33" i:nil="true" />
-          <d4p1:Value z:Id="57">
+          <d4p1:Value z:Id="49">
             <Blue>241</Blue>
             <Green>237</Green>
             <Red>234</Red>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseColor4jq7WkmW>
-      </HorseColors>
-      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="58" z:Size="6">
+      </JockeyColors>
+      <Time>PT22H38M52S</Time>
+    </Race>
+    <Race z:Id="50">
+      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="51" z:Size="6">
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
           <d4p1:Key z:Ref="3" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
@@ -316,7 +266,7 @@
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
       </HorseSpeeds>
-      <Horses z:Id="59" z:Size="6">
+      <Horses z:Id="52" z:Size="6">
         <Horse z:Ref="3" i:nil="true" />
         <Horse z:Ref="9" i:nil="true" />
         <Horse z:Ref="15" i:nil="true" />
@@ -324,7 +274,57 @@
         <Horse z:Ref="27" i:nil="true" />
         <Horse z:Ref="33" i:nil="true" />
       </Horses>
-      <Time>PT22H34M18S</Time>
+      <JockeyColors xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="53" z:Size="6">
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="3" i:nil="true" />
+          <d4p1:Value z:Id="54">
+            <Blue>228</Blue>
+            <Green>194</Green>
+            <Red>130</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="9" i:nil="true" />
+          <d4p1:Value z:Id="55">
+            <Blue>213</Blue>
+            <Green>184</Green>
+            <Red>246</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="15" i:nil="true" />
+          <d4p1:Value z:Id="56">
+            <Blue>98</Blue>
+            <Green>183</Green>
+            <Red>252</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="21" i:nil="true" />
+          <d4p1:Value z:Id="57">
+            <Blue>180</Blue>
+            <Green>103</Green>
+            <Red>216</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="27" i:nil="true" />
+          <d4p1:Value z:Id="58">
+            <Blue>170</Blue>
+            <Green>245</Green>
+            <Red>253</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="33" i:nil="true" />
+          <d4p1:Value z:Id="59">
+            <Blue>241</Blue>
+            <Green>237</Green>
+            <Red>234</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+      </JockeyColors>
+      <Time>PT22H43M52S</Time>
     </Race>
   </Races>
 </ADayAtTheRacesConfiguration>
