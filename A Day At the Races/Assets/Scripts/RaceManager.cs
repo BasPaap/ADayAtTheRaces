@@ -73,7 +73,7 @@ public class RaceManager : MonoBehaviour
                 runner.ArrivedAtStartingLine += Runner_ArrivedAtStartingLine;
                 runner.ArrivedAtExitPosition += Runner_ArrivedAtExitPosition;
                 runner.Finished += Runner_Finished;
-                runner.Initialize(horse, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
+                runner.Initialize(horse, currentRace.HorseSpeeds[horse].firstLapSpeed, currentRace.HorseSpeeds[horse].secondLapSpeed, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
                 runner.WalkToStartingLine();
             }
 

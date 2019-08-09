@@ -27,6 +27,9 @@ public class Runner : MonoBehaviour
 
     public float maxSpeed = 15.0f;
 
+    private float firstLapSpeed = 1.0f;
+    private float secondLapSpeed = 1.0f;
+
     public Horse Horse { get; private set; }
     public Vector3 StartingLinePosition { get; set; }
     public Vector3 FirstCornerPosition { get; set; }
@@ -46,6 +49,8 @@ public class Runner : MonoBehaviour
     }
 
     public void Initialize(Horse horse, 
+        float firstLapSpeed,
+        float secondLapSpeed,
         Vector3 startingLinePosition, 
         Vector3 firstCornerPosition, 
         Vector3 secondCornerPosition, 
@@ -56,6 +61,8 @@ public class Runner : MonoBehaviour
         this.Horse = horse;
         this.navMeshAgent = GetComponent<NavMeshAgent>();
         this.navMeshAgent.Warp(transform.position);
+        this.firstLapSpeed = firstLapSpeed;
+        this.secondLapSpeed = secondLapSpeed;
 
         StartingLinePosition = startingLinePosition;
         FirstCornerPosition = firstCornerPosition;
@@ -97,6 +104,12 @@ public class Runner : MonoBehaviour
             {
                 if (navMeshAgent.IsDestination(FirstCornerPosition))
                 {
+                    if (this.lapsRun > 0)
+                    {
+                        Debug.Log($"Lap! setting next lap speed to {secondLapSpeed}");
+                        SetSpeed(currentRunningPhase.Speed * secondLapSpeed);
+                    }
+
                     navMeshAgent.destination = SecondCornerPosition;
                 }
                 else if (navMeshAgent.IsDestination(SecondCornerPosition))
@@ -182,7 +195,7 @@ public class Runner : MonoBehaviour
     }
         
     private void SetSpeed(float relativeSpeed)
-    {
+    {        
         navMeshAgent.speed = relativeSpeed * maxSpeed;
         SetAnimationControllerSpeedParameters(horsePath, relativeSpeed);
         SetAnimationControllerSpeedParameters(jockeyPath, relativeSpeed);
@@ -193,8 +206,9 @@ public class Runner : MonoBehaviour
         currentRunningPhaseStartTime = Time.time;
         currentRunningPhase = runningPhase;
 
-        SetSpeed(currentRunningPhase.Speed);        
-        Debug.Log($"{gameObject.name} speed set to {runningPhase.Speed} for {runningPhase.Duration.TotalSeconds} seconds (index {this.Horse.RunningPhases.IndexOf(runningPhase)})");
+        var adjustedSpeed = currentRunningPhase.Speed * (lapsRun == 0 ? firstLapSpeed : secondLapSpeed);
+        SetSpeed(adjustedSpeed);        
+        Debug.Log($"{gameObject.name} speed set to {adjustedSpeed} for {runningPhase.Duration.TotalSeconds} seconds (index {this.Horse.RunningPhases.IndexOf(runningPhase)})");
     }
 
     private void SetAnimationControllerSpeedParameters(string path, float relativeSpeed)
