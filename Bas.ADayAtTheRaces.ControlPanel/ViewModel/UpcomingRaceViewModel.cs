@@ -17,7 +17,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
         {
             foreach (var horse in race.Horses)
             {
-                UpcomingHorses.Add(new UpcomingHorseViewModel(horse, race.HorseSpeeds[horse]));
+                UpcomingHorses.Add(new UpcomingHorseViewModel(horse, race.HorseColors[horse], race.HorseSpeeds[horse]));
             }
         }
     }

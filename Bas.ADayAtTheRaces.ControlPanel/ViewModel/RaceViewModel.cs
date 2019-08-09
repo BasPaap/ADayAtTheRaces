@@ -28,7 +28,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
 
             foreach (var horse in race.Horses)
             {
-                Horses.Add(new HorseViewModel(horse));
+                Horses.Add(new HorseViewModel(horse, race.HorseColors[horse]));
             }
         }
 

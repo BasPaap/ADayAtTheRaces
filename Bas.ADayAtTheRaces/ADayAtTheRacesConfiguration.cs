@@ -28,8 +28,7 @@ namespace Bas.ADayAtTheRaces
         {
             var rainbowDash = new Horse
             {
-                Name = "Rainbow Dash",
-                Color = new Color(0x82, 0xC2, 0xE4),
+                Name = "Rainbow Dash",                
                 ReactionSpeed = 0.2f,
                 Reliability = 1.0f
             };
@@ -41,7 +40,6 @@ namespace Bas.ADayAtTheRaces
             var pinkiePie = new Horse
             {
                 Name = "Pinkie Pie",
-                Color = new Color(0xF6, 0xB8, 0xD5),
                 ReactionSpeed = 1.0f,
                 Reliability = 0.2f
             };
@@ -53,7 +51,6 @@ namespace Bas.ADayAtTheRaces
             var applejack = new Horse
             {
                 Name = "Applejack",
-                Color = new Color(0xFC, 0xB7, 0x62),
                 ReactionSpeed = 0.5f,
                 Reliability = 0.5f
             };
@@ -65,7 +62,6 @@ namespace Bas.ADayAtTheRaces
             var twilightSparkle = new Horse
             {
                 Name = "Twilight Sparkle",
-                Color = new Color(0xD8, 0x67, 0xB4),
                 ReactionSpeed = 0.5f,
                 Reliability = 1.0f
 
@@ -78,7 +74,6 @@ namespace Bas.ADayAtTheRaces
             var fluttershy = new Horse
             {
                 Name = "Fluttershy",
-                Color = new Color(0xFD, 0xF5, 0xAA),
                 ReactionSpeed = 0.1f,
                 Reliability = 0.8f
             };
@@ -90,7 +85,6 @@ namespace Bas.ADayAtTheRaces
             var rarity = new Horse
             {
                 Name = "Rarity",
-                Color = new Color(0xEA, 0xED, 0xF1),
                 ReactionSpeed = 0.7f,
                 Reliability = 0.6f
             };
@@ -120,7 +114,13 @@ namespace Bas.ADayAtTheRaces
             firstRace.HorseSpeeds[twilightSparkle] = (1.0f, 1.5f);
             firstRace.HorseSpeeds[fluttershy] = (1.0f, 1.0f);
             firstRace.HorseSpeeds[rarity] = (1.0f, 1.0f);
-
+            firstRace.HorseColors[rainbowDash] = new Color(0x82, 0xC2, 0xE4);
+            firstRace.HorseColors[pinkiePie] = new Color(0xF6, 0xB8, 0xD5);
+            firstRace.HorseColors[applejack] = new Color(0xFC, 0xB7, 0x62);
+            firstRace.HorseColors[twilightSparkle] = new Color(0xD8, 0x67, 0xB4);
+            firstRace.HorseColors[fluttershy] = new Color(0xFD, 0xF5, 0xAA);
+            firstRace.HorseColors[rarity] = new Color(0xEA, 0xED, 0xF1);
+            
             var fiveMinutesFromNow = tenSecondsFromNow.Add(TimeSpan.FromMinutes(5));
             var secondRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes, fiveMinutesFromNow.Seconds);
             secondRace.Horses.Add(rainbowDash);
@@ -135,6 +135,12 @@ namespace Bas.ADayAtTheRaces
             secondRace.HorseSpeeds[twilightSparkle] = (0.5f, 0.5f);
             secondRace.HorseSpeeds[fluttershy] = (0.5f, 0.5f);
             secondRace.HorseSpeeds[rarity] = (0.5f, 0.5f);
+            secondRace.HorseColors[rainbowDash] = new Color(0x82, 0xC2, 0xE4);
+            secondRace.HorseColors[pinkiePie] = new Color(0xF6, 0xB8, 0xD5);
+            secondRace.HorseColors[applejack] = new Color(0xFC, 0xB7, 0x62);
+            secondRace.HorseColors[twilightSparkle] = new Color(0xD8, 0x67, 0xB4);
+            secondRace.HorseColors[fluttershy] = new Color(0xFD, 0xF5, 0xAA);
+            secondRace.HorseColors[rarity] = new Color(0xEA, 0xED, 0xF1);
 
             Races.Add(firstRace);
             Races.Add(secondRace);

@@ -1,153 +1,173 @@
 ﻿<ADayAtTheRacesConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" z:Id="1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://schemas.datacontract.org/2004/07/Bas.ADayAtTheRaces">
   <Horses z:Id="2" z:Size="6">
     <Horse z:Id="3">
-      <Color z:Id="4">
-        <Blue>228</Blue>
-        <Green>194</Green>
-        <Red>130</Red>
-      </Color>
-      <Name z:Id="5">Rainbow Dash</Name>
+      <Name z:Id="4">Rainbow Dash</Name>
       <ReactionSpeed>0.2</ReactionSpeed>
       <Reliability>1</Reliability>
-      <RunningPhases z:Id="6" z:Size="3">
-        <RunningPhase z:Id="7">
+      <RunningPhases z:Id="5" z:Size="3">
+        <RunningPhase z:Id="6">
           <Duration>PT10S</Duration>
           <Speed>0.5</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="8">
+        <RunningPhase z:Id="7">
           <Duration>PT30S</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="9">
+        <RunningPhase z:Id="8">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse z:Id="10">
-      <Color z:Id="11">
-        <Blue>213</Blue>
-        <Green>184</Green>
-        <Red>246</Red>
-      </Color>
-      <Name z:Id="12">Pinkie Pie</Name>
+    <Horse z:Id="9">
+      <Name z:Id="10">Pinkie Pie</Name>
       <ReactionSpeed>1</ReactionSpeed>
       <Reliability>0.2</Reliability>
-      <RunningPhases z:Id="13" z:Size="3">
-        <RunningPhase z:Id="14">
+      <RunningPhases z:Id="11" z:Size="3">
+        <RunningPhase z:Id="12">
           <Duration>PT10.5S</Duration>
           <Speed>1</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="15">
+        <RunningPhase z:Id="13">
           <Duration>PT20S</Duration>
           <Speed>0.7</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="16">
+        <RunningPhase z:Id="14">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse z:Id="17">
-      <Color z:Id="18">
-        <Blue>98</Blue>
-        <Green>183</Green>
-        <Red>252</Red>
-      </Color>
-      <Name z:Id="19">Applejack</Name>
+    <Horse z:Id="15">
+      <Name z:Id="16">Applejack</Name>
       <ReactionSpeed>0.5</ReactionSpeed>
       <Reliability>0.5</Reliability>
-      <RunningPhases z:Id="20" z:Size="3">
-        <RunningPhase z:Id="21">
+      <RunningPhases z:Id="17" z:Size="3">
+        <RunningPhase z:Id="18">
           <Duration>PT8S</Duration>
           <Speed>0.7</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="22">
+        <RunningPhase z:Id="19">
           <Duration>PT25S</Duration>
           <Speed>0.85</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="23">
+        <RunningPhase z:Id="20">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse z:Id="24">
-      <Color z:Id="25">
-        <Blue>180</Blue>
-        <Green>103</Green>
-        <Red>216</Red>
-      </Color>
-      <Name z:Id="26">Twilight Sparkle</Name>
+    <Horse z:Id="21">
+      <Name z:Id="22">Twilight Sparkle</Name>
       <ReactionSpeed>0.5</ReactionSpeed>
       <Reliability>1</Reliability>
-      <RunningPhases z:Id="27" z:Size="3">
-        <RunningPhase z:Id="28">
+      <RunningPhases z:Id="23" z:Size="3">
+        <RunningPhase z:Id="24">
           <Duration>PT10S</Duration>
           <Speed>0.75</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="29">
+        <RunningPhase z:Id="25">
           <Duration>PT15S</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="30">
+        <RunningPhase z:Id="26">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse z:Id="31">
-      <Color z:Id="32">
-        <Blue>170</Blue>
-        <Green>245</Green>
-        <Red>253</Red>
-      </Color>
-      <Name z:Id="33">Fluttershy</Name>
+    <Horse z:Id="27">
+      <Name z:Id="28">Fluttershy</Name>
       <ReactionSpeed>0.1</ReactionSpeed>
       <Reliability>0.8</Reliability>
-      <RunningPhases z:Id="34" z:Size="3">
-        <RunningPhase z:Id="35">
+      <RunningPhases z:Id="29" z:Size="3">
+        <RunningPhase z:Id="30">
           <Duration>PT8S</Duration>
           <Speed>0.65</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="36">
+        <RunningPhase z:Id="31">
           <Duration>PT10S</Duration>
           <Speed>0.87</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="37">
+        <RunningPhase z:Id="32">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
-    <Horse z:Id="38">
-      <Color z:Id="39">
-        <Blue>241</Blue>
-        <Green>237</Green>
-        <Red>234</Red>
-      </Color>
-      <Name z:Id="40">Rarity</Name>
+    <Horse z:Id="33">
+      <Name z:Id="34">Rarity</Name>
       <ReactionSpeed>0.7</ReactionSpeed>
       <Reliability>0.6</Reliability>
-      <RunningPhases z:Id="41" z:Size="3">
-        <RunningPhase z:Id="42">
+      <RunningPhases z:Id="35" z:Size="3">
+        <RunningPhase z:Id="36">
           <Duration>PT7.5S</Duration>
           <Speed>0.7</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="43">
+        <RunningPhase z:Id="37">
           <Duration>PT20S</Duration>
           <Speed>0.8</Speed>
         </RunningPhase>
-        <RunningPhase z:Id="44">
+        <RunningPhase z:Id="38">
           <Duration>PT5M</Duration>
           <Speed>1</Speed>
         </RunningPhase>
       </RunningPhases>
     </Horse>
   </Horses>
-  <Races z:Id="45" z:Size="2">
-    <Race z:Id="46">
-      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="47" z:Size="6">
+  <Races z:Id="39" z:Size="2">
+    <Race z:Id="40">
+      <HorseColors xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="41" z:Size="6">
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="3" i:nil="true" />
+          <d4p1:Value z:Id="42">
+            <Blue>228</Blue>
+            <Green>194</Green>
+            <Red>130</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="9" i:nil="true" />
+          <d4p1:Value z:Id="43">
+            <Blue>213</Blue>
+            <Green>184</Green>
+            <Red>246</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="15" i:nil="true" />
+          <d4p1:Value z:Id="44">
+            <Blue>98</Blue>
+            <Green>183</Green>
+            <Red>252</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="21" i:nil="true" />
+          <d4p1:Value z:Id="45">
+            <Blue>180</Blue>
+            <Green>103</Green>
+            <Red>216</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="27" i:nil="true" />
+          <d4p1:Value z:Id="46">
+            <Blue>170</Blue>
+            <Green>245</Green>
+            <Red>253</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="33" i:nil="true" />
+          <d4p1:Value z:Id="47">
+            <Blue>241</Blue>
+            <Green>237</Green>
+            <Red>234</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+      </HorseColors>
+      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="48" z:Size="6">
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
           <d4p1:Key z:Ref="3" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
@@ -156,53 +176,103 @@
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="10" i:nil="true" />
+          <d4p1:Key z:Ref="9" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>1</d6p1:Item1>
             <d6p1:Item2>1</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="17" i:nil="true" />
+          <d4p1:Key z:Ref="15" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>0.5</d6p1:Item1>
             <d6p1:Item2>1</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="24" i:nil="true" />
+          <d4p1:Key z:Ref="21" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>1</d6p1:Item1>
             <d6p1:Item2>1.5</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="31" i:nil="true" />
+          <d4p1:Key z:Ref="27" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>1</d6p1:Item1>
             <d6p1:Item2>1</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="38" i:nil="true" />
+          <d4p1:Key z:Ref="33" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>1</d6p1:Item1>
             <d6p1:Item2>1</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
       </HorseSpeeds>
-      <Horses z:Id="48" z:Size="6">
+      <Horses z:Id="49" z:Size="6">
         <Horse z:Ref="3" i:nil="true" />
-        <Horse z:Ref="10" i:nil="true" />
-        <Horse z:Ref="17" i:nil="true" />
-        <Horse z:Ref="24" i:nil="true" />
-        <Horse z:Ref="31" i:nil="true" />
-        <Horse z:Ref="38" i:nil="true" />
+        <Horse z:Ref="9" i:nil="true" />
+        <Horse z:Ref="15" i:nil="true" />
+        <Horse z:Ref="21" i:nil="true" />
+        <Horse z:Ref="27" i:nil="true" />
+        <Horse z:Ref="33" i:nil="true" />
       </Horses>
-      <Time>PT21H26M15S</Time>
+      <Time>PT22H29M18S</Time>
     </Race>
-    <Race z:Id="49">
-      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="50" z:Size="6">
+    <Race z:Id="50">
+      <HorseColors xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="51" z:Size="6">
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="3" i:nil="true" />
+          <d4p1:Value z:Id="52">
+            <Blue>228</Blue>
+            <Green>194</Green>
+            <Red>130</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="9" i:nil="true" />
+          <d4p1:Value z:Id="53">
+            <Blue>213</Blue>
+            <Green>184</Green>
+            <Red>246</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="15" i:nil="true" />
+          <d4p1:Value z:Id="54">
+            <Blue>98</Blue>
+            <Green>183</Green>
+            <Red>252</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="21" i:nil="true" />
+          <d4p1:Value z:Id="55">
+            <Blue>180</Blue>
+            <Green>103</Green>
+            <Red>216</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="27" i:nil="true" />
+          <d4p1:Value z:Id="56">
+            <Blue>170</Blue>
+            <Green>245</Green>
+            <Red>253</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+        <d4p1:KeyValueOfHorseColor4jq7WkmW>
+          <d4p1:Key z:Ref="33" i:nil="true" />
+          <d4p1:Value z:Id="57">
+            <Blue>241</Blue>
+            <Green>237</Green>
+            <Red>234</Red>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseColor4jq7WkmW>
+      </HorseColors>
+      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="58" z:Size="6">
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
           <d4p1:Key z:Ref="3" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
@@ -211,50 +281,50 @@
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="10" i:nil="true" />
+          <d4p1:Key z:Ref="9" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>0.5</d6p1:Item1>
             <d6p1:Item2>0.5</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="17" i:nil="true" />
+          <d4p1:Key z:Ref="15" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>0.5</d6p1:Item1>
             <d6p1:Item2>1</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="24" i:nil="true" />
+          <d4p1:Key z:Ref="21" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>0.5</d6p1:Item1>
             <d6p1:Item2>0.5</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="31" i:nil="true" />
+          <d4p1:Key z:Ref="27" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>0.5</d6p1:Item1>
             <d6p1:Item2>0.5</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
         <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
-          <d4p1:Key z:Ref="38" i:nil="true" />
+          <d4p1:Key z:Ref="33" i:nil="true" />
           <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
             <d6p1:Item1>0.5</d6p1:Item1>
             <d6p1:Item2>0.5</d6p1:Item2>
           </d4p1:Value>
         </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
       </HorseSpeeds>
-      <Horses z:Id="51" z:Size="6">
+      <Horses z:Id="59" z:Size="6">
         <Horse z:Ref="3" i:nil="true" />
-        <Horse z:Ref="10" i:nil="true" />
-        <Horse z:Ref="17" i:nil="true" />
-        <Horse z:Ref="24" i:nil="true" />
-        <Horse z:Ref="31" i:nil="true" />
-        <Horse z:Ref="38" i:nil="true" />
+        <Horse z:Ref="9" i:nil="true" />
+        <Horse z:Ref="15" i:nil="true" />
+        <Horse z:Ref="21" i:nil="true" />
+        <Horse z:Ref="27" i:nil="true" />
+        <Horse z:Ref="33" i:nil="true" />
       </Horses>
-      <Time>PT21H31M15S</Time>
+      <Time>PT22H34M18S</Time>
     </Race>
   </Races>
 </ADayAtTheRacesConfiguration>

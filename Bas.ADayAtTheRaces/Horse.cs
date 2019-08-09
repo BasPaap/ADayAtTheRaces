@@ -14,8 +14,8 @@ namespace Bas.ADayAtTheRaces
     {
         [DataMember]
         public string Name { get; set; }
-        [DataMember]
-        public Color Color { get; set; }
+        //[DataMember]
+        //public Color Color { get; set; }
         [DataMember]
         public float ReactionSpeed { get; set; }
         [DataMember]
@@ -23,6 +23,6 @@ namespace Bas.ADayAtTheRaces
         [DataMember]
         public Collection<RunningPhase> RunningPhases { get; private set; } = new Collection<RunningPhase>();
 
-        public override string ToString() => $"{Name} ({Color})";
+        public override string ToString() => $"{Name}";
     }
 }

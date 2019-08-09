@@ -18,7 +18,7 @@ public class RaceResultsWriter : MonoBehaviour
         var finish = new Finish()
         {
             HorseName = horse.Name,
-            HorseColor = horse.Color,
+            HorseColor = race.HorseColors[horse],
             TotalTime = time - GunshotTime,
             Position = finishes.Count + 1
         };
@@ -46,7 +46,9 @@ public class RaceResultsWriter : MonoBehaviour
         }
 
         var raceResultsFile = new RaceResultsFile();
+        Debug.Log("Loading...");
         raceResultsFile.Load(fileName);
+        Debug.Log("Loaded!");
         raceResultsFile.RaceResults.Add(raceResult);
         raceResultsFile.Save(fileName);
 

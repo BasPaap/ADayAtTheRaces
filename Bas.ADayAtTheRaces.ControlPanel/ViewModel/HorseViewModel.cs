@@ -27,8 +27,8 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
             set { Set(ref this.color, value); }
         }
 
-        public HorseViewModel(Horse horse)
-            : this(horse.Name, horse.Color)
+        public HorseViewModel(Horse horse, Color color)
+            : this(horse.Name, color)
         {   
         }
 
