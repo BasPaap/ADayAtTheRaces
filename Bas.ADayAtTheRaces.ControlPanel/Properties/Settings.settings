@@ -1,7 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Bas.ADayAtTheRaces.ControlPanel.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="RaceResultsFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">raceresults.xml</Value>
+    </Setting>
+    <Setting Name="ConfigurationFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%USERPROFILE%\source\repos\BasPaap\ADayAtTheRaces\A Day At the Races\Assets\ADayAtTheRaces.xml</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

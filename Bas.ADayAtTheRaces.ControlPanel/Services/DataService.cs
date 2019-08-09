@@ -14,17 +14,29 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
 
         public Collection<RaceResult> GetRaceResults()
         {
-            throw new NotImplementedException();
+            var raceResultsFile = new RaceResultsFile();
+            raceResultsFile.Load(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.RaceResultsFilePath));
+
+            return raceResultsFile.RaceResults;
         }
 
         public Collection<Horse> GetHorses()
         {
-            throw new NotImplementedException();
+            var configuration = LoadConfiguration();
+            return configuration.Horses;            
         }
 
         public Collection<Race> GetRaces()
         {
-            throw new NotImplementedException();
+            var configuration = LoadConfiguration();
+            return configuration.Races;
+        }
+
+        private ADayAtTheRacesConfiguration LoadConfiguration()
+        {
+            var configuration = new ADayAtTheRacesConfiguration();
+            configuration.Load(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.ConfigurationFilePath));
+            return configuration;
         }
     }
 }
