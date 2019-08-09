@@ -35,6 +35,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 /Bas.ADayAtTheRaces/bin/Debug
+/Bas.ADayAtTheRaces.ControlPanel/bin/Debug
 /A Day At the Races/Packages
 /A Day At the Races/UpgradeLog.htm
 /A Day At the Races/UpgradeLog2.htm
