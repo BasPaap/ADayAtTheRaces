@@ -57,7 +57,7 @@ public class RaceManager : MonoBehaviour
             this.runners.Clear();
 
             var horseWidth = horsePrefab.GetComponent<Renderer>().bounds.size.z;
-            var firstStallPosition = entryPoint.transform.position + new Vector3(0, 0, (startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth / 2.0f));
+            var firstStallPosition = entryPoint.transform.position + new Vector3(0, 0, (startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth / 2.0f)) + new Vector3(0.0f, 0.0f, -0.75f);
 
             foreach (var horse in currentRace.Horses)
             {
