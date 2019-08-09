@@ -114,6 +114,12 @@ namespace Bas.ADayAtTheRaces
             firstRace.Horses.Add(twilightSparkle);
             firstRace.Horses.Add(fluttershy);
             firstRace.Horses.Add(rarity);
+            firstRace.HorseSpeeds[rainbowDash] = (1.0f, 1.0f);
+            firstRace.HorseSpeeds[pinkiePie] = (1.0f, 1.0f);
+            firstRace.HorseSpeeds[applejack] = (0.5f, 1.0f);
+            firstRace.HorseSpeeds[twilightSparkle] = (1.0f, 1.5f);
+            firstRace.HorseSpeeds[fluttershy] = (1.0f, 1.0f);
+            firstRace.HorseSpeeds[rarity] = (1.0f, 1.0f);
 
             var fiveMinutesFromNow = tenSecondsFromNow.Add(TimeSpan.FromMinutes(5));
             var secondRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes, fiveMinutesFromNow.Seconds);
@@ -123,6 +129,12 @@ namespace Bas.ADayAtTheRaces
             secondRace.Horses.Add(twilightSparkle);
             secondRace.Horses.Add(fluttershy);
             secondRace.Horses.Add(rarity);
+            secondRace.HorseSpeeds[rainbowDash] = (0.5f, 0.5f);
+            secondRace.HorseSpeeds[pinkiePie] = (0.5f, 0.5f);
+            secondRace.HorseSpeeds[applejack] = (0.5f, 1.0f);
+            secondRace.HorseSpeeds[twilightSparkle] = (0.5f, 0.5f);
+            secondRace.HorseSpeeds[fluttershy] = (0.5f, 0.5f);
+            secondRace.HorseSpeeds[rarity] = (0.5f, 0.5f);
 
             Races.Add(firstRace);
             Races.Add(secondRace);

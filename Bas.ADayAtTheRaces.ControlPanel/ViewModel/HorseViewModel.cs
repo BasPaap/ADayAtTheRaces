@@ -35,7 +35,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
         public HorseViewModel(string name, Color color)
         {
             Name = name;
-            Color = new SolidColorBrush(System.Windows.Media.Color.FromRgb((byte)(color.Red * 255.0), (byte)(color.Green * 255.0), (byte)(color.Blue * 255.0)));
+            Color = new SolidColorBrush(System.Windows.Media.Color.FromRgb((byte)color.Red, (byte)color.Green, (byte)color.Blue));
         }
     }
 

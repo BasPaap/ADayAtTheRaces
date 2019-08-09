@@ -12,7 +12,7 @@
       <RunningPhases z:Id="6" z:Size="3">
         <RunningPhase z:Id="7">
           <Duration>PT10S</Duration>
-          <Speed>0.05</Speed>
+          <Speed>0.5</Speed>
         </RunningPhase>
         <RunningPhase z:Id="8">
           <Duration>PT30S</Duration>
@@ -147,7 +147,51 @@
   </Horses>
   <Races z:Id="45" z:Size="2">
     <Race z:Id="46">
-      <Horses z:Id="47" z:Size="6">
+      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="47" z:Size="6">
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="3" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>1</d6p1:Item1>
+            <d6p1:Item2>1</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="10" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>1</d6p1:Item1>
+            <d6p1:Item2>1</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="17" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>0.5</d6p1:Item1>
+            <d6p1:Item2>1</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="24" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>1</d6p1:Item1>
+            <d6p1:Item2>1.5</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="31" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>1</d6p1:Item1>
+            <d6p1:Item2>1</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="38" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>1</d6p1:Item1>
+            <d6p1:Item2>1</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+      </HorseSpeeds>
+      <Horses z:Id="48" z:Size="6">
         <Horse z:Ref="3" i:nil="true" />
         <Horse z:Ref="10" i:nil="true" />
         <Horse z:Ref="17" i:nil="true" />
@@ -155,10 +199,54 @@
         <Horse z:Ref="31" i:nil="true" />
         <Horse z:Ref="38" i:nil="true" />
       </Horses>
-      <Time>PT22H58M34S</Time>
+      <Time>PT21H26M15S</Time>
     </Race>
-    <Race z:Id="48">
-      <Horses z:Id="49" z:Size="6">
+    <Race z:Id="49">
+      <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="50" z:Size="6">
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="3" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>0.5</d6p1:Item1>
+            <d6p1:Item2>0.5</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="10" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>0.5</d6p1:Item1>
+            <d6p1:Item2>0.5</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="17" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>0.5</d6p1:Item1>
+            <d6p1:Item2>1</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="24" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>0.5</d6p1:Item1>
+            <d6p1:Item2>0.5</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="31" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>0.5</d6p1:Item1>
+            <d6p1:Item2>0.5</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+        <d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+          <d4p1:Key z:Ref="38" i:nil="true" />
+          <d4p1:Value xmlns:d6p1="http://schemas.datacontract.org/2004/07/System">
+            <d6p1:Item1>0.5</d6p1:Item1>
+            <d6p1:Item2>0.5</d6p1:Item2>
+          </d4p1:Value>
+        </d4p1:KeyValueOfHorseValueTupleOffloatfloatGJVpsshT>
+      </HorseSpeeds>
+      <Horses z:Id="51" z:Size="6">
         <Horse z:Ref="3" i:nil="true" />
         <Horse z:Ref="10" i:nil="true" />
         <Horse z:Ref="17" i:nil="true" />
@@ -166,7 +254,7 @@
         <Horse z:Ref="31" i:nil="true" />
         <Horse z:Ref="38" i:nil="true" />
       </Horses>
-      <Time>PT23H3M34S</Time>
+      <Time>PT21H31M15S</Time>
     </Race>
   </Races>
 </ADayAtTheRacesConfiguration>

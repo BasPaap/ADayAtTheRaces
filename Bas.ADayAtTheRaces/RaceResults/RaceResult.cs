@@ -12,9 +12,9 @@ namespace Bas.ADayAtTheRaces.RaceResults
     public sealed class RaceResult
     {
         [DataMember]
-        public Collection<Finish> Finishes { get; } = new Collection<Finish>();
+        public Collection<Finish> Finishes { get; private set; } = new Collection<Finish>();
 
         [DataMember]
-        public DateTime RaceTime { get; set; }
+        public DateTime RaceTime { get; set; } 
     }
 }

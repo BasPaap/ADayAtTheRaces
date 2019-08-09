@@ -20,13 +20,14 @@
                                         <ItemContainerTemplate>
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="20" />
+                                                    <ColumnDefinition Width="3" />
+                                                    <ColumnDefinition Width="17"/>
                                                     <ColumnDefinition Width="200" />
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <TextBlock Grid.Column="0" Background="{Binding Color}" Text="{Binding Position}" FontWeight="Bold" Foreground="White" />
-                                                <TextBlock Grid.Column="1" Text="{Binding Name}" />
-                                                <TextBlock Grid.Column="2" Text="{Binding Time}" />
+                                                <TextBlock Grid.Column="0" Background="{Binding Color}" Text="{Binding Position}" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2" />
+                                                <TextBlock Grid.Column="2" Text="{Binding Name}" />
+                                                <TextBlock Grid.Column="3" Text="{Binding Time}" />
                                             </Grid>
                                         </ItemContainerTemplate>
                                     </ListBox.ItemTemplate>

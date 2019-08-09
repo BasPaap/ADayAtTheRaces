@@ -17,6 +17,9 @@ namespace Bas.ADayAtTheRaces
         public Collection<Horse> Horses { get; private set; } = new Collection<Horse>();
 
         [DataMember]
+        public Dictionary<Horse, (float firstLapSpeed, float secondLapSpeed)> HorseSpeeds { get; private set; } = new Dictionary<Horse, (float firstLapSpeed, float secondLapSpeed)>();
+
+        [DataMember]
         public TimeSpan Time { get; set; }
 
         public Race(int hours, int minutes, int seconds)

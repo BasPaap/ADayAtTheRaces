@@ -25,7 +25,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("raceresults.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("%localappdata%\\A Day At The Races\\raceresults.xml")]
         public string RaceResultsFilePath {
             get {
                 return ((string)(this["RaceResultsFilePath"]));
