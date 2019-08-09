@@ -39,7 +39,7 @@ namespace Bas.ADayAtTheRaces
                 ReactionSpeed = 0.1f,
                 Reliability = 1.0f
             };
-            straightward.RunningPhases.Add(new RunningPhase(20.0, 0.5f));
+            straightward.RunningPhases.Add(new RunningPhase(20.0, 0.6f));
             straightward.RunningPhases.Add(new RunningPhase(30.0, 0.8f));
             straightward.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
@@ -50,7 +50,7 @@ namespace Bas.ADayAtTheRaces
                 Reliability = 1.0f
             };
             sirtThackery.RunningPhases.Add(new RunningPhase(10.5, 0.8f));
-            sirtThackery.RunningPhases.Add(new RunningPhase(40.0, 0.5f));
+            sirtThackery.RunningPhases.Add(new RunningPhase(40.0, 0.6f));
             sirtThackery.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var royalArch3 = new Horse
@@ -69,7 +69,7 @@ namespace Bas.ADayAtTheRaces
                 ReactionSpeed = 0.1f,
                 Reliability = 1.0f
             };
-            uncleOrange.RunningPhases.Add(new RunningPhase(10.0, 0.55f));
+            uncleOrange.RunningPhases.Add(new RunningPhase(10.0, 0.65f));
             uncleOrange.RunningPhases.Add(new RunningPhase(15.0, 0.8f));
             uncleOrange.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
@@ -102,7 +102,7 @@ namespace Bas.ADayAtTheRaces
             };
 
             bigWonder.RunningPhases.Add(new RunningPhase(40.5, 0.7f));
-            bigWonder.RunningPhases.Add(new RunningPhase(20.0, 0.4f));
+            bigWonder.RunningPhases.Add(new RunningPhase(20.0, 0.55f));
             bigWonder.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var secretGrace = new Horse
@@ -112,7 +112,7 @@ namespace Bas.ADayAtTheRaces
                 Reliability = 1.0f
             };
 
-            secretGrace.RunningPhases.Add(new RunningPhase(10.0, 0.35f));
+            secretGrace.RunningPhases.Add(new RunningPhase(10.0, 0.67f));
             secretGrace.RunningPhases.Add(new RunningPhase(30.0, 0.8f));
             secretGrace.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
@@ -124,7 +124,7 @@ namespace Bas.ADayAtTheRaces
             };
 
             soldiersJoy.RunningPhases.Add(new RunningPhase(10.5, 0.8f));
-            soldiersJoy.RunningPhases.Add(new RunningPhase(25.0, 0.6f));
+            soldiersJoy.RunningPhases.Add(new RunningPhase(25.0, 0.64f));
             soldiersJoy.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var theGosling = new Horse
@@ -135,7 +135,7 @@ namespace Bas.ADayAtTheRaces
             };
 
             theGosling.RunningPhases.Add(new RunningPhase(21.5, 1.0f));
-            theGosling.RunningPhases.Add(new RunningPhase(25.0, 0.4f));
+            theGosling.RunningPhases.Add(new RunningPhase(25.0, 0.64f));
             theGosling.RunningPhases.Add(new RunningPhase(300, 0.8f));
 
             var balderdash = new Horse
@@ -145,7 +145,7 @@ namespace Bas.ADayAtTheRaces
                 Reliability = 1.0f
             };
 
-            balderdash.RunningPhases.Add(new RunningPhase(10.5, 0.6f));
+            balderdash.RunningPhases.Add(new RunningPhase(10.5, 0.62f));
             balderdash.RunningPhases.Add(new RunningPhase(30.0, 0.8f));
             balderdash.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
@@ -157,8 +157,8 @@ namespace Bas.ADayAtTheRaces
             };
 
             trumpCard.RunningPhases.Add(new RunningPhase(6.5, 0.9f));
-            trumpCard.RunningPhases.Add(new RunningPhase(40.0, 1.0f));
-            trumpCard.RunningPhases.Add(new RunningPhase(300, 0.3f));
+            trumpCard.RunningPhases.Add(new RunningPhase(40.0, 0.6f));
+            trumpCard.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var princess = new Horse
             {
@@ -180,7 +180,7 @@ namespace Bas.ADayAtTheRaces
             };
 
             fitzgerald.RunningPhases.Add(new RunningPhase(10.5, 0.8f));
-            fitzgerald.RunningPhases.Add(new RunningPhase(30.0, 0.5f));
+            fitzgerald.RunningPhases.Add(new RunningPhase(30.0, 0.63f));
             fitzgerald.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var unityAsset = new Horse
@@ -213,7 +213,7 @@ namespace Bas.ADayAtTheRaces
             };
 
             pinkiePie.RunningPhases.Add(new RunningPhase(20.0, 1.0f));
-            pinkiePie.RunningPhases.Add(new RunningPhase(40.0, 0.3f));
+            pinkiePie.RunningPhases.Add(new RunningPhase(40.0, 0.55f));
             pinkiePie.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
             var littleJacob = new Horse

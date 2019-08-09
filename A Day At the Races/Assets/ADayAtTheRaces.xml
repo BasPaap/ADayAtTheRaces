@@ -447,7 +447,7 @@
           </d4p1:Value>
         </d4p1:KeyValueOfHorseColor4jq7WkmW>
       </JockeyColors>
-      <Time>PT24M2S</Time>
+      <Time>PT1H1M29S</Time>
     </Race>
     <Race z:Id="122">
       <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="123" z:Size="6">
@@ -528,7 +528,7 @@
           <d4p1:Value z:Ref="121" i:nil="true" />
         </d4p1:KeyValueOfHorseColor4jq7WkmW>
       </JockeyColors>
-      <Time>PT25M52S</Time>
+      <Time>PT1H3M19S</Time>
     </Race>
     <Race z:Id="126">
       <HorseSpeeds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="127" z:Size="6">
@@ -609,7 +609,7 @@
           <d4p1:Value z:Ref="121" i:nil="true" />
         </d4p1:KeyValueOfHorseColor4jq7WkmW>
       </JockeyColors>
-      <Time>PT28M52S</Time>
+      <Time>PT1H6M19S</Time>
     </Race>
   </Races>
 </ADayAtTheRacesConfiguration>
