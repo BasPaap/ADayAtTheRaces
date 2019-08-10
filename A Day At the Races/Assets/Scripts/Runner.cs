@@ -64,6 +64,8 @@ public class Runner : MonoBehaviour
         this.firstLapSpeed = firstLapSpeed;
         this.secondLapSpeed = secondLapSpeed;
 
+        Debug.Log($"{horse.Name} set with first lap speed of {firstLapSpeed} and second lap speed of {secondLapSpeed}.");
+
         StartingLinePosition = startingLinePosition;
         FirstCornerPosition = firstCornerPosition;
         SecondCornerPosition = secondCornerPosition;

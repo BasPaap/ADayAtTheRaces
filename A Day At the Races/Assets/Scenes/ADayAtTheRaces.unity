@@ -201,7 +201,7 @@ MonoBehaviour:
     type: 3}
   horseParent: {fileID: 1866713836}
   distanceBetweenHorses: 1.5
-  debugMode: 1
+  debugMode: 0
   entryPoint: {fileID: 2035446995}
   exitPoint: {fileID: 1631996588}
   firstCorner: {fileID: 1379859941}

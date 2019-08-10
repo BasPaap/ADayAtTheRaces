@@ -250,7 +250,7 @@ namespace Bas.ADayAtTheRaces
             Horses.Add(littleJacob);
 
 
-            var tenSecondsFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(10));
+            var tenSecondsFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(90));
             var firstRace = new Race(tenSecondsFromNow.Hours, tenSecondsFromNow.Minutes, tenSecondsFromNow.Seconds);
             firstRace.Horses.Add(straightward);
             firstRace.Horses.Add(sirtThackery);
@@ -271,7 +271,7 @@ namespace Bas.ADayAtTheRaces
             firstRace.JockeyColors[peggiesPride] = purpleColor;
             firstRace.JockeyColors[guidingLight] = mintColor;
 
-            var twoMinutesFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(2));
+            var twoMinutesFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(5));
             var secondRace = new Race(twoMinutesFromNow.Hours, twoMinutesFromNow.Minutes, twoMinutesFromNow.Seconds);
             secondRace.Horses.Add(bigWonder);
             secondRace.Horses.Add(secretGrace);
@@ -292,7 +292,7 @@ namespace Bas.ADayAtTheRaces
             secondRace.JockeyColors[balderdash] = purpleColor;
             secondRace.JockeyColors[trumpCard] = mintColor;
 
-            var fiveMinutesFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(5));
+            var fiveMinutesFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(10));
             var thirdRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes, fiveMinutesFromNow.Seconds);
             thirdRace.Horses.Add(princess);
             thirdRace.Horses.Add(fitzgerald);

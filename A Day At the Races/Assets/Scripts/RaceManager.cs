@@ -17,9 +17,12 @@ public class RaceManager : MonoBehaviour
     private int numRunnersAtStartingLine;
     private TimeSpan raceStartTime = TimeSpan.Zero;
     private readonly List<Runner> runners = new List<Runner>();
+    private string dataPath;
 
     private bool IsTimeToSetUpNewRace => futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now.TimeOfDay;
     private bool IsTimeToStartRace => raceStartTime != TimeSpan.Zero && raceStartTime <= DateTime.Now.TimeOfDay;
+
+    private readonly FileSystemWatcher fileSystemWatcher = new FileSystemWatcher();
 
     public RaceResultsWriter raceResultsWriter;
     public GameObject announcer;
@@ -41,9 +44,19 @@ public class RaceManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.dataPath = Application.dataPath;
         LoadData();
 
+        this.fileSystemWatcher.NotifyFilter = NotifyFilters.LastWrite;
+        this.fileSystemWatcher.Changed += FileSystemWatcher_Changed;
+
         startingGate = GameObject.Find("Starting Gate");
+    }
+
+    private void FileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
+    {
+        Debug.Log("File changed! Reloading data..");
+        LoadData();
     }
 
     // Update is called once per frame
@@ -148,18 +161,22 @@ public class RaceManager : MonoBehaviour
 
     public void LoadData()
     {
-        var configurationPath = Path.Combine(Application.dataPath, configurationFileName);
+        var configurationPath = Path.Combine(this.dataPath, configurationFileName);
         ADayAtTheRacesConfiguration configuration = new ADayAtTheRacesConfiguration();
 
         if (!File.Exists(configurationPath))
-        {
+        {   
             configuration.Populate();
-            configuration.Save(configurationPath);
+            configuration.Save(configurationPath);            
         }
         else
         {
             configuration.Load(configurationPath);
         }
+
+        this.fileSystemWatcher.Path = this.dataPath;
+        this.fileSystemWatcher.Filter = configurationFileName;
+        this.fileSystemWatcher.EnableRaisingEvents = true;
 
         if (debugMode)
         {
@@ -169,7 +186,7 @@ public class RaceManager : MonoBehaviour
                 firstRace.Time = DateTime.Now.AddSeconds(1.0).TimeOfDay;
             }
         }
-
+                
         futureRaces = new Queue<Race>((from r in configuration.Races
                                        where r.Time > DateTime.Now.TimeOfDay
                                        orderby r.Time
