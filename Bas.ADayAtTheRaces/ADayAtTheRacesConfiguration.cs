@@ -16,7 +16,7 @@ namespace Bas.ADayAtTheRaces
         private readonly DataContractSerializerSettings serializerSettings = new DataContractSerializerSettings()
         {
             PreserveObjectReferences = true,
-            KnownTypes = new [] { typeof(ADayAtTheRacesConfiguration), typeof(Horse), typeof(RunningPhase), typeof(Color), typeof(Race) }
+            KnownTypes = new [] { typeof(ADayAtTheRacesConfiguration), typeof(Horse), typeof(RunningPhase), typeof(Color), typeof(Race), typeof(Speeds)}
         };
 
         [DataMember]
@@ -160,16 +160,16 @@ namespace Bas.ADayAtTheRaces
             trumpCard.RunningPhases.Add(new RunningPhase(40.0, 0.6f));
             trumpCard.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
-            var princess = new Horse
+            var fallGuy = new Horse
             {
-                Name = "Princess",
+                Name = "Fall Guy",
                 ReactionSpeed = 0.1f,
                 Reliability = 1.0f
             };
 
-            princess.RunningPhases.Add(new RunningPhase(15.5, 0.7f));
-            princess.RunningPhases.Add(new RunningPhase(40.0, 0.6f));
-            princess.RunningPhases.Add(new RunningPhase(300, 1.0f));
+            fallGuy.RunningPhases.Add(new RunningPhase(15.5, 0.7f));
+            fallGuy.RunningPhases.Add(new RunningPhase(40.0, 0.6f));
+            fallGuy.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
 
             var fitzgerald = new Horse
@@ -228,90 +228,92 @@ namespace Bas.ADayAtTheRaces
             littleJacob.RunningPhases.Add(new RunningPhase(300, 1.0f));
 
 
-            Horses.Add(straightward);
-            Horses.Add(sirtThackery);
-            Horses.Add(royalArch3);
-            Horses.Add(uncleOrange);
-            Horses.Add(peggiesPride);
-            Horses.Add(guidingLight);
 
-            Horses.Add(bigWonder);
-            Horses.Add(secretGrace);
-            Horses.Add(soldiersJoy);
-            Horses.Add(theGosling);
-            Horses.Add(balderdash);
-            Horses.Add(trumpCard);
+            Horses.Add(bigWonder);//1
+            Horses.Add(fallGuy);//1
+            Horses.Add(soldiersJoy);//1
+            Horses.Add(theGosling);//1
+            Horses.Add(balderdash);//1
+            Horses.Add(trumpCard);//1
 
-            Horses.Add(princess);
-            Horses.Add(fitzgerald);
-            Horses.Add(unityAsset);
-            Horses.Add(bananabread);
-            Horses.Add(pinkiePie);
-            Horses.Add(littleJacob);
+            Horses.Add(sirtThackery);//2
+            Horses.Add(fitzgerald);//2
+            Horses.Add(unityAsset);//2
+            Horses.Add(bananabread);//2
+            Horses.Add(pinkiePie);//2
+            Horses.Add(littleJacob);//2
+            
+            Horses.Add(straightward);//3
+            Horses.Add(royalArch3);//3
+            Horses.Add(uncleOrange);//3
+            Horses.Add(peggiesPride);//3
+            Horses.Add(guidingLight);//3
+            Horses.Add(secretGrace);//3
+            
+            
 
-
-            var tenSecondsFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(90));
+            var tenSecondsFromNow = new TimeSpan(14, 0, 0);//  DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(30));
             var firstRace = new Race(tenSecondsFromNow.Hours, tenSecondsFromNow.Minutes, tenSecondsFromNow.Seconds);
-            firstRace.Horses.Add(straightward);
-            firstRace.Horses.Add(sirtThackery);
-            firstRace.Horses.Add(royalArch3);
-            firstRace.Horses.Add(uncleOrange);
-            firstRace.Horses.Add(peggiesPride);
-            firstRace.Horses.Add(guidingLight);
-            firstRace.HorseSpeeds[straightward] = (1.0f, 1.0f);
-            firstRace.HorseSpeeds[sirtThackery] = (1.0f, 1.0f);
-            firstRace.HorseSpeeds[royalArch3] = (1.0f, 1.0f);
-            firstRace.HorseSpeeds[uncleOrange] = (1.0f, 1.0f);
-            firstRace.HorseSpeeds[peggiesPride] = (1.0f, 1.0f);
-            firstRace.HorseSpeeds[guidingLight] = (1.0f, 1.0f);
-            firstRace.JockeyColors[straightward] = redColor;
-            firstRace.JockeyColors[sirtThackery] = greenColor;
-            firstRace.JockeyColors[royalArch3] = blueColor;
-            firstRace.JockeyColors[uncleOrange] = orangeColor;
-            firstRace.JockeyColors[peggiesPride] = purpleColor;
-            firstRace.JockeyColors[guidingLight] = mintColor;
+            firstRace.Horses.Add(bigWonder);
+            firstRace.Horses.Add(fallGuy);
+            firstRace.Horses.Add(soldiersJoy);
+            firstRace.Horses.Add(theGosling);
+            firstRace.Horses.Add(balderdash);
+            firstRace.Horses.Add(trumpCard);
+            firstRace.HorseSpeeds[bigWonder] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[fallGuy] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[soldiersJoy] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[theGosling] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[balderdash] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[trumpCard] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.JockeyColors[bigWonder] = redColor;
+            firstRace.JockeyColors[fallGuy] = greenColor;
+            firstRace.JockeyColors[soldiersJoy] = blueColor;
+            firstRace.JockeyColors[theGosling] = orangeColor;
+            firstRace.JockeyColors[balderdash] = purpleColor;
+            firstRace.JockeyColors[trumpCard] = mintColor;
 
-            var twoMinutesFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(5));
+            var twoMinutesFromNow = new TimeSpan(16, 0, 0);// DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(5));
             var secondRace = new Race(twoMinutesFromNow.Hours, twoMinutesFromNow.Minutes, twoMinutesFromNow.Seconds);
-            secondRace.Horses.Add(bigWonder);
-            secondRace.Horses.Add(secretGrace);
-            secondRace.Horses.Add(soldiersJoy);
-            secondRace.Horses.Add(theGosling);
-            secondRace.Horses.Add(balderdash);
-            secondRace.Horses.Add(trumpCard);
-            secondRace.HorseSpeeds[bigWonder] = (1.0f, 1.0f);
-            secondRace.HorseSpeeds[secretGrace] = (1.0f, 1.0f);
-            secondRace.HorseSpeeds[soldiersJoy] = (1.0f, 1.0f);
-            secondRace.HorseSpeeds[theGosling] = (1.0f, 1.0f);
-            secondRace.HorseSpeeds[balderdash] = (1.0f, 1.0f);
-            secondRace.HorseSpeeds[trumpCard] = (1.0f, 1.0f);
-            secondRace.JockeyColors[bigWonder] = redColor;
-            secondRace.JockeyColors[secretGrace] = greenColor;
-            secondRace.JockeyColors[soldiersJoy] = blueColor;
-            secondRace.JockeyColors[theGosling] = orangeColor;
-            secondRace.JockeyColors[balderdash] = purpleColor;
-            secondRace.JockeyColors[trumpCard] = mintColor;
+            secondRace.Horses.Add(sirtThackery);
+            secondRace.Horses.Add(fitzgerald);
+            secondRace.Horses.Add(unityAsset);
+            secondRace.Horses.Add(bananabread);
+            secondRace.Horses.Add(pinkiePie);
+            secondRace.Horses.Add(littleJacob);
+            secondRace.HorseSpeeds[sirtThackery] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[fitzgerald] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[unityAsset] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[bananabread] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[pinkiePie] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[littleJacob] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.JockeyColors[sirtThackery] = redColor;
+            secondRace.JockeyColors[fitzgerald] = greenColor;
+            secondRace.JockeyColors[unityAsset] = blueColor;
+            secondRace.JockeyColors[bananabread] = orangeColor;
+            secondRace.JockeyColors[pinkiePie] = purpleColor;
+            secondRace.JockeyColors[littleJacob] = mintColor;
 
-            var fiveMinutesFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(10));
+            var fiveMinutesFromNow = new TimeSpan(17, 0, 0);// DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(10));
             var thirdRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes, fiveMinutesFromNow.Seconds);
-            thirdRace.Horses.Add(princess);
-            thirdRace.Horses.Add(fitzgerald);
-            thirdRace.Horses.Add(unityAsset);
-            thirdRace.Horses.Add(bananabread);
-            thirdRace.Horses.Add(pinkiePie);
-            thirdRace.Horses.Add(littleJacob);
-            thirdRace.HorseSpeeds[princess] = (1.0f, 1.0f);
-            thirdRace.HorseSpeeds[fitzgerald] = (1.0f, 1.0f);
-            thirdRace.HorseSpeeds[unityAsset] = (1.0f, 1.0f);
-            thirdRace.HorseSpeeds[bananabread] = (1.0f, 1.0f);
-            thirdRace.HorseSpeeds[pinkiePie] = (1.0f, 1.0f);
-            thirdRace.HorseSpeeds[littleJacob] = (1.0f, 1.0f);
-            thirdRace.JockeyColors[princess] = redColor;
-            thirdRace.JockeyColors[fitzgerald] = greenColor;
-            thirdRace.JockeyColors[unityAsset] = blueColor;
-            thirdRace.JockeyColors[bananabread] = orangeColor;
-            thirdRace.JockeyColors[pinkiePie] = purpleColor;
-            thirdRace.JockeyColors[littleJacob] = mintColor;
+            thirdRace.Horses.Add(straightward);
+            thirdRace.Horses.Add(royalArch3);
+            thirdRace.Horses.Add(uncleOrange);
+            thirdRace.Horses.Add(peggiesPride);
+            thirdRace.Horses.Add(guidingLight);
+            thirdRace.Horses.Add(secretGrace);
+            thirdRace.HorseSpeeds[straightward] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeeds[royalArch3] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeeds[uncleOrange] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeeds[peggiesPride] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeeds[guidingLight] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeeds[secretGrace] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.JockeyColors[straightward] = redColor;
+            thirdRace.JockeyColors[royalArch3] = greenColor;
+            thirdRace.JockeyColors[uncleOrange] = blueColor;
+            thirdRace.JockeyColors[peggiesPride] = orangeColor;
+            thirdRace.JockeyColors[guidingLight] = purpleColor;
+            thirdRace.JockeyColors[secretGrace] = mintColor;
 
             Races.Add(firstRace);
             Races.Add(secondRace);
@@ -394,7 +396,7 @@ namespace Bas.ADayAtTheRaces
             Horses.Add(fluttershy);
             Horses.Add(rarity);
 
-            var tenSecondsFromNow = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(10));
+            var tenSecondsFromNow = new TimeSpan(15, 0, 0); // DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(10));
             var firstRace = new Race(tenSecondsFromNow.Hours, tenSecondsFromNow.Minutes, tenSecondsFromNow.Seconds);
             firstRace.Horses.Add(rainbowDash);
             firstRace.Horses.Add(pinkiePie);
@@ -402,12 +404,12 @@ namespace Bas.ADayAtTheRaces
             firstRace.Horses.Add(twilightSparkle);
             firstRace.Horses.Add(fluttershy);
             firstRace.Horses.Add(rarity);
-            firstRace.HorseSpeeds[rainbowDash] = (1.0f, 1.0f);
-            firstRace.HorseSpeeds[pinkiePie] = (1.0f, 1.0f);
-            firstRace.HorseSpeeds[applejack] = (0.5f, 1.0f);
-            firstRace.HorseSpeeds[twilightSparkle] = (1.0f, 1.5f);
-            firstRace.HorseSpeeds[fluttershy] = (1.0f, 1.0f);
-            firstRace.HorseSpeeds[rarity] = (1.0f, 1.0f);
+            firstRace.HorseSpeeds[rainbowDash] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[pinkiePie] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[applejack] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[twilightSparkle] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[fluttershy] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeeds[rarity] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
             firstRace.JockeyColors[rainbowDash] = new Color(0x82, 0xC2, 0xE4);
             firstRace.JockeyColors[pinkiePie] = new Color(0xF6, 0xB8, 0xD5);
             firstRace.JockeyColors[applejack] = new Color(0xFC, 0xB7, 0x62);
@@ -415,7 +417,7 @@ namespace Bas.ADayAtTheRaces
             firstRace.JockeyColors[fluttershy] = new Color(0xFD, 0xF5, 0xAA);
             firstRace.JockeyColors[rarity] = new Color(0xEA, 0xED, 0xF1);
             
-            var fiveMinutesFromNow = tenSecondsFromNow.Add(TimeSpan.FromMinutes(5));
+            var fiveMinutesFromNow = new TimeSpan(17, 0, 0);// tenSecondsFromNow.Add(TimeSpan.FromMinutes(5));
             var secondRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes, fiveMinutesFromNow.Seconds);
             secondRace.Horses.Add(rainbowDash);
             secondRace.Horses.Add(pinkiePie);
@@ -423,12 +425,12 @@ namespace Bas.ADayAtTheRaces
             secondRace.Horses.Add(twilightSparkle);
             secondRace.Horses.Add(fluttershy);
             secondRace.Horses.Add(rarity);
-            secondRace.HorseSpeeds[rainbowDash] = (0.5f, 0.5f);
-            secondRace.HorseSpeeds[pinkiePie] = (0.5f, 0.5f);
-            secondRace.HorseSpeeds[applejack] = (0.5f, 1.0f);
-            secondRace.HorseSpeeds[twilightSparkle] = (0.5f, 0.5f);
-            secondRace.HorseSpeeds[fluttershy] = (0.5f, 0.5f);
-            secondRace.HorseSpeeds[rarity] = (0.5f, 0.5f);
+            secondRace.HorseSpeeds[rainbowDash] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[pinkiePie] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[applejack] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[twilightSparkle] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[fluttershy] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeeds[rarity] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
             secondRace.JockeyColors[rainbowDash] = new Color(0x82, 0xC2, 0xE4);
             secondRace.JockeyColors[pinkiePie] = new Color(0xF6, 0xB8, 0xD5);
             secondRace.JockeyColors[applejack] = new Color(0xFC, 0xB7, 0x62);

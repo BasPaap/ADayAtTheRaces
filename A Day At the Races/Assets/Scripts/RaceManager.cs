@@ -22,7 +22,7 @@ public class RaceManager : MonoBehaviour
     private bool IsTimeToSetUpNewRace => futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now.TimeOfDay;
     private bool IsTimeToStartRace => raceStartTime != TimeSpan.Zero && raceStartTime <= DateTime.Now.TimeOfDay;
 
-    private readonly FileSystemWatcher fileSystemWatcher = new FileSystemWatcher();
+    //private readonly FileSystemWatcher fileSystemWatcher = new FileSystemWatcher();
 
     public RaceResultsWriter raceResultsWriter;
     public GameObject announcer;
@@ -47,8 +47,8 @@ public class RaceManager : MonoBehaviour
         this.dataPath = Application.dataPath;
         LoadData();
 
-        this.fileSystemWatcher.NotifyFilter = NotifyFilters.LastWrite;
-        this.fileSystemWatcher.Changed += FileSystemWatcher_Changed;
+        //this.fileSystemWatcher.NotifyFilter = NotifyFilters.LastWrite;
+        //this.fileSystemWatcher.Changed += FileSystemWatcher_Changed;
 
         startingGate = GameObject.Find("Starting Gate");
     }
@@ -86,7 +86,7 @@ public class RaceManager : MonoBehaviour
                 runner.ArrivedAtStartingLine += Runner_ArrivedAtStartingLine;
                 runner.ArrivedAtExitPosition += Runner_ArrivedAtExitPosition;
                 runner.Finished += Runner_Finished;
-                runner.Initialize(horse, currentRace.HorseSpeeds[horse].firstLapSpeed, currentRace.HorseSpeeds[horse].secondLapSpeed, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
+                runner.Initialize(horse, currentRace.HorseSpeeds[horse].FirstLapSpeed, currentRace.HorseSpeeds[horse].SecondLapSpeed, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
                 runner.WalkToStartingLine();
             }
 
@@ -174,9 +174,9 @@ public class RaceManager : MonoBehaviour
             configuration.Load(configurationPath);
         }
 
-        this.fileSystemWatcher.Path = this.dataPath;
-        this.fileSystemWatcher.Filter = configurationFileName;
-        this.fileSystemWatcher.EnableRaisingEvents = true;
+        //this.fileSystemWatcher.Path = this.dataPath;
+        //this.fileSystemWatcher.Filter = configurationFileName;
+        //this.fileSystemWatcher.EnableRaisingEvents = true;
 
         if (debugMode)
         {

@@ -42,6 +42,18 @@ namespace Bas.ADayAtTheRaces.RaceResults
 
         public void Load(string fileName)
         {
+            Task.Delay(1000);
+            string text;
+            using (var fs = new FileStream("C:\\Users\\Bas Paap\\AppData\\Local\\A Day At The Races\\raceresults.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            {
+                using (var sr = new StreamReader(fs, Encoding.Default))
+                {
+                    text = sr.ReadToEnd();
+                }
+            }
+
+            Task.Delay(5000);
+
             try
             {
                 using (var xmlReader = new XmlTextReader(Path.Combine(this.filePath, fileName)))

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">raceresults.xml</Value>
     </Setting>
     <Setting Name="ConfigurationFilePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">%USERPROFILE%\source\repos\BasPaap\ADayAtTheRaces\A Day At the Races\Assets\ADayAtTheRaces.xml</Value>
+      <Value Profile="(Default)">C:\Users\Bas Paap\Desktop\A Day At The Races\A Day At the Races_Data\ADayAtTheRaces.xml</Value>
     </Setting>
   </Settings>
 </SettingsFile>

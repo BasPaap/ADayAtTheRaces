@@ -30,11 +30,13 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
 
         protected override void Update()
         {
+            PastRaces.Clear();
             foreach (var raceResult in this.DataService.GetRaceResults())
             {
                 PastRaces.Add(new PastRaceViewModel(raceResult));
             }
 
+            UpcomingRaces.Clear();
             foreach (var race in this.DataService.GetRaces())
             {
                 if (race.Time > DateTime.Now.TimeOfDay)

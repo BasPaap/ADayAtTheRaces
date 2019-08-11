@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/ADayAtTheRaces.unity
+    guid: 9755a85f22a1cd4459c77c66dd12ab7b
   m_configObjects: {}
