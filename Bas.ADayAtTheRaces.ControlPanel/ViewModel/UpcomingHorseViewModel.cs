@@ -44,11 +44,11 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
             }
         }
 
-        public UpcomingHorseViewModel(Horse horse, Color color, (float firstLapSpeed, float secondLapSpeed) speeds)
+        public UpcomingHorseViewModel(Horse horse, Color color, Speeds speeds)
             : base(horse, color)
         {
-            FirstLapSpeed = speeds.firstLapSpeed;
-            SecondLapSpeed = speeds.secondLapSpeed;
+            FirstLapSpeed = speeds.FirstLapSpeed;
+            SecondLapSpeed = speeds.SecondLapSpeed;
         }
     }
 }

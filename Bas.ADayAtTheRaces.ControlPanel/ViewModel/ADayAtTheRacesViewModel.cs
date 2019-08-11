@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
 
 namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
 {
@@ -21,7 +23,8 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
 
         private void DataService_Updated(object sender, EventArgs e)
         {
-            Update();
+            Application.Current.Dispatcher.BeginInvoke(new Action(() => Update()));
+            
         }
 
         protected virtual void Update()

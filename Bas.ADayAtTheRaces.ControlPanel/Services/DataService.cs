@@ -25,7 +25,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
 
         private void FileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
-            //Updated?.Invoke(this, EventArgs.Empty);
+            Updated?.Invoke(this, EventArgs.Empty);            
         }
 
         public Collection<RaceResult> GetRaceResults()

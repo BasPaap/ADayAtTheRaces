@@ -12,7 +12,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.2.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -37,8 +37,8 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("%USERPROFILE%\\source\\repos\\BasPaap\\ADayAtTheRaces\\A Day At the Races\\Assets\\ADayA" +
-            "tTheRaces.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Bas Paap\\Desktop\\A Day At The Races\\A Day At the Races_Data\\ADayAtTheRac" +
+            "es.xml")]
         public string ConfigurationFilePath {
             get {
                 return ((string)(this["ConfigurationFilePath"]));
