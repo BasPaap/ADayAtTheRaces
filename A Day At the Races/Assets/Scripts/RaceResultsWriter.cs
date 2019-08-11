@@ -45,12 +45,18 @@ public class RaceResultsWriter : MonoBehaviour
             raceResult.Finishes.Add(finish);
         }
 
-        var raceResultsFile = new RaceResultsFile();
-        Debug.Log("Loading...");
-        raceResultsFile.Load(fileName);
-        Debug.Log("Loaded!");
-        raceResultsFile.RaceResults.Add(raceResult);
-        raceResultsFile.Save(fileName);
+        try
+        { 
+            var raceResultsFile = new RaceResultsFile();
+            Debug.Log("Loading...");
+            raceResultsFile.Load(fileName);
+            Debug.Log("Loaded!");
+            raceResultsFile.RaceResults.Add(raceResult);
+            raceResultsFile.Save(fileName);
+        }
+        catch
+        {
+        }
 
         this.finishes.Clear();
         this.currentRace = null;

@@ -31,7 +31,9 @@ public class RaceManager : MonoBehaviour
     public GameObject horsePrefab;
     public Transform horseParent;
     public float distanceBetweenHorses;
-    public bool debugMode = false;
+
+    [Tooltip("When enabled, reschedules the next race to start right after launch.")]
+    public bool debugMode = false; 
 
     public GameObject entryPoint;
     public GameObject exitPoint;
