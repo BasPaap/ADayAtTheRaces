@@ -444,26 +444,28 @@ namespace Bas.ADayAtTheRaces
 
         public void Save(string fileName)
         {
-            using (var xmlWriter = new XmlTextWriter(fileName, Encoding.UTF8))
-            {
-                xmlWriter.Formatting = Formatting.Indented;
+                using (var xmlWriter = new XmlTextWriter(fileName, Encoding.UTF8))
+                {
+                    xmlWriter.Formatting = Formatting.Indented;
 
-                var serializer = new DataContractSerializer(typeof(ADayAtTheRacesConfiguration), serializerSettings);
-                serializer.WriteObject(xmlWriter, this);
-                xmlWriter.Close();
-            }
+                    var serializer = new DataContractSerializer(typeof(ADayAtTheRacesConfiguration), serializerSettings);
+                    serializer.WriteObject(xmlWriter, this);
+                    xmlWriter.Close();
+                }
+            
         }
 
         public void Load(string fileName)
         {
-            using (var xmlReader = new XmlTextReader(fileName))
-            {
-                var serializer = new DataContractSerializer(typeof(ADayAtTheRacesConfiguration));
-                var configuration = serializer.ReadObject(xmlReader) as ADayAtTheRacesConfiguration;
+                using (var xmlReader = new XmlTextReader(fileName))
+                {
+                    var serializer = new DataContractSerializer(typeof(ADayAtTheRacesConfiguration));
+                    var configuration = serializer.ReadObject(xmlReader) as ADayAtTheRacesConfiguration;
 
-                Horses = new Collection<Horse>(configuration.Horses);
-                Races = new Collection<Race>(configuration.Races);
-            }            
+                    Horses = new Collection<Horse>(configuration.Horses);
+                    Races = new Collection<Race>(configuration.Races);
+                }
+            
         }
     }
 }

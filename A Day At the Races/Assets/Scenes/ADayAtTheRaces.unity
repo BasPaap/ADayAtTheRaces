@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70088b61747bd147892016e0802db9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filePath: '%appdata%\A Day At The Races\raceresults.xml'
 --- !u!4 &56476386
 Transform:
   m_ObjectHideFlags: 0
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5817a10e0d28f8f4db2a551736c27ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  configurationFilePath: '%appdata%\A Day At The Races\ADayAtTheRaces.xml'
   raceResultsWriter: {fileID: 56476385}
   announcer: {fileID: 565844243}
   announcerIntro: {fileID: 8300000, guid: 1d3edf18534de4440b9de9fc14b2b386, type: 3}

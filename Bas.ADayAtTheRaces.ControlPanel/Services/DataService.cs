@@ -12,15 +12,29 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
     public sealed class DataService : IDataService
     {
         public event EventHandler Updated;
-        private readonly FileSystemWatcher fileSystemWatcher = new FileSystemWatcher();
+        private readonly FileSystemWatcher raceResultsFileSystemWatcher = new FileSystemWatcher();
+        private readonly FileSystemWatcher configurationFileSystemWatcher = new FileSystemWatcher();
 
         public DataService()
         {
-            this.fileSystemWatcher.Path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "A Day At The Races");
-            this.fileSystemWatcher.Filter = Environment.ExpandEnvironmentVariables(Properties.Settings.Default.RaceResultsFilePath);
-            this.fileSystemWatcher.NotifyFilter = NotifyFilters.LastWrite;
-            this.fileSystemWatcher.Changed += FileSystemWatcher_Changed;
-            this.fileSystemWatcher.EnableRaisingEvents = true;
+            InitializeFileWatcher(Properties.Settings.Default.RaceResultsFilePath, this.raceResultsFileSystemWatcher);
+            InitializeFileWatcher(Properties.Settings.Default.ConfigurationFilePath, this.configurationFileSystemWatcher);
+        }
+        
+        private void InitializeFileWatcher(string filePath, FileSystemWatcher watcher)
+        {
+            var expandedRaceResultsFilePath = Environment.ExpandEnvironmentVariables(filePath);
+
+            if (!Directory.Exists(Path.GetDirectoryName(expandedRaceResultsFilePath)))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(expandedRaceResultsFilePath));
+            }
+
+            watcher.Path = Path.GetDirectoryName(expandedRaceResultsFilePath);
+            watcher.Filter = Path.GetFileName(expandedRaceResultsFilePath);
+            watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.CreationTime;
+            watcher.Changed += FileSystemWatcher_Changed;
+            watcher.EnableRaisingEvents = true;
         }
 
         private void FileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
@@ -31,8 +45,15 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
         public Collection<RaceResult> GetRaceResults()
         {
             var raceResultsFile = new RaceResultsFile();
-            raceResultsFile.Load(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.RaceResultsFilePath));
 
+            try
+            {
+                raceResultsFile.Load(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.RaceResultsFilePath));
+            }
+            catch (FileNotFoundException)
+            {
+                // ignore this, the file will be loaded when the filesystemwatcher notices that it has been created.
+            }
             return raceResultsFile.RaceResults;
         }
 
@@ -51,7 +72,16 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
         private ADayAtTheRacesConfiguration LoadConfiguration()
         {
             var configuration = new ADayAtTheRacesConfiguration();
-            configuration.Load(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.ConfigurationFilePath));
+
+            try
+            {
+                configuration.Load(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.ConfigurationFilePath));
+            }
+            catch (FileNotFoundException)
+            {
+                // ignore this, the file will be loaded when the filesystemwatcher notices that it has been created.
+            }
+
             return configuration;
         }
     }

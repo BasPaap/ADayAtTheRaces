@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace Bas.ADayAtTheRaces.RaceResults
@@ -13,8 +10,6 @@ namespace Bas.ADayAtTheRaces.RaceResults
     [DataContract]
     public sealed class RaceResultsFile
     {
-        private readonly string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "A Day At The Races");
-        
         private readonly DataContractSerializerSettings serializerSettings = new DataContractSerializerSettings()
         {
             KnownTypes = new[] { typeof(RaceResultsFile), typeof(RaceResult), typeof(Finish), typeof(Color) }
@@ -23,51 +18,46 @@ namespace Bas.ADayAtTheRaces.RaceResults
         [DataMember]
         public Collection<RaceResult> RaceResults { get; private set; } = new Collection<RaceResult>();
 
-        public void Save(string fileName)
+        public void Save(string filePath)
         {
-            if (!Directory.Exists(this.filePath))
+            var directoryPath = Path.GetDirectoryName(filePath);
+
+            if (!Directory.Exists(directoryPath))
             {
-                Directory.CreateDirectory(this.filePath);
+                Directory.CreateDirectory(directoryPath);
             }
 
-            using (var xmlWriter = new XmlTextWriter(Path.Combine(this.filePath, fileName), Encoding.UTF8))
-            {
-                xmlWriter.Formatting = Formatting.Indented;
+                using (var xmlWriter = new XmlTextWriter(filePath, Encoding.UTF8))
+                {
+                    xmlWriter.Formatting = Formatting.Indented;
 
-                var serializer = new DataContractSerializer(typeof(RaceResultsFile), serializerSettings);
-                serializer.WriteObject(xmlWriter, this);
-                xmlWriter.Close();
-            }
+                    var serializer = new DataContractSerializer(typeof(RaceResultsFile), serializerSettings);
+                    serializer.WriteObject(xmlWriter, this);
+                    xmlWriter.Close();
+                }
+            
         }
 
-        public void Load(string fileName)
-        {
-            Task.Delay(1000);
-            string text;
-            using (var fs = new FileStream("C:\\Users\\Bas Paap\\AppData\\Local\\A Day At The Races\\raceresults.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            {
-                using (var sr = new StreamReader(fs, Encoding.Default))
-                {
-                    text = sr.ReadToEnd();
-                }
-            }
-
-            Task.Delay(5000);
-
+        public void Load(string filePath)
+        {   
             try
             {
-                using (var xmlReader = new XmlTextReader(Path.Combine(this.filePath, fileName)))
+                using (var xmlReader = new XmlTextReader(filePath))
                 {
                     var serializer = new DataContractSerializer(typeof(RaceResultsFile));
                     var newRaceResultsFile = serializer.ReadObject(xmlReader) as RaceResultsFile;
 
-                    this.RaceResults = newRaceResultsFile.RaceResults;
+                    RaceResults = newRaceResultsFile.RaceResults;
                 }
             }
             catch (FileNotFoundException)
-            { }
+            {
+                // Do nothing, the file will be saved later, and RaceResults has already been initialized.
+            }
             catch (DirectoryNotFoundException)
-            { }            
+            {
+                // Do nothing, the directory will be created when saved.
+            }   
         }
 
         public void Populate()

@@ -10,7 +10,7 @@ using UnityEngine.AI;
 
 public class RaceManager : MonoBehaviour
 {
-    private const string configurationFileName = "ADayAtTheRaces.xml";
+    
     private Queue<Race> futureRaces;
     private Race currentRace;
     private GameObject startingGate;
@@ -24,6 +24,7 @@ public class RaceManager : MonoBehaviour
 
     //private readonly FileSystemWatcher fileSystemWatcher = new FileSystemWatcher();
 
+    public string configurationFilePath = "%appdata%\\A Day At The Races\\ADayAtTheRaces.xml";
     public RaceResultsWriter raceResultsWriter;
     public GameObject announcer;
     public AudioClip announcerIntro;
@@ -163,17 +164,23 @@ public class RaceManager : MonoBehaviour
 
     public void LoadData()
     {
-        var configurationPath = Path.Combine(this.dataPath, configurationFileName);
         ADayAtTheRacesConfiguration configuration = new ADayAtTheRacesConfiguration();
 
-        if (!File.Exists(configurationPath))
+        var expandedConfigurationFilePath = Environment.ExpandEnvironmentVariables(this.configurationFilePath);
+
+        if (!Directory.Exists(Path.GetDirectoryName(expandedConfigurationFilePath)))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(expandedConfigurationFilePath));
+        }
+
+        if (!File.Exists(expandedConfigurationFilePath))
         {   
             configuration.Populate();
-            configuration.Save(configurationPath);            
+            configuration.Save(expandedConfigurationFilePath);            
         }
         else
         {
-            configuration.Load(configurationPath);
+            configuration.Load(expandedConfigurationFilePath);
         }
 
         //this.fileSystemWatcher.Path = this.dataPath;

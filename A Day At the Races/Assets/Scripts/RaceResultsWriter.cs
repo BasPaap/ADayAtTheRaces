@@ -11,6 +11,8 @@ public class RaceResultsWriter : MonoBehaviour
     private Race currentRace;
     public TimeSpan GunshotTime { get; set; }
 
+    public string filePath = "%appdata%\\A Day At The Races\\raceresults.xml";
+
     public void AddResult(Race race, Horse horse, TimeSpan time)
     {
         this.currentRace = race;
@@ -33,8 +35,6 @@ public class RaceResultsWriter : MonoBehaviour
 
     private void SaveResults()
     {
-        const string fileName = "raceresults.xml";
-
         var raceResult = new RaceResult()
         {
             RaceTime = DateTime.Today + this.currentRace.Time
@@ -46,13 +46,15 @@ public class RaceResultsWriter : MonoBehaviour
         }
 
         try
-        { 
+        {
+            var expandedFilePath = Environment.ExpandEnvironmentVariables(this.filePath);
+
             var raceResultsFile = new RaceResultsFile();
             Debug.Log("Loading...");
-            raceResultsFile.Load(fileName);
+            raceResultsFile.Load(expandedFilePath);
             Debug.Log("Loaded!");
             raceResultsFile.RaceResults.Add(raceResult);
-            raceResultsFile.Save(fileName);
+            raceResultsFile.Save(expandedFilePath);
         }
         catch
         {

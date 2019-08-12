@@ -25,7 +25,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("raceresults.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("%appdata%\\A Day At The Races\\raceresults.xml")]
         public string RaceResultsFilePath {
             get {
                 return ((string)(this["RaceResultsFilePath"]));
@@ -37,8 +37,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Bas Paap\\Desktop\\A Day At The Races\\A Day At the Races_Data\\ADayAtTheRac" +
-            "es.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("%appdata%\\A Day At the Races\\ADayAtTheRaces.xml")]
         public string ConfigurationFilePath {
             get {
                 return ((string)(this["ConfigurationFilePath"]));
