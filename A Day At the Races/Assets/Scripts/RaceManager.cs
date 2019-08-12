@@ -22,8 +22,6 @@ public class RaceManager : MonoBehaviour
     private bool IsTimeToSetUpNewRace => futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now.TimeOfDay;
     private bool IsTimeToStartRace => raceStartTime != TimeSpan.Zero && raceStartTime <= DateTime.Now.TimeOfDay;
 
-    //private readonly FileSystemWatcher fileSystemWatcher = new FileSystemWatcher();
-
     public string configurationFilePath = "%appdata%\\A Day At The Races\\ADayAtTheRaces.xml";
     public RaceResultsWriter raceResultsWriter;
     public GameObject announcer;
@@ -44,14 +42,14 @@ public class RaceManager : MonoBehaviour
     public GameObject thirdCorner;
     public GameObject finishLine;
 
+    private float lastConfigurationFileWatchTime;
+    private DateTime lastConfigurationFileWriteTime;
+
     // Start is called before the first frame update
     void Start()
     {
         this.dataPath = Application.dataPath;
         LoadData();
-
-        //this.fileSystemWatcher.NotifyFilter = NotifyFilters.LastWrite;
-        //this.fileSystemWatcher.Changed += FileSystemWatcher_Changed;
 
         startingGate = GameObject.Find("Starting Gate");
     }
@@ -97,6 +95,17 @@ public class RaceManager : MonoBehaviour
         if (IsTimeToStartRace)
         {
             StartRace();            
+        }
+
+        const float configurationFileWatchInterval = 5.0f;
+        if (Time.time - this.lastConfigurationFileWatchTime > configurationFileWatchInterval)
+        {
+            var expandedConfigurationFilePath = Environment.ExpandEnvironmentVariables(this.configurationFilePath);
+            if (File.GetLastWriteTime(expandedConfigurationFilePath) > this.lastConfigurationFileWriteTime)
+            {
+                Debug.Log("configuration file changed, loading data!");
+                LoadData();
+            }
         }
     }
 
@@ -182,10 +191,10 @@ public class RaceManager : MonoBehaviour
             configuration.Load(expandedConfigurationFilePath);
         }
 
-        //this.fileSystemWatcher.Path = this.dataPath;
-        //this.fileSystemWatcher.Filter = configurationFileName;
-        //this.fileSystemWatcher.EnableRaisingEvents = true;
+        this.lastConfigurationFileWatchTime = Time.time;
+        this.lastConfigurationFileWriteTime = File.GetLastWriteTime(expandedConfigurationFilePath);
 
+        
         if (debugMode)
         {
             var firstRace = configuration.Races.FirstOrDefault();
