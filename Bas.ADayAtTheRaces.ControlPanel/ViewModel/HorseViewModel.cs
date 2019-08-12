@@ -16,21 +16,26 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
         public string Name
         {
             get { return name; }
-            set { Set(ref this.name, value);}
+            set { Set(ref this.name, value); }
         }
 
-        private SolidColorBrush color;
+        public SolidColorBrush BackgroundColor { get; set; }
+        public SolidColorBrush ForegroundColor { get; private set; }
 
-        public SolidColorBrush Color
-        {
-            get { return color; }
-            set { Set(ref this.color, value); }
-        }
-        
-        public HorseViewModel(string name, Color color)
+
+        public HorseViewModel(string name, Color jockeyColor)
         {
             Name = name;
-            Color = new SolidColorBrush(System.Windows.Media.Color.FromRgb((byte)color.Red, (byte)color.Green, (byte)color.Blue));
+            var color = System.Windows.Media.Color.FromRgb((byte)jockeyColor.Red, (byte)jockeyColor.Green, (byte)jockeyColor.Blue);
+            BackgroundColor = new SolidColorBrush(color);
+
+            var perceivedBrightness = (int)Math.Sqrt(
+                color.R * color.R * .241 +
+                color.G * color.G * .691 +
+                color.B * color.B * .068);
+
+            const int brightnessCutoffValue = 130;
+            ForegroundColor = new SolidColorBrush(perceivedBrightness > brightnessCutoffValue ? Colors.Black : Colors.White);
         }
     }
 
