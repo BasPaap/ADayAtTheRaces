@@ -92,8 +92,6 @@ public class RaceManager : MonoBehaviour
                 runner.Initialize(horse, currentRace.HorseSpeeds[horse].FirstLapSpeed, currentRace.HorseSpeeds[horse].SecondLapSpeed, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
                 runner.WalkToStartingLine();
             }
-
-            PlayAnnouncement(announcerIntro, 8.0f);
         }
 
         if (IsTimeToStartRace)
@@ -124,6 +122,7 @@ public class RaceManager : MonoBehaviour
 
         if (numRunnersAtStartingLine == currentRace?.Horses.Count)
         {
+            PlayAnnouncement(announcerIntro);
             raceStartTime = DateTime.Now.TimeOfDay + TimeSpan.FromSeconds(5.0);
         }
     }
