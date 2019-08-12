@@ -19,6 +19,14 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
             get { return time; }
             set { Set(ref this.time, value); }
         }
+
+        private bool isExpanded;
+
+        public bool IsExpanded
+        {
+            get { return isExpanded; }
+            set { Set(ref this.isExpanded, value); }
+        }
         
         public ObservableCollection<FinishedHorseViewModel> FinishedHorses { get; } = new ObservableCollection<FinishedHorseViewModel>();
 

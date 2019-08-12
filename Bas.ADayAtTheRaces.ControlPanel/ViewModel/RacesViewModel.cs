@@ -38,6 +38,8 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
                 PastRaces.Add(new PastRaceViewModel(raceResult));
             }
 
+            PastRaces.Last().IsExpanded = true;
+
             UpcomingRaces.Clear();
             foreach (var race in this.DataService.GetRaces())
             {

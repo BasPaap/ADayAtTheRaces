@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -46,14 +47,38 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
         {
             var raceResultsFile = new RaceResultsFile();
 
-            try
+            bool shouldRetry;
+            var firstLoadAttemptTime = DateTime.Now;
+            do
             {
-                raceResultsFile.Load(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.RaceResultsFilePath));
-            }
-            catch (FileNotFoundException)
-            {
-                // ignore this, the file will be loaded when the filesystemwatcher notices that it has been created.
-            }
+                Debug.WriteLine("Attempting to load raceresults file...");
+                shouldRetry = false;
+
+                try
+                {
+                    raceResultsFile.Load(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.RaceResultsFilePath));
+                }
+                catch (FileNotFoundException)
+                {
+                    // ignore this, the file will be loaded when the filesystemwatcher notices that it has been created.
+                }
+                catch (IOException ex)
+                {
+                    const int ERROR_SHARING_VIOLATION = -2147024864;
+                    if (ex.HResult == ERROR_SHARING_VIOLATION)
+                    {
+                        if (DateTime.Now - firstLoadAttemptTime < TimeSpan.FromSeconds(5))
+                        {
+                            shouldRetry = true;
+                        }
+                        else
+                        {
+                            throw ex;
+                        }
+                    }
+                }
+            } while (shouldRetry);
+
             return raceResultsFile.RaceResults;
         }
 
