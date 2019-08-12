@@ -107,7 +107,7 @@ namespace Bas.ADayAtTheRaces
 
             var secretGrace = new Horse
             {
-                Name = "Name",
+                Name = "Secret Grace",
                 ReactionSpeed = 0.1f,
                 Reliability = 1.0f
             };
@@ -318,128 +318,6 @@ namespace Bas.ADayAtTheRaces
             Races.Add(firstRace);
             Races.Add(secondRace);
             Races.Add(thirdRace);
-        }
-
-        public void OldPopulate()
-        {
-            var rainbowDash = new Horse
-            {
-                Name = "Rainbow Dash",                
-                ReactionSpeed = 0.2f,
-                Reliability = 1.0f
-            };
-
-            rainbowDash.RunningPhases.Add(new RunningPhase(10.0, 0.5f));
-            rainbowDash.RunningPhases.Add(new RunningPhase(30.0, 0.8f));
-            rainbowDash.RunningPhases.Add(new RunningPhase(300, 1.0f));
-
-            var pinkiePie = new Horse
-            {
-                Name = "Pinkie Pie",
-                ReactionSpeed = 1.0f,
-                Reliability = 0.2f
-            };
-
-            pinkiePie.RunningPhases.Add(new RunningPhase(10.5, 1.0f));
-            pinkiePie.RunningPhases.Add(new RunningPhase(20.0, 0.7f));
-            pinkiePie.RunningPhases.Add(new RunningPhase(300, 1.0f));
-
-            var applejack = new Horse
-            {
-                Name = "Applejack",
-                ReactionSpeed = 0.5f,
-                Reliability = 0.5f
-            };
-
-            applejack.RunningPhases.Add(new RunningPhase(8.0, 0.7f));
-            applejack.RunningPhases.Add(new RunningPhase(25.0, 0.85f));
-            applejack.RunningPhases.Add(new RunningPhase(300, 1.0f));
-
-            var twilightSparkle = new Horse
-            {
-                Name = "Twilight Sparkle",
-                ReactionSpeed = 0.5f,
-                Reliability = 1.0f
-
-            };
-
-            twilightSparkle.RunningPhases.Add(new RunningPhase(10.0, 0.75f));
-            twilightSparkle.RunningPhases.Add(new RunningPhase(15.0, 0.8f));
-            twilightSparkle.RunningPhases.Add(new RunningPhase(300, 1.0f));
-
-            var fluttershy = new Horse
-            {
-                Name = "Fluttershy",
-                ReactionSpeed = 0.1f,
-                Reliability = 0.8f
-            };
-
-            fluttershy.RunningPhases.Add(new RunningPhase(8.0, 0.65f));
-            fluttershy.RunningPhases.Add(new RunningPhase(10.0, 0.87f));
-            fluttershy.RunningPhases.Add(new RunningPhase(300, 1.0f));
-
-            var rarity = new Horse
-            {
-                Name = "Rarity",
-                ReactionSpeed = 0.7f,
-                Reliability = 0.6f
-            };
-
-            rarity.RunningPhases.Add(new RunningPhase(7.5, 0.7f));
-            rarity.RunningPhases.Add(new RunningPhase(20.0, 0.8f));
-            rarity.RunningPhases.Add(new RunningPhase(300, 1.0f));
-
-            Horses.Add(rainbowDash);
-            Horses.Add(pinkiePie);
-            Horses.Add(applejack);
-            Horses.Add(twilightSparkle);
-            Horses.Add(fluttershy);
-            Horses.Add(rarity);
-
-            var tenSecondsFromNow = new TimeSpan(15, 0, 0); // DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(10));
-            var firstRace = new Race(tenSecondsFromNow.Hours, tenSecondsFromNow.Minutes, tenSecondsFromNow.Seconds);
-            firstRace.Horses.Add(rainbowDash);
-            firstRace.Horses.Add(pinkiePie);
-            firstRace.Horses.Add(applejack);
-            firstRace.Horses.Add(twilightSparkle);
-            firstRace.Horses.Add(fluttershy);
-            firstRace.Horses.Add(rarity);
-            firstRace.HorseSpeeds[rainbowDash.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[pinkiePie.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[applejack.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[twilightSparkle.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[fluttershy.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[rarity.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.JockeyColors[rainbowDash.Name] = new Color(0x82, 0xC2, 0xE4);
-            firstRace.JockeyColors[pinkiePie.Name] = new Color(0xF6, 0xB8, 0xD5);
-            firstRace.JockeyColors[applejack.Name] = new Color(0xFC, 0xB7, 0x62);
-            firstRace.JockeyColors[twilightSparkle.Name] = new Color(0xD8, 0x67, 0xB4);
-            firstRace.JockeyColors[fluttershy.Name] = new Color(0xFD, 0xF5, 0xAA);
-            firstRace.JockeyColors[rarity.Name] = new Color(0xEA, 0xED, 0xF1);
-            
-            var fiveMinutesFromNow = new TimeSpan(17, 0, 0);// tenSecondsFromNow.Add(TimeSpan.FromMinutes(5));
-            var secondRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes, fiveMinutesFromNow.Seconds);
-            secondRace.Horses.Add(rainbowDash);
-            secondRace.Horses.Add(pinkiePie);
-            secondRace.Horses.Add(applejack);
-            secondRace.Horses.Add(twilightSparkle);
-            secondRace.Horses.Add(fluttershy);
-            secondRace.Horses.Add(rarity);
-            secondRace.HorseSpeeds[rainbowDash.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[pinkiePie.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[applejack.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[twilightSparkle.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[fluttershy.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[rarity.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.JockeyColors[rainbowDash.Name] = new Color(0x82, 0xC2, 0xE4);
-            secondRace.JockeyColors[pinkiePie.Name] = new Color(0xF6, 0xB8, 0xD5);
-            secondRace.JockeyColors[applejack.Name] = new Color(0xFC, 0xB7, 0x62);
-            secondRace.JockeyColors[twilightSparkle.Name] = new Color(0xD8, 0x67, 0xB4);
-            secondRace.JockeyColors[fluttershy.Name] = new Color(0xFD, 0xF5, 0xAA);
-            secondRace.JockeyColors[rarity.Name] = new Color(0xEA, 0xED, 0xF1);
-
-            Races.Add(firstRace);
-            Races.Add(secondRace);
         }
 
         public void Save(string fileName)
