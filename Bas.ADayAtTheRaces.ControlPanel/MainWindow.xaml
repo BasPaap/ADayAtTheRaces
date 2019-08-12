@@ -80,7 +80,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Button Margin="30,11,30,0" Height="55.486">Opslaan</Button>
+            <Button Margin="30,11,30,0" Height="55.486" Command="{Binding SaveCommand}">Opslaan</Button>
         </StackPanel>
 
     </ScrollViewer>

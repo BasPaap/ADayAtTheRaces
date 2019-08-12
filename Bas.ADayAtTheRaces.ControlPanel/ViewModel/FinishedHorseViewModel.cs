@@ -26,12 +26,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
             set { Set(ref this.time, value); }
         }
 
-        public FinishedHorseViewModel(Horse horse, Color color)
-            : base(horse, color)
-        {
-        }
-
-        public FinishedHorseViewModel(int position, TimeSpan time, string name, Color color)
+        public FinishedHorseViewModel(string name, Color color, int position, TimeSpan time)
             : base(name, color)
         {
             Position = position;

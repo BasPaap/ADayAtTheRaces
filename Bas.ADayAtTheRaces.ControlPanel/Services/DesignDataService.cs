@@ -35,5 +35,10 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
         {
             return this.configurationFile.Races;
         }
+
+        public void SaveRaces(IEnumerable<Race> races)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

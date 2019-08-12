@@ -84,5 +84,24 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
 
             return configuration;
         }
+
+        private void SaveConfiguration(ADayAtTheRacesConfiguration configuration)
+        {
+            configuration.Save(Environment.ExpandEnvironmentVariables(Properties.Settings.Default.ConfigurationFilePath));            
+        }
+
+
+        public void SaveRaces(IEnumerable<Race> races)
+        {
+            var configuration = LoadConfiguration();
+            configuration.Races.Clear();
+
+            foreach (var race in races)
+            {
+                configuration.Races.Add(race);
+            }
+
+            SaveConfiguration(configuration);
+        }
     }
 }

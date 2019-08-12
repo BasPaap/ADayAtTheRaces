@@ -13,6 +13,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
         Collection<RaceResult> GetRaceResults();
         Collection<Race> GetRaces();
         Collection<Horse> GetHorses();
+        void SaveRaces(IEnumerable<Race> races);
 
         event EventHandler Updated;
     }

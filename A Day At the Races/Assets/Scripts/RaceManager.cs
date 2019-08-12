@@ -82,14 +82,14 @@ public class RaceManager : MonoBehaviour
                 var horseGameObject = Instantiate(horsePrefab, horsePosition, horsePrefab.transform.rotation, horseParent);
                 horseGameObject.name = horse.Name;
                 
-                SetJockeyColor(horseGameObject, currentRace.JockeyColors[horse].ToUnityColor());
+                SetJockeyColor(horseGameObject, currentRace.JockeyColors[horse.Name].ToUnityColor());
 
                 var runner = horseGameObject.GetComponent<Runner>();
                 this.runners.Add(runner);
                 runner.ArrivedAtStartingLine += Runner_ArrivedAtStartingLine;
                 runner.ArrivedAtExitPosition += Runner_ArrivedAtExitPosition;
                 runner.Finished += Runner_Finished;
-                runner.Initialize(horse, currentRace.HorseSpeeds[horse].FirstLapSpeed, currentRace.HorseSpeeds[horse].SecondLapSpeed, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
+                runner.Initialize(horse, currentRace.HorseSpeeds[horse.Name].FirstLapSpeed, currentRace.HorseSpeeds[horse.Name].SecondLapSpeed, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
                 runner.WalkToStartingLine();
             }
         }

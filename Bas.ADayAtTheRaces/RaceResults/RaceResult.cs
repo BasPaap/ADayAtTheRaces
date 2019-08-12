@@ -15,6 +15,6 @@ namespace Bas.ADayAtTheRaces.RaceResults
         public Collection<Finish> Finishes { get; private set; } = new Collection<Finish>();
 
         [DataMember]
-        public DateTime RaceTime { get; set; } 
+        public TimeSpan RaceTime { get; set; } 
     }
 }

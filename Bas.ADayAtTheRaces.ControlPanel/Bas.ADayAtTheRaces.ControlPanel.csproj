@@ -80,7 +80,6 @@
     <Compile Include="ViewModel\HorseViewModel.cs" />
     <Compile Include="ViewModel\PastRaceViewModel.cs" />
     <Compile Include="ViewModel\RacesViewModel.cs" />
-    <Compile Include="ViewModel\RaceViewModel.cs" />
     <Compile Include="ViewModel\UpcomingHorseViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">

@@ -20,7 +20,7 @@ public class RaceResultsWriter : MonoBehaviour
         var finish = new Finish()
         {
             HorseName = horse.Name,
-            JockeyColor = race.JockeyColors[horse],
+            JockeyColor = race.JockeyColors[horse.Name],
             TotalTime = time - GunshotTime,
             Position = finishes.Count + 1
         };
@@ -37,7 +37,7 @@ public class RaceResultsWriter : MonoBehaviour
     {
         var raceResult = new RaceResult()
         {
-            RaceTime = DateTime.Today + this.currentRace.Time
+            RaceTime = this.currentRace.Time
         };
 
         foreach (var finish in this.finishes)

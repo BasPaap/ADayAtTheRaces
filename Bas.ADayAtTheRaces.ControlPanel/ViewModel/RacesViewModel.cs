@@ -1,5 +1,6 @@
 ﻿using Bas.ADayAtTheRaces.ControlPanel.Services;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,19 +15,20 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
         public RacesViewModel(IDataService dataService)
             : base(dataService)
         {
+            SaveCommand = new RelayCommand(() =>
+            {
+                var races = from u in UpcomingRaces
+                            select u.GetRace();
+
+                this.DataService.SaveRaces(races);
+            });
         }
 
         public ObservableCollection<PastRaceViewModel> PastRaces { get; } = new ObservableCollection<PastRaceViewModel>();
-
-        private RaceViewModel currentRace;
-
-        public RaceViewModel CurrentRace
-        {
-            get { return currentRace; }
-            set { Set(ref this.currentRace, value);}
-        }
-
+        
         public ObservableCollection<UpcomingRaceViewModel> UpcomingRaces { get; } = new ObservableCollection<UpcomingRaceViewModel>();
+
+        public RelayCommand SaveCommand { get; private set; } 
 
         protected override void Update()
         {

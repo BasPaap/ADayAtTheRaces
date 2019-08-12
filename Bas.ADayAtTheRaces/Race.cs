@@ -17,10 +17,10 @@ namespace Bas.ADayAtTheRaces
         public Collection<Horse> Horses { get; private set; } = new Collection<Horse>();
 
         [DataMember]
-        public Dictionary<Horse, Color> JockeyColors { get; private set; } = new Dictionary<Horse, Color>();
+        public Dictionary<string, Color> JockeyColors { get; private set; } = new Dictionary<string, Color>();
 
         [DataMember]
-        public Dictionary<Horse, Speeds> HorseSpeeds { get; private set; } = new Dictionary<Horse, Speeds>();
+        public Dictionary<string, Speeds> HorseSpeeds { get; private set; } = new Dictionary<string, Speeds>();
 
         [DataMember]
         public TimeSpan Time { get; set; }
@@ -28,6 +28,25 @@ namespace Bas.ADayAtTheRaces
         public Race(int hours, int minutes, int seconds)
         {
             Time = new TimeSpan(hours, minutes, seconds);
+        }
+
+        public Race(Race race)
+            : this(race.Time.Hours, race.Time.Minutes, race.Time.Seconds)
+        {
+            foreach (var horse in race.Horses)
+            {
+                Horses.Add(horse);
+            }
+
+            foreach (var jockeyColorKey in race.JockeyColors.Keys)
+            {
+                JockeyColors.Add(jockeyColorKey, race.JockeyColors[jockeyColorKey]);
+            }
+
+            foreach (var horseSpeedsKey in race.HorseSpeeds.Keys)
+            {
+                HorseSpeeds.Add(horseSpeedsKey, race.HorseSpeeds[horseSpeedsKey]);
+            }
         }
 
         public override string ToString() => $"Race at {Time.ToString()}";
