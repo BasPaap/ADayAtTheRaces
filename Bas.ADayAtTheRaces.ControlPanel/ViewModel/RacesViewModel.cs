@@ -38,7 +38,10 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
                 PastRaces.Add(new PastRaceViewModel(raceResult));
             }
 
-            PastRaces.Last().IsExpanded = true;
+            if (PastRaces.Count > 0)
+            {
+                PastRaces.Last().IsExpanded = true;
+            }
 
             UpcomingRaces.Clear();
             foreach (var race in this.DataService.GetRaces())
