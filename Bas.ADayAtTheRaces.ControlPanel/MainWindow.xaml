@@ -7,81 +7,86 @@
         mc:Ignorable="d"
         DataContext="{Binding Races, Source={StaticResource Locator}}"
         Title="A Day At The Races Control Panel" Height="900" Width="800">
-    <ScrollViewer>
-        <StackPanel>
-            <TextBlock FontWeight="Bold" FontSize="16">Vorige races</TextBlock>
-            <ListBox ItemsSource="{Binding PastRaces}" HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <ItemContainerTemplate>
-                        <Expander Header="{Binding Time}" IsExpanded="{Binding IsExpanded}">
-                            <Grid Background="#FFE5E5E5">
-                                <ListBox ItemsSource="{Binding FinishedHorses}">
-                                    <ListBox.ItemTemplate>
-                                        <ItemContainerTemplate>
-                                            <Grid>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="3" />
-                                                    <ColumnDefinition Width="17"/>
-                                                    <ColumnDefinition Width="200" />
-                                                    <ColumnDefinition Width="*" />
-                                                </Grid.ColumnDefinitions>
-                                                <TextBlock Grid.Column="0" Background="{Binding Color}" Text="{Binding Position}" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2" />
-                                                <TextBlock Grid.Column="2" Text="{Binding Name}" />
-                                                <TextBlock Grid.Column="3" Text="{Binding Time}" />
-                                            </Grid>
-                                        </ItemContainerTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
-                        </Expander>
-                    </ItemContainerTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-            <TextBlock Margin="0,17,0,0" FontWeight="Bold" FontSize="16">Volgende races</TextBlock>
-            <ListBox ItemsSource="{Binding UpcomingRaces}" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <ItemContainerTemplate>
-                        <Grid >
-                            <Expander Header="{Binding Time}" IsExpanded="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="90" />
+        </Grid.RowDefinitions>
+        <ScrollViewer>
+            <StackPanel>
+                <TextBlock FontWeight="Bold" FontSize="16">Vorige races</TextBlock>
+                <ListBox ItemsSource="{Binding PastRaces}" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <ItemContainerTemplate>
+                            <Expander Header="{Binding Time}" IsExpanded="{Binding IsExpanded}">
                                 <Grid Background="#FFE5E5E5">
-                                    <ListView ItemsSource="{Binding UpcomingHorses}">
-                                        <ListView.View>
-                                            <GridView>
-                                                <GridViewColumn Width="150" Header="Naam">
-                                                    <GridViewColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding Name}" Background="{Binding Color}" HorizontalAlignment="Right" FontWeight="Bold" Foreground="White" />
-                                                        </DataTemplate>
-                                                    </GridViewColumn.CellTemplate>
-                                                </GridViewColumn>
-                                                <GridViewColumn Width="200" Header="Snelheid in eerste ronde">
-                                                    <GridViewColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <Slider Width="180" Minimum="0.5" Maximum="1.5" Value="{Binding FirstLapSpeed, Mode=TwoWay}" TickPlacement="Both" TickFrequency="0.1" ></Slider>
-                                                        </DataTemplate>
-                                                    </GridViewColumn.CellTemplate>
-                                                </GridViewColumn>
-
-                                                <GridViewColumn Width="200" Header="Snelheid in tweede ronde">
-                                                    <GridViewColumn.CellTemplate>
-                                                        <DataTemplate>
-                                                            <Slider Width="180" Minimum="0.5" Maximum="1.5" Value="{Binding SecondLapSpeed, Mode=TwoWay}" TickPlacement="Both"></Slider>
-                                                        </DataTemplate>
-                                                    </GridViewColumn.CellTemplate>
-                                                </GridViewColumn>
-                                            </GridView>
-                                        </ListView.View>
-                                    </ListView>
+                                    <ListBox ItemsSource="{Binding FinishedHorses}">
+                                        <ListBox.ItemTemplate>
+                                            <ItemContainerTemplate>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="3" />
+                                                        <ColumnDefinition Width="17"/>
+                                                        <ColumnDefinition Width="200" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0" Background="{Binding Color}" Text="{Binding Position}" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2" />
+                                                    <TextBlock Grid.Column="2" Text="{Binding Name}" />
+                                                    <TextBlock Grid.Column="3" Text="{Binding Time}" />
+                                                </Grid>
+                                            </ItemContainerTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
                                 </Grid>
                             </Expander>
-                        </Grid>
-                    </ItemContainerTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                        </ItemContainerTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
-            <Button Margin="30,11,30,0" Height="55.486" Command="{Binding SaveCommand}">Opslaan</Button>
-        </StackPanel>
+                <TextBlock Margin="0,17,0,0" FontWeight="Bold" FontSize="16">Volgende races</TextBlock>
+                <ListBox ItemsSource="{Binding UpcomingRaces}" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <ItemContainerTemplate>
+                            <Grid >
+                                <Expander Header="{Binding Time}" IsExpanded="True">
+                                    <Grid Background="#FFE5E5E5">
+                                        <ListView ItemsSource="{Binding UpcomingHorses}">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Width="150" Header="Naam">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding Name}" Background="{Binding Color}" HorizontalAlignment="Right" FontWeight="Bold" Foreground="White" />
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                    <GridViewColumn Width="200" Header="Snelheid in eerste ronde">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Slider Width="180" Minimum="0.5" Maximum="1.5" Value="{Binding FirstLapSpeed, Mode=TwoWay}" TickPlacement="Both" TickFrequency="0.1" ></Slider>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
 
-    </ScrollViewer>
+                                                    <GridViewColumn Width="200" Header="Snelheid in tweede ronde">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Slider Width="180" Minimum="0.5" Maximum="1.5" Value="{Binding SecondLapSpeed, Mode=TwoWay}" TickPlacement="Both"></Slider>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </Grid>
+                                </Expander>
+                            </Grid>
+                        </ItemContainerTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button Grid.Row="1" Margin="30,10" Command="{Binding SaveCommand}">Opslaan</Button>
+    </Grid>
 </Window>
