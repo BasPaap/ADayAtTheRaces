@@ -20,16 +20,24 @@ namespace Bas.ADayAtTheRaces
         public Dictionary<string, Color> JockeyColors { get; private set; } = new Dictionary<string, Color>();
 
         [DataMember]
-        public Dictionary<string, Speeds> HorseSpeeds { get; private set; } = new Dictionary<string, Speeds>();
+        public Dictionary<string, LapSpeedModifier> HorseSpeedModifiers { get; private set; } = new Dictionary<string, LapSpeedModifier>();
 
         [DataMember]
         public DateTime Time { get; set; }
 
+        /// <summary>
+        /// Constructs a race without horses, speed modifiers or jockeycolors that starts at the set <paramref name="time"/>.
+        /// </summary>
+        /// <param name="time">The time at which the race starts.</param>
         public Race(DateTime time)
         {
             Time = time;
         }
 
+        /// <summary>
+        /// Copy constructor.
+        /// </summary>
+        /// <param name="race"></param>
         public Race(Race race)
             : this(race.Time)
         {
@@ -43,9 +51,9 @@ namespace Bas.ADayAtTheRaces
                 JockeyColors.Add(jockeyColorKey, race.JockeyColors[jockeyColorKey]);
             }
 
-            foreach (var horseSpeedsKey in race.HorseSpeeds.Keys)
+            foreach (var horseSpeedModifiersKey in race.HorseSpeedModifiers.Keys)
             {
-                HorseSpeeds.Add(horseSpeedsKey, race.HorseSpeeds[horseSpeedsKey]);
+                HorseSpeedModifiers.Add(horseSpeedModifiersKey, race.HorseSpeedModifiers[horseSpeedModifiersKey]);
             }
         }
 

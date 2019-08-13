@@ -31,7 +31,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
 
             foreach (var horse in race.Horses)
             {
-                UpcomingHorses.Add(new UpcomingHorseViewModel(horse.Name, race.JockeyColors[horse.Name], race.HorseSpeeds[horse.Name]));
+                UpcomingHorses.Add(new UpcomingHorseViewModel(horse.Name, race.JockeyColors[horse.Name], race.HorseSpeedModifiers[horse.Name]));
             }
         }
 
@@ -41,7 +41,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
 
             foreach (var upcomingHorse in UpcomingHorses)
             {
-                modifiedRace.HorseSpeeds[upcomingHorse.Name] = new Speeds()
+                modifiedRace.HorseSpeedModifiers[upcomingHorse.Name] = new LapSpeedModifier()
                 {
                     FirstLapSpeed = upcomingHorse.FirstLapSpeed,
                     SecondLapSpeed = upcomingHorse.SecondLapSpeed

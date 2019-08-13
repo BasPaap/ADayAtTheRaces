@@ -16,6 +16,11 @@ namespace Bas.ADayAtTheRaces
         [DataMember]
         public TimeSpan Duration { get; set; }
 
+        /// <summary>
+        /// Constructs a running phase where the horse runs at <paramref name="speed"/> for <paramref name="durationInSeconds"/> seconds.
+        /// </summary>
+        /// <param name="durationInSeconds">Duration of the running phase, in seconds.</param>
+        /// <param name="speed">Relative speed of the horse, a value between 0 and 1.</param>
         public RunningPhase(double durationInSeconds, float speed)
         {
             Speed = speed;

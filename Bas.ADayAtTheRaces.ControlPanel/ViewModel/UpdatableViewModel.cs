@@ -10,14 +10,14 @@ using System.Windows.Threading;
 
 namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
 {
-    public abstract class ADayAtTheRacesViewModel : ViewModelBase
+    public abstract class UpdatableViewModel : ViewModelBase
     {
         protected IDataService DataService { get; set; }
 
-        public ADayAtTheRacesViewModel(IDataService dataService)
+        public UpdatableViewModel(IDataService dataService)
         {
             this.DataService = dataService;
-            this.DataService.Updated += DataService_Updated;
+            this.DataService.DataUpdated += DataService_Updated;
             Update();
         }
 

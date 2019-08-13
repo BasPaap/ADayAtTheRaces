@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Bas.ADayAtTheRaces.ControlPanel.Services
 {
+    /// <summary>
+    /// Design-time data for use in Visual Studio and Blender designers.
+    /// </summary>
     public sealed class DesignDataService : IDataService
     {
         private readonly ADayAtTheRacesConfiguration configurationFile = new ADayAtTheRacesConfiguration();
@@ -21,7 +24,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
 
         // This event is not used at design time, so we'll make it explicit to avoid compiler warnings, 
         // https://blogs.msdn.microsoft.com/trevor/2008/08/14/c-warning-cs0067-the-event-event-is-never-used/
-        public event EventHandler Updated
+        public event EventHandler DataUpdated
         {
             add { throw new NotSupportedException(); }
             remove { }

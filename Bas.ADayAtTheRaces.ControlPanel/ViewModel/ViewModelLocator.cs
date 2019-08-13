@@ -24,12 +24,10 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
                 SimpleIoc.Default.Register<IDataService, DataService>();
             }
 
-            SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<RacesViewModel>();
             
         }
 
-        public MainViewModel Main { get { return ServiceLocator.Current.GetInstance<MainViewModel>(); } }
         public RacesViewModel Races { get { return ServiceLocator.Current.GetInstance<RacesViewModel>(); } }
         
     }

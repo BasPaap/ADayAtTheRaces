@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
 {
-    public sealed class RacesViewModel : ADayAtTheRacesViewModel
+    public sealed class RacesViewModel : UpdatableViewModel
     {
         public RacesViewModel(IDataService dataService)
             : base(dataService)

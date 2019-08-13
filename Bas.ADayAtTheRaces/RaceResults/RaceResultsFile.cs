@@ -62,9 +62,9 @@ namespace Bas.ADayAtTheRaces.RaceResults
 
         public void Populate()
         {
-            var firstFinish = new Finish { HorseName = "Pinkie Pie", Position = 1, TotalTime = TimeSpan.FromSeconds(75.0), JockeyColor = new Color(1.0f, 0.0f, 0.0f) };
-            var secondFinish = new Finish { HorseName = "Rainbow Dash", Position = 2, TotalTime = TimeSpan.FromSeconds(83.0), JockeyColor = new Color(0.0f, 1.0f, 0.0f) };
-            var thirdFinish = new Finish { HorseName = "Applejack", Position = 3, TotalTime = TimeSpan.FromSeconds(90.0), JockeyColor = new Color(0.0f, 0.0f, 1.0f) };
+            var firstFinish = new Finish { HorseName = "Pinkie Pie", Position = 1, TotalTime = TimeSpan.FromSeconds(75.0), JockeyColor = new Color(255, 0, 0) };
+            var secondFinish = new Finish { HorseName = "Rainbow Dash", Position = 2, TotalTime = TimeSpan.FromSeconds(83.0), JockeyColor = new Color(0, 255, 0) };
+            var thirdFinish = new Finish { HorseName = "Applejack", Position = 3, TotalTime = TimeSpan.FromSeconds(90.0), JockeyColor = new Color(0, 0, 255) };
 
             var firstRaceResult = new RaceResult { RaceTime = DateTime.Now.AddHours(-2.0) };
             firstRaceResult.Finishes.Add(firstFinish);

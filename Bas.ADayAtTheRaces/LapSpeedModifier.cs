@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Bas.ADayAtTheRaces
 {
     [DataContract]
-    public sealed class Speeds
+    public sealed class LapSpeedModifier
     {
         [DataMember]
         public float FirstLapSpeed { get; set; }

@@ -44,7 +44,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
             }
         }
 
-        public UpcomingHorseViewModel(string name, Color color, Speeds speeds)
+        public UpcomingHorseViewModel(string name, Color color, LapSpeedModifier speeds)
             : base(name, color)
         {
             FirstLapSpeed = speeds.FirstLapSpeed;

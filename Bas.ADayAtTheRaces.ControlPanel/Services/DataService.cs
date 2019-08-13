@@ -12,7 +12,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
 {
     public sealed class DataService : IDataService
     {
-        public event EventHandler Updated;
+        public event EventHandler DataUpdated;
         private readonly FileSystemWatcher raceResultsFileSystemWatcher = new FileSystemWatcher();
         private readonly FileSystemWatcher configurationFileSystemWatcher = new FileSystemWatcher();
 
@@ -40,7 +40,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
 
         private void FileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
         {
-            Updated?.Invoke(this, EventArgs.Empty);            
+            DataUpdated?.Invoke(this, EventArgs.Empty);            
         }
 
         public Collection<RaceResult> GetRaceResults()

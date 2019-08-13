@@ -57,7 +57,7 @@
     <Compile Include="RaceResults\RaceResultsFile.cs" />
     <Compile Include="RaceResults\RaceResult.cs" />
     <Compile Include="RunningPhase.cs" />
-    <Compile Include="Speeds.cs" />
+    <Compile Include="LapSpeedModifier.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

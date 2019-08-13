@@ -14,8 +14,6 @@ namespace Bas.ADayAtTheRaces
     {
         [DataMember]
         public string Name { get; set; }
-        //[DataMember]
-        //public Color Color { get; set; }
         [DataMember]
         public float ReactionSpeed { get; set; }
         [DataMember]

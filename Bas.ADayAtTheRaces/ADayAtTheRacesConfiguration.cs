@@ -16,7 +16,7 @@ namespace Bas.ADayAtTheRaces
         private readonly DataContractSerializerSettings serializerSettings = new DataContractSerializerSettings()
         {
             PreserveObjectReferences = true,
-            KnownTypes = new [] { typeof(ADayAtTheRacesConfiguration), typeof(Horse), typeof(RunningPhase), typeof(Color), typeof(Race), typeof(Speeds)}
+            KnownTypes = new [] { typeof(ADayAtTheRacesConfiguration), typeof(Horse), typeof(RunningPhase), typeof(Color), typeof(Race), typeof(LapSpeedModifier)}
         };
 
         [DataMember]
@@ -24,6 +24,9 @@ namespace Bas.ADayAtTheRaces
         [DataMember]
         public Collection<Race> Races { get; private set; } = new Collection<Race>();
 
+        /// <summary>
+        /// Populates the configuration structure with test data.
+        /// </summary>
         public void Populate()
         {
             var redColor = new Color(230, 122, 120);
@@ -260,12 +263,12 @@ namespace Bas.ADayAtTheRaces
             firstRace.Horses.Add(theGosling);
             firstRace.Horses.Add(balderdash);
             firstRace.Horses.Add(trumpCard);
-            firstRace.HorseSpeeds[bigWonder.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[fallGuy.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[soldiersJoy.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[theGosling.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[balderdash.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            firstRace.HorseSpeeds[trumpCard.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeedModifiers[bigWonder.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeedModifiers[fallGuy.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeedModifiers[soldiersJoy.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeedModifiers[theGosling.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeedModifiers[balderdash.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            firstRace.HorseSpeedModifiers[trumpCard.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
             firstRace.JockeyColors[bigWonder.Name] = redColor;
             firstRace.JockeyColors[fallGuy.Name] = greenColor;
             firstRace.JockeyColors[soldiersJoy.Name] = blueColor;
@@ -281,12 +284,12 @@ namespace Bas.ADayAtTheRaces
             secondRace.Horses.Add(bananabread);
             secondRace.Horses.Add(pinkiePie);
             secondRace.Horses.Add(littleJacob);
-            secondRace.HorseSpeeds[sirtThackery.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[fitzgerald.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[unityAsset.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[bananabread.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[pinkiePie.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            secondRace.HorseSpeeds[littleJacob.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeedModifiers[sirtThackery.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeedModifiers[fitzgerald.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeedModifiers[unityAsset.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeedModifiers[bananabread.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeedModifiers[pinkiePie.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            secondRace.HorseSpeedModifiers[littleJacob.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
             secondRace.JockeyColors[sirtThackery.Name] = redColor;
             secondRace.JockeyColors[fitzgerald.Name] = greenColor;
             secondRace.JockeyColors[unityAsset.Name] = blueColor;
@@ -302,12 +305,12 @@ namespace Bas.ADayAtTheRaces
             thirdRace.Horses.Add(peggiesPride);
             thirdRace.Horses.Add(guidingLight);
             thirdRace.Horses.Add(secretGrace);
-            thirdRace.HorseSpeeds[straightward.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            thirdRace.HorseSpeeds[royalArch3.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            thirdRace.HorseSpeeds[uncleOrange.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            thirdRace.HorseSpeeds[peggiesPride.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            thirdRace.HorseSpeeds[guidingLight.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
-            thirdRace.HorseSpeeds[secretGrace.Name] = new Speeds { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeedModifiers[straightward.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeedModifiers[royalArch3.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeedModifiers[uncleOrange.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeedModifiers[peggiesPride.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeedModifiers[guidingLight.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
+            thirdRace.HorseSpeedModifiers[secretGrace.Name] = new LapSpeedModifier { FirstLapSpeed = 1.0f, SecondLapSpeed = 1.0f };
             thirdRace.JockeyColors[straightward.Name] = redColor;
             thirdRace.JockeyColors[royalArch3.Name] = greenColor;
             thirdRace.JockeyColors[uncleOrange.Name] = blueColor;
@@ -320,6 +323,10 @@ namespace Bas.ADayAtTheRaces
             Races.Add(thirdRace);
         }
 
+        /// <summary>
+        /// Saves the configuration to the file provided in <paramref name="fileName"/>.
+        /// </summary>
+        /// <param name="fileName"></param>
         public void Save(string fileName)
         {
                 using (var xmlWriter = new XmlTextWriter(fileName, Encoding.UTF8))
@@ -333,6 +340,11 @@ namespace Bas.ADayAtTheRaces
             
         }
 
+
+        /// <summary>
+        /// Loads the configuration from the file provided in <paramref name="fileName"/>
+        /// </summary>
+        /// <param name="fileName"></param>
         public void Load(string fileName)
         {
                 using (var xmlReader = new XmlTextReader(fileName))
