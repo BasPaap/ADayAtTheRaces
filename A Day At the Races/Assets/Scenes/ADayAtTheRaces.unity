@@ -206,6 +206,7 @@ MonoBehaviour:
   debugMode: 1
   entryPoint: {fileID: 2035446995}
   exitPoint: {fileID: 1631996588}
+  startingGate: {fileID: 1544764298}
   firstCorner: {fileID: 1379859941}
   secondCorner: {fileID: 1586663468}
   thirdCorner: {fileID: 2095448190}

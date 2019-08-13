@@ -20,34 +20,27 @@ public class Runner : MonoBehaviour
     private bool isFinished = false;
     private int lapsRun = 0;
     private bool hasStartedRunning;
-
-    private TimeSpan trotAwayTime = TimeSpan.Zero;
-    private bool IsTimeToTrotAway => this.trotAwayTime != TimeSpan.Zero && this.trotAwayTime <= DateTime.Now.TimeOfDay;
-    private bool IsNearDestination => navMeshAgent != null && !navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f;
-
-    public float maxSpeed = 15.0f;
-
     private float firstLapSpeed = 1.0f;
     private float secondLapSpeed = 1.0f;
+    private Vector3 startingLinePosition;
+    private Vector3 firstCornerPosition;
+    private Vector3 secondCornerPosition;
+    private Vector3 thirdCornerPosition;
+    private Vector3 finishLinePosition;
+    private Vector3 exitPosition;
+    private TimeSpan trotAwayTime = TimeSpan.Zero;
 
+    private bool IsTimeToTrotAway => this.trotAwayTime != TimeSpan.Zero && this.trotAwayTime <= DateTime.Now.TimeOfDay;
+    private bool IsNearDestination => navMeshAgent != null && !navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f;
+        
     public Horse Horse { get; private set; }
-    public Vector3 StartingLinePosition { get; set; }
-    public Vector3 FirstCornerPosition { get; set; }
-    public Vector3 SecondCornerPosition { get; set; }
-    public Vector3 ThirdCornerPosition { get; set; }
-    public Vector3 FinishLinePosition { get; set; }
-    public Vector3 ExitPosition { get; set; }
+
+    public float maxSpeed = 15.0f;
 
     public event EventHandler ArrivedAtStartingLine;
     public event EventHandler Finished;
     public event EventHandler ArrivedAtExitPosition;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     public void Initialize(Horse horse, 
         float firstLapSpeed,
         float secondLapSpeed,
@@ -66,12 +59,12 @@ public class Runner : MonoBehaviour
 
         Debug.Log($"{horse.Name} set with first lap speed of {firstLapSpeed} and second lap speed of {secondLapSpeed}.");
 
-        StartingLinePosition = startingLinePosition;
-        FirstCornerPosition = firstCornerPosition;
-        SecondCornerPosition = secondCornerPosition;
-        ThirdCornerPosition = thirdCornerPosition;
-        FinishLinePosition = finishLinePosition;
-        ExitPosition = exitPosition;
+        this.startingLinePosition = startingLinePosition;
+        this.firstCornerPosition = firstCornerPosition;
+        this.secondCornerPosition = secondCornerPosition;
+        this.thirdCornerPosition = thirdCornerPosition;
+        this.finishLinePosition = finishLinePosition;
+        this.exitPosition = exitPosition;
 
         var cycleOffset = UnityEngine.Random.value;
         SetAnimationControllerCycleOffset(horsePath, cycleOffset);
@@ -104,7 +97,7 @@ public class Runner : MonoBehaviour
             }
             else
             {
-                if (navMeshAgent.IsDestination(FirstCornerPosition))
+                if (navMeshAgent.IsDestination(firstCornerPosition))
                 {
                     if (this.lapsRun > 0)
                     {
@@ -112,27 +105,25 @@ public class Runner : MonoBehaviour
                         SetSpeed(currentRunningPhase.Speed * secondLapSpeed);
                     }
 
-                    navMeshAgent.destination = SecondCornerPosition;
+                    navMeshAgent.destination = secondCornerPosition;
                 }
-                else if (navMeshAgent.IsDestination(SecondCornerPosition))
+                else if (navMeshAgent.IsDestination(secondCornerPosition))
                 {
-                    navMeshAgent.destination = ThirdCornerPosition;
+                    navMeshAgent.destination = thirdCornerPosition;
                 }
-                else if (navMeshAgent.IsDestination(ThirdCornerPosition))
+                else if (navMeshAgent.IsDestination(thirdCornerPosition))
                 {
-                    navMeshAgent.destination = (this.lapsRun < totalLapsToRun - 1) ? FirstCornerPosition : FinishLinePosition;
+                    navMeshAgent.destination = (this.lapsRun < totalLapsToRun - 1) ? firstCornerPosition : finishLinePosition;
                     this.lapsRun++;
                 }
-                else if (navMeshAgent.IsDestination(FinishLinePosition, 0.05f))
+                else if (navMeshAgent.IsDestination(finishLinePosition, 0.05f))
                 {
                     if (!this.isFinished)
                     {
-                        this.isFinished = true;
-                        Finished?.Invoke(this, EventArgs.Empty);
-                        this.trotAwayTime = DateTime.Now.TimeOfDay + TimeSpan.FromSeconds(0.5);
-                    }                    
+                        Finish();
+                    }
                 }
-                else if (navMeshAgent.IsDestination(ExitPosition))
+                else if (navMeshAgent.IsDestination(exitPosition))
                 {
                     ArrivedAtExitPosition?.Invoke(this, EventArgs.Empty);
                 }
@@ -140,16 +131,23 @@ public class Runner : MonoBehaviour
         }
     }
 
+    private void Finish()
+    {
+        this.isFinished = true;
+        Finished?.Invoke(this, EventArgs.Empty);
+        this.trotAwayTime = DateTime.Now.TimeOfDay + TimeSpan.FromSeconds(0.5);
+    }
+
     public void WalkToStartingLine()
     {
-        navMeshAgent.destination = new Vector3(StartingLinePosition.x - 1.1f, transform.position.y, transform.position.z);
+        navMeshAgent.destination = new Vector3(startingLinePosition.x - 1.1f, transform.position.y, transform.position.z);
         SetSpeed(0.1f);
     }
 
     public void Run()
     {
         hasStartedRunning = true;
-        navMeshAgent.destination = FirstCornerPosition;
+        navMeshAgent.destination = firstCornerPosition;
 
         var audioSource = GetComponent<AudioSource>();
         audioSource.Play();
@@ -158,7 +156,7 @@ public class Runner : MonoBehaviour
     public void TrotAway()
     {
         this.trotAwayTime = TimeSpan.Zero;
-        navMeshAgent.destination = ExitPosition;
+        navMeshAgent.destination = exitPosition;
         SetSpeed(0.3f);
 
         var audioSource = GetComponent<AudioSource>();

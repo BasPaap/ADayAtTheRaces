@@ -13,7 +13,6 @@ public class RaceManager : MonoBehaviour
     
     private Queue<Race> futureRaces;
     private Race currentRace;
-    private GameObject startingGate;
     private int numRunnersAtStartingLine;
     private DateTime? raceStartTime;
     private readonly List<Runner> runners = new List<Runner>();
@@ -22,10 +21,9 @@ public class RaceManager : MonoBehaviour
     private bool IsTimeToStartRace => raceStartTime.HasValue && raceStartTime.Value <= DateTime.Now;
 
     public string configurationFilePath = "%appdata%\\A Day At The Races\\ADayAtTheRaces.xml";
+
     public RaceResultsWriter raceResultsWriter;
     public GameObject announcer;
-    public AudioClip announcerIntro;
-    public AudioClip gunshotAndCommentary;
     public GameObject horsePrefab;
     public Transform horseParent;
     public float distanceBetweenHorses;
@@ -33,9 +31,10 @@ public class RaceManager : MonoBehaviour
     [Tooltip("When enabled, reschedules the next race to start right after launch.")]
     public bool debugMode = false; 
 
+    [Header("Track locations")]
     public GameObject entryPoint;
     public GameObject exitPoint;
-
+    public GameObject startingGate;
     public GameObject firstCorner;
     public GameObject secondCorner;
     public GameObject thirdCorner;
@@ -47,9 +46,7 @@ public class RaceManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
-        LoadData();
-
-        startingGate = GameObject.Find("Starting Gate");
+        LoadData();        
     }
 
     private void FileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
@@ -63,48 +60,71 @@ public class RaceManager : MonoBehaviour
     {
         if (IsTimeToSetUpNewRace)
         {
-            currentRace = futureRaces.Dequeue();
-            horseParent.ClearChildren();
-            numRunnersAtStartingLine = 0;
-            this.runners.Clear();
-
-            var horseWidth = horsePrefab.GetComponent<Renderer>().bounds.size.z;
-            var firstStallPosition = entryPoint.transform.position + new Vector3(0, 0, (startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth / 2.0f)) + new Vector3(0.0f, 0.0f, -0.75f);
-
-            foreach (var horse in currentRace.Horses)
-            {
-                var horseIndex = currentRace.Horses.IndexOf(horse);
-                var horsePosition = firstStallPosition + new Vector3(UnityEngine.Random.Range(0.0f, 2.0f), 0, firstStallPosition.z - horseIndex * (horseWidth + distanceBetweenHorses));
-                var horseGameObject = Instantiate(horsePrefab, horsePosition, horsePrefab.transform.rotation, horseParent);
-                horseGameObject.name = horse.Name;
-                
-                SetJockeyColor(horseGameObject, currentRace.JockeyColors[horse.Name].ToUnityColor());
-
-                var runner = horseGameObject.GetComponent<Runner>();
-                this.runners.Add(runner);
-                runner.ArrivedAtStartingLine += Runner_ArrivedAtStartingLine;
-                runner.ArrivedAtExitPosition += Runner_ArrivedAtExitPosition;
-                runner.Finished += Runner_Finished;
-                runner.Initialize(horse, currentRace.HorseSpeedModifiers[horse.Name].FirstLapSpeed, currentRace.HorseSpeedModifiers[horse.Name].SecondLapSpeed, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
-                runner.WalkToStartingLine();
-            }
+            ResetRace();
+            InstantiateHorses();
         }
 
         if (IsTimeToStartRace)
         {
-            StartRace();            
+            StartRace();
         }
 
+        if (IsConfigurationFileUpdated())
+        {
+            Debug.Log("configuration file changed, loading data!");
+            LoadData();
+        }
+    }
+
+    private void InstantiateHorses()
+    {
+        var horseWidth = horsePrefab.GetComponent<Renderer>().bounds.size.z;
+        var firstStallPosition = entryPoint.transform.position + new Vector3(0, 0, (startingGate.GetComponent<Renderer>().bounds.size.z / 2.0f) - (horseWidth / 2.0f)) + new Vector3(0.0f, 0.0f, -0.75f);
+        foreach (var horse in currentRace.Horses)
+        {
+            InstantiateHorse(horse, horseWidth, firstStallPosition);
+        }
+    }
+
+    private bool IsConfigurationFileUpdated()
+    {
         const float configurationFileWatchInterval = 5.0f;
         if (Time.time - this.lastConfigurationFileWatchTime > configurationFileWatchInterval)
         {
             var expandedConfigurationFilePath = Environment.ExpandEnvironmentVariables(this.configurationFilePath);
             if (File.GetLastWriteTime(expandedConfigurationFilePath) > this.lastConfigurationFileWriteTime)
             {
-                Debug.Log("configuration file changed, loading data!");
-                LoadData();
+                return true;
             }
         }
+
+        return false;
+    }
+
+    private void ResetRace()
+    {
+        currentRace = futureRaces.Dequeue();
+        horseParent.ClearChildren();
+        numRunnersAtStartingLine = 0;
+        this.runners.Clear();
+    }
+
+    private void InstantiateHorse(Horse horse, float horseWidth, Vector3 firstStallPosition)
+    {
+        var horseIndex = currentRace.Horses.IndexOf(horse);
+        var horsePosition = firstStallPosition + new Vector3(UnityEngine.Random.Range(0.0f, 2.0f), 0, firstStallPosition.z - horseIndex * (horseWidth + distanceBetweenHorses));
+        var horseGameObject = Instantiate(horsePrefab, horsePosition, horsePrefab.transform.rotation, horseParent);
+        horseGameObject.name = horse.Name;
+
+        SetJockeyColor(horseGameObject, currentRace.JockeyColors[horse.Name].ToUnityColor());
+
+        var runner = horseGameObject.GetComponent<Runner>();
+        this.runners.Add(runner);
+        runner.ArrivedAtStartingLine += Runner_ArrivedAtStartingLine;
+        runner.ArrivedAtExitPosition += Runner_ArrivedAtExitPosition;
+        runner.Finished += Runner_Finished;
+        runner.Initialize(horse, currentRace.HorseSpeedModifiers[horse.Name].FirstLapSpeed, currentRace.HorseSpeedModifiers[horse.Name].SecondLapSpeed, startingGate.transform.position, firstCorner.transform.position, secondCorner.transform.position, thirdCorner.transform.position, finishLine.transform.position, exitPoint.transform.position);
+        runner.WalkToStartingLine();
     }
 
     private void Runner_Finished(object sender, EventArgs e)
@@ -129,7 +149,7 @@ public class RaceManager : MonoBehaviour
 
         if (numRunnersAtStartingLine == currentRace?.Horses.Count)
         {
-            PlayAnnouncement(announcerIntro);
+            announcer?.GetComponent<Announcer>().PlayAtTheGatesAnnouncement();
             raceStartTime = DateTime.Now.AddSeconds(5.0);
         }
     }
@@ -137,22 +157,12 @@ public class RaceManager : MonoBehaviour
     private void StartRace()
     {
         raceStartTime = null;
-        PlayAnnouncement(this.gunshotAndCommentary);
+        announcer?.GetComponent<Announcer>().PlayGunshotAndCommentaryAnnouncement();
         this.raceResultsWriter.GunshotTime = DateTime.Now.TimeOfDay;
 
         foreach (var runner in this.runners)
         {
             runner.Run();
-        }
-    }
-
-    private void PlayAnnouncement(AudioClip audioClip, float delay = 0.0f)
-    {
-        var announcerAudioSource = announcer?.GetComponent<AudioSource>();
-        if (announcerAudioSource != null)
-        {
-            announcerAudioSource.clip = audioClip;
-            announcerAudioSource.PlayDelayed(delay);
         }
     }
 
@@ -170,42 +180,49 @@ public class RaceManager : MonoBehaviour
 
     public void LoadData()
     {
-        ADayAtTheRacesConfiguration configuration = new ADayAtTheRacesConfiguration();
-
         var expandedConfigurationFilePath = Environment.ExpandEnvironmentVariables(this.configurationFilePath);
 
+        EnsureConfigurationFileExists(expandedConfigurationFilePath);
+
+        var configuration = new ADayAtTheRacesConfiguration();
+        LoadConfigurationFile(configuration, expandedConfigurationFilePath);
+
+        this.lastConfigurationFileWatchTime = Time.time;
+        this.lastConfigurationFileWriteTime = File.GetLastWriteTime(expandedConfigurationFilePath);
+
+        if (debugMode && currentRace == null)
+        {
+            RescheduleFirstRace(configuration);
+        }
+
+        futureRaces = new Queue<Race>((from r in configuration.Races
+                                       where r.Time > DateTime.Now
+                                       orderby r.Time
+                                       select r).ToList());
+    }
+
+    private static void EnsureConfigurationFileExists(string expandedConfigurationFilePath)
+    {
         if (!Directory.Exists(Path.GetDirectoryName(expandedConfigurationFilePath)))
         {
             Directory.CreateDirectory(Path.GetDirectoryName(expandedConfigurationFilePath));
         }
 
         if (!File.Exists(expandedConfigurationFilePath))
-        {   
-            configuration.Populate();
-            configuration.Save(expandedConfigurationFilePath);            
-        }
-        else
         {
-            LoadConfigurationFile(configuration, expandedConfigurationFilePath);
+            var newConfiguration = new ADayAtTheRacesConfiguration();
+            newConfiguration.Populate();
+            newConfiguration.Save(expandedConfigurationFilePath);
         }
+    }
 
-        this.lastConfigurationFileWatchTime = Time.time;
-        this.lastConfigurationFileWriteTime = File.GetLastWriteTime(expandedConfigurationFilePath);
-
-        
-        if (debugMode && currentRace == null)
+    private static void RescheduleFirstRace(ADayAtTheRacesConfiguration configuration)
+    {
+        var firstRace = configuration.Races.FirstOrDefault();
+        if (firstRace != null)
         {
-            var firstRace = configuration.Races.FirstOrDefault();
-            if (firstRace != null)
-            {
-                firstRace.Time = DateTime.Now.AddSeconds(1.0);
-            }
+            firstRace.Time = DateTime.Now.AddSeconds(1.0);
         }
-                
-        futureRaces = new Queue<Race>((from r in configuration.Races
-                                       where r.Time > DateTime.Now
-                                       orderby r.Time
-                                       select r).ToList());
     }
 
     private static void LoadConfigurationFile(ADayAtTheRacesConfiguration configuration, string expandedConfigurationFilePath)
