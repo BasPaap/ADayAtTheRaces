@@ -19,7 +19,13 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
             raceResultsFile.Populate();
         }
 
-        public event EventHandler Updated;
+        // This event is not used at design time, so we'll make it explicit to avoid compiler warnings, 
+        // https://blogs.msdn.microsoft.com/trevor/2008/08/14/c-warning-cs0067-the-event-event-is-never-used/
+        public event EventHandler Updated
+        {
+            add { throw new NotSupportedException(); }
+            remove { }
+        }
 
         public Collection<RaceResult> GetRaceResults()
         {

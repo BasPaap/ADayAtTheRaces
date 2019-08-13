@@ -66,13 +66,13 @@ namespace Bas.ADayAtTheRaces.RaceResults
             var secondFinish = new Finish { HorseName = "Rainbow Dash", Position = 2, TotalTime = TimeSpan.FromSeconds(83.0), JockeyColor = new Color(0.0f, 1.0f, 0.0f) };
             var thirdFinish = new Finish { HorseName = "Applejack", Position = 3, TotalTime = TimeSpan.FromSeconds(90.0), JockeyColor = new Color(0.0f, 0.0f, 1.0f) };
 
-            var firstRaceResult = new RaceResult { RaceTime = DateTime.Now.AddHours(-2.0).TimeOfDay };
+            var firstRaceResult = new RaceResult { RaceTime = DateTime.Now.AddHours(-2.0) };
             firstRaceResult.Finishes.Add(firstFinish);
             firstRaceResult.Finishes.Add(secondFinish);
             firstRaceResult.Finishes.Add(thirdFinish);
             RaceResults.Add(firstRaceResult);
 
-            var secondRaceResult = new RaceResult { RaceTime = DateTime.Now.AddHours(-1.0).TimeOfDay };
+            var secondRaceResult = new RaceResult { RaceTime = DateTime.Now.AddHours(-1.0) };
             secondRaceResult.Finishes.Add(firstFinish);
             secondRaceResult.Finishes.Add(secondFinish);
             secondRaceResult.Finishes.Add(thirdFinish);

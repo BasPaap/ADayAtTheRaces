@@ -249,11 +249,11 @@ namespace Bas.ADayAtTheRaces
             Horses.Add(peggiesPride);//3
             Horses.Add(guidingLight);//3
             Horses.Add(secretGrace);//3
-            
-            
 
-            var tenSecondsFromNow = new TimeSpan(14, 0, 0);//  DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(30));
-            var firstRace = new Race(tenSecondsFromNow.Hours, tenSecondsFromNow.Minutes, tenSecondsFromNow.Seconds);
+
+
+            var tenSecondsFromNow = DateTime.Now.AddSeconds(10);
+            var firstRace = new Race(tenSecondsFromNow);
             firstRace.Horses.Add(bigWonder);
             firstRace.Horses.Add(fallGuy);
             firstRace.Horses.Add(soldiersJoy);
@@ -273,8 +273,8 @@ namespace Bas.ADayAtTheRaces
             firstRace.JockeyColors[balderdash.Name] = purpleColor;
             firstRace.JockeyColors[trumpCard.Name] = mintColor;
 
-            var twoMinutesFromNow = new TimeSpan(16, 0, 0);// DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(5));
-            var secondRace = new Race(twoMinutesFromNow.Hours, twoMinutesFromNow.Minutes, twoMinutesFromNow.Seconds);
+            var twoMinutesFromNow = DateTime.Now.AddMinutes(2);
+            var secondRace = new Race(twoMinutesFromNow);
             secondRace.Horses.Add(sirtThackery);
             secondRace.Horses.Add(fitzgerald);
             secondRace.Horses.Add(unityAsset);
@@ -294,8 +294,8 @@ namespace Bas.ADayAtTheRaces
             secondRace.JockeyColors[pinkiePie.Name] = purpleColor;
             secondRace.JockeyColors[littleJacob.Name] = mintColor;
 
-            var fiveMinutesFromNow = new TimeSpan(17, 0, 0);// DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(10));
-            var thirdRace = new Race(fiveMinutesFromNow.Hours, fiveMinutesFromNow.Minutes, fiveMinutesFromNow.Seconds);
+            var fiveMinutesFromNow = DateTime.Now.AddMinutes(5);
+            var thirdRace = new Race(fiveMinutesFromNow);
             thirdRace.Horses.Add(straightward);
             thirdRace.Horses.Add(royalArch3);
             thirdRace.Horses.Add(uncleOrange);

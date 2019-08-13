@@ -15,12 +15,11 @@ public class RaceManager : MonoBehaviour
     private Race currentRace;
     private GameObject startingGate;
     private int numRunnersAtStartingLine;
-    private TimeSpan raceStartTime = TimeSpan.Zero;
+    private DateTime? raceStartTime;
     private readonly List<Runner> runners = new List<Runner>();
-    private string dataPath;
-
-    private bool IsTimeToSetUpNewRace => futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now.TimeOfDay;
-    private bool IsTimeToStartRace => raceStartTime != TimeSpan.Zero && raceStartTime <= DateTime.Now.TimeOfDay;
+    
+    private bool IsTimeToSetUpNewRace => futureRaces.Count > 0 && futureRaces.Peek().Time <= DateTime.Now;
+    private bool IsTimeToStartRace => raceStartTime.HasValue && raceStartTime.Value <= DateTime.Now;
 
     public string configurationFilePath = "%appdata%\\A Day At The Races\\ADayAtTheRaces.xml";
     public RaceResultsWriter raceResultsWriter;
@@ -47,8 +46,7 @@ public class RaceManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        this.dataPath = Application.dataPath;
+    {        
         LoadData();
 
         startingGate = GameObject.Find("Starting Gate");
@@ -132,13 +130,13 @@ public class RaceManager : MonoBehaviour
         if (numRunnersAtStartingLine == currentRace?.Horses.Count)
         {
             PlayAnnouncement(announcerIntro);
-            raceStartTime = DateTime.Now.TimeOfDay + TimeSpan.FromSeconds(5.0);
+            raceStartTime = DateTime.Now.AddSeconds(5.0);
         }
     }
 
     private void StartRace()
     {
-        raceStartTime = TimeSpan.Zero;
+        raceStartTime = null;
         PlayAnnouncement(this.gunshotAndCommentary);
         this.raceResultsWriter.GunshotTime = DateTime.Now.TimeOfDay;
 
@@ -200,12 +198,12 @@ public class RaceManager : MonoBehaviour
             var firstRace = configuration.Races.FirstOrDefault();
             if (firstRace != null)
             {
-                firstRace.Time = DateTime.Now.AddSeconds(1.0).TimeOfDay;
+                firstRace.Time = DateTime.Now.AddSeconds(1.0);
             }
         }
                 
         futureRaces = new Queue<Race>((from r in configuration.Races
-                                       where r.Time > DateTime.Now.TimeOfDay
+                                       where r.Time > DateTime.Now
                                        orderby r.Time
                                        select r).ToList());
     }

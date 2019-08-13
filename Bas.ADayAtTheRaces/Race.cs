@@ -23,15 +23,15 @@ namespace Bas.ADayAtTheRaces
         public Dictionary<string, Speeds> HorseSpeeds { get; private set; } = new Dictionary<string, Speeds>();
 
         [DataMember]
-        public TimeSpan Time { get; set; }
+        public DateTime Time { get; set; }
 
-        public Race(int hours, int minutes, int seconds)
+        public Race(DateTime time)
         {
-            Time = new TimeSpan(hours, minutes, seconds);
+            Time = time;
         }
 
         public Race(Race race)
-            : this(race.Time.Hours, race.Time.Minutes, race.Time.Seconds)
+            : this(race.Time)
         {
             foreach (var horse in race.Horses)
             {

@@ -46,7 +46,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.ViewModel
             UpcomingRaces.Clear();
             foreach (var race in this.DataService.GetRaces())
             {
-                if (race.Time > DateTime.Now.TimeOfDay)
+                if (race.Time > DateTime.Now)
                 {
                     UpcomingRaces.Add(new UpcomingRaceViewModel(race));
                 }
