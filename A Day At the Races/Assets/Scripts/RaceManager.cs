@@ -186,14 +186,14 @@ public class RaceManager : MonoBehaviour
         }
         else
         {
-            configuration.Load(expandedConfigurationFilePath);
+            LoadConfigurationFile(configuration, expandedConfigurationFilePath);
         }
 
         this.lastConfigurationFileWatchTime = Time.time;
         this.lastConfigurationFileWriteTime = File.GetLastWriteTime(expandedConfigurationFilePath);
 
         
-        if (debugMode)
+        if (debugMode && currentRace == null)
         {
             var firstRace = configuration.Races.FirstOrDefault();
             if (firstRace != null)
@@ -206,5 +206,35 @@ public class RaceManager : MonoBehaviour
                                        where r.Time > DateTime.Now
                                        orderby r.Time
                                        select r).ToList());
+    }
+
+    private static void LoadConfigurationFile(ADayAtTheRacesConfiguration configuration, string expandedConfigurationFilePath)
+    {
+        bool shouldRetry;
+        var firstLoadAttemptTime = DateTime.Now;
+        do
+        {
+            shouldRetry = false;
+
+            try
+            {
+                configuration.Load(expandedConfigurationFilePath);
+            }
+            catch (IOException ex)
+            {
+                const int ERROR_SHARING_VIOLATION = -2147024864;
+                if (ex.HResult == ERROR_SHARING_VIOLATION)
+                {
+                    if (DateTime.Now - firstLoadAttemptTime < TimeSpan.FromSeconds(5))
+                    {
+                        shouldRetry = true;
+                    }
+                    else
+                    {
+                        throw ex;
+                    }
+                }
+            }
+        } while (shouldRetry);
     }
 }

@@ -297,8 +297,8 @@ namespace Bas.ADayAtTheRaces
             secondRace.JockeyColors[pinkiePie.Name] = purpleColor;
             secondRace.JockeyColors[littleJacob.Name] = mintColor;
 
-            var fiveMinutesFromNow = DateTime.Now.AddMinutes(5);
-            var thirdRace = new Race(fiveMinutesFromNow);
+            var oneHourFromNow = DateTime.Now.AddHours(1);
+            var thirdRace = new Race(oneHourFromNow);
             thirdRace.Horses.Add(straightward);
             thirdRace.Horses.Add(royalArch3);
             thirdRace.Horses.Add(uncleOrange);
