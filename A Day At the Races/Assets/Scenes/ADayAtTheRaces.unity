@@ -196,9 +196,6 @@ MonoBehaviour:
   configurationFilePath: '%appdata%\A Day At The Races\ADayAtTheRaces.xml'
   raceResultsWriter: {fileID: 56476385}
   announcer: {fileID: 565844243}
-  announcerIntro: {fileID: 8300000, guid: 1d3edf18534de4440b9de9fc14b2b386, type: 3}
-  gunshotAndCommentary: {fileID: 8300000, guid: 0a73e2285ef9303488afa9dd5c0746d5,
-    type: 3}
   horsePrefab: {fileID: 7228856196317844258, guid: aa6de2ee952926d47a859a89081e43c3,
     type: 3}
   horseParent: {fileID: 1866713836}
@@ -470,6 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 565844245}
   - component: {fileID: 565844244}
+  - component: {fileID: 565844246}
   m_Layer: 0
   m_Name: Announcer
   m_TagString: Untagged
@@ -587,6 +585,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &565844246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565844243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fecfe3975370324e8e51ba87e3ef9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atTheGatesAudioClip: {fileID: 8300000, guid: 1d3edf18534de4440b9de9fc14b2b386, type: 3}
+  gunshotAndCommentaryAudioClip: {fileID: 8300000, guid: 0a73e2285ef9303488afa9dd5c0746d5,
+    type: 3}
 --- !u!1001 &603908422
 PrefabInstance:
   m_ObjectHideFlags: 0
