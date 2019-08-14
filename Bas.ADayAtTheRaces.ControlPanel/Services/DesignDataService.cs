@@ -26,7 +26,7 @@ namespace Bas.ADayAtTheRaces.ControlPanel.Services
         // https://blogs.msdn.microsoft.com/trevor/2008/08/14/c-warning-cs0067-the-event-event-is-never-used/
         public event EventHandler DataUpdated
         {
-            add { throw new NotSupportedException(); }
+            add { }
             remove { }
         }
 
