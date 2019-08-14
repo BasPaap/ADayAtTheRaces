@@ -7,6 +7,9 @@ using System.Xml;
 
 namespace Bas.ADayAtTheRaces.RaceResults
 {
+    /// <summary>
+    /// Storage for the results of multiple races.
+    /// </summary>
     [DataContract]
     public sealed class RaceResultsFile
     {
@@ -18,6 +21,10 @@ namespace Bas.ADayAtTheRaces.RaceResults
         [DataMember]
         public Collection<RaceResult> RaceResults { get; private set; } = new Collection<RaceResult>();
 
+        /// <summary>
+        /// Saves the race results to a file provided in <paramref name="filePath"/>
+        /// </summary>
+        /// <param name="filePath">The path of the file to save the raceresults to.</param>
         public void Save(string filePath)
         {
             var directoryPath = Path.GetDirectoryName(filePath);
@@ -38,6 +45,10 @@ namespace Bas.ADayAtTheRaces.RaceResults
             
         }
 
+        /// <summary>
+        /// Loads raceresults from the file provided in <paramref name="filePath"/>.
+        /// </summary>
+        /// <param name="filePath">The path of the file to load the raceresults from.</param>
         public void Load(string filePath)
         {   
             try
@@ -60,6 +71,9 @@ namespace Bas.ADayAtTheRaces.RaceResults
             }   
         }
 
+        /// <summary>
+        /// Populates the data structure with test data.
+        /// </summary>
         public void Populate()
         {
             var firstFinish = new Finish { HorseName = "Pinkie Pie", Position = 1, TotalTime = TimeSpan.FromSeconds(75.0), JockeyColor = new Color(255, 0, 0) };

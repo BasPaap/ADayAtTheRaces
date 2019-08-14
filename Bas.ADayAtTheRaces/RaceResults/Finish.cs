@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Bas.ADayAtTheRaces.RaceResults
 {
+    /// <summary>
+    /// Describes the moment a horse finishes, including the name of the horse, its position, the horse's total time, etc.
+    /// </summary>
     [DataContract]
     public sealed class Finish
     {

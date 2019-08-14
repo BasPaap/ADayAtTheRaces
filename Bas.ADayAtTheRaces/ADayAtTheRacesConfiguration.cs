@@ -10,6 +10,9 @@ using System.Xml;
 
 namespace Bas.ADayAtTheRaces
 {
+    /// <summary>
+    /// Configuration for the application, including participating horses and planned races.
+    /// </summary>
     [DataContract]
     public sealed class ADayAtTheRacesConfiguration
     {

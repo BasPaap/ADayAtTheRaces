@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Bas.ADayAtTheRaces.RaceResults
 {
+    /// <summary>
+    /// The result of a race, including the finishes and the time the race was planned.
+    /// </summary>
     [DataContract]
     public sealed class RaceResult
     {
